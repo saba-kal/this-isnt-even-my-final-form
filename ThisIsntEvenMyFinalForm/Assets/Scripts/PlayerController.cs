@@ -5,25 +5,27 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float _maxVelocity = 10f;
-    [SerializeField] private GameObject _sprite;
 
     private Camera _mainCamera;
     private Rigidbody2D _rigidBody;
-    private BulletShooter _bulletShooter;
+    private ShootingManager _shootingManager;
+    private PowerLevelManager _powerLevelManager;
 
     // Start is called before the first frame update
     void Start()
     {
         _mainCamera = Camera.main;
         _rigidBody = GetComponent<Rigidbody2D>();
-        _bulletShooter = GetComponent<BulletShooter>();
+        _shootingManager = GetComponent<ShootingManager>();
+        _powerLevelManager = GetComponent<PowerLevelManager>();
     }
 
     private void Update()
     {
         MoveCharacter();
         FaceCharacterTowardsMouse();
-        FireBullet();
+        FireBullets();
+        PowerUp();
     }
 
     private void MoveCharacter()
@@ -36,14 +38,22 @@ public class PlayerController : MonoBehaviour
     {
         var mousePosition = _mainCamera.ScreenToWorldPoint(Input.mousePosition);
         var relativePosition = mousePosition - transform.position;
-        _sprite.transform.rotation = Quaternion.Euler(0, 0, Mathf.Atan2(relativePosition.y, relativePosition.x) * Mathf.Rad2Deg - 90);
+        transform.rotation = Quaternion.AngleAxis(Mathf.Atan2(relativePosition.y, relativePosition.x) * Mathf.Rad2Deg, Vector3.forward);
     }
 
-    private void FireBullet()
+    private void FireBullets()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButton(0))
         {
-            _bulletShooter.Fire(_sprite.transform.up, CollisionLayer.PlayerBullet);
+            _shootingManager.FireBulletShooters(CollisionLayer.PlayerBullet);
+        }
+    }
+
+    private void PowerUp()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            _powerLevelManager.PowerUp();
         }
     }
 }

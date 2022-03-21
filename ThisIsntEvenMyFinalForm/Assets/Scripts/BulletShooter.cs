@@ -4,19 +4,36 @@ using UnityEngine;
 
 public class BulletShooter : MonoBehaviour
 {
-    [SerializeField] private float _bulletSpeed;
+    [SerializeField] private float _fireRate = 1f;
     [SerializeField] private GameObject _bulletPrefab;
 
-    public void Fire(Vector2 direction, CollisionLayer layer)
+    private float _timeSinceLastFire = 0;
+
+    private void Update()
     {
+        _timeSinceLastFire += Time.deltaTime;
+    }
+
+    public void Fire(CollisionLayer layer)
+    {
+        if (_timeSinceLastFire < _fireRate)
+        {
+            return;
+        }
+
         var bullet = Instantiate(_bulletPrefab);
         bullet.layer = (int)layer;
         bullet.transform.position = transform.position;
 
-        var rigidBody = bullet.GetComponent<Rigidbody2D>();
-        rigidBody.velocity = direction.normalized * _bulletSpeed;
+        var bulletComponent = bullet.GetComponent<Bullet>();
+        bulletComponent?.SetDirection(transform.right);
 
-        var angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        bullet.transform.rotation = Quaternion.AngleAxis(angle - 90f, Vector3.forward);
+        _timeSinceLastFire = 0f;
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawLine(transform.position, transform.TransformPoint(Vector2.right));
     }
 }
