@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D _rigidBody;
     private ShootingManager _shootingManager;
     private PowerLevelManager _powerLevelManager;
+    private Vector2 _playerInput;
 
     // Start is called before the first frame update
     void Start()
@@ -20,9 +21,15 @@ public class PlayerController : MonoBehaviour
         _powerLevelManager = GetComponent<PowerLevelManager>();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         MoveCharacter();
+    }
+
+    private void Update()
+    {
+        GetInput();
+        //MoveCharacter();
         FaceCharacterTowardsMouse();
         FireBullets();
         PowerUp();
@@ -30,8 +37,13 @@ public class PlayerController : MonoBehaviour
 
     private void MoveCharacter()
     {
-        var playerInput = Vector2.ClampMagnitude(new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")), 1f);
-        _rigidBody.velocity = new Vector2(playerInput.x, playerInput.y) * _maxVelocity; ;
+        _rigidBody.velocity = new Vector2(_playerInput.x, _playerInput.y) * _maxVelocity;
+        //_rigidBody.MovePosition(transform.position + new Vector3(_playerInput.x, _playerInput.y) * _maxVelocity * Time.deltaTime);
+    }
+
+    private void GetInput()
+    {
+        _playerInput = Vector2.ClampMagnitude(new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")), 1f);
     }
 
     private void FaceCharacterTowardsMouse()
