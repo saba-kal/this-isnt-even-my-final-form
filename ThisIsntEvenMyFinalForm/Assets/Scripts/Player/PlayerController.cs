@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float _maxVelocity = 10f;
+    [SerializeField] private GameObject _rotationBody;
 
     private Camera _mainCamera;
     private Rigidbody2D _rigidBody;
@@ -28,8 +29,7 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        GetInput();
-        //MoveCharacter();
+        GetMovementInput();
         FaceCharacterTowardsMouse();
         FireBullets();
         PowerUp();
@@ -37,11 +37,10 @@ public class PlayerController : MonoBehaviour
 
     private void MoveCharacter()
     {
-        _rigidBody.velocity = new Vector2(_playerInput.x, _playerInput.y) * _maxVelocity;
-        //_rigidBody.MovePosition(transform.position + new Vector3(_playerInput.x, _playerInput.y) * _maxVelocity * Time.deltaTime);
+        _rigidBody.velocity = _playerInput * _maxVelocity;
     }
 
-    private void GetInput()
+    private void GetMovementInput()
     {
         _playerInput = Vector2.ClampMagnitude(new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")), 1f);
     }
@@ -50,7 +49,7 @@ public class PlayerController : MonoBehaviour
     {
         var mousePosition = _mainCamera.ScreenToWorldPoint(Input.mousePosition);
         var relativePosition = mousePosition - transform.position;
-        transform.rotation = Quaternion.AngleAxis(Mathf.Atan2(relativePosition.y, relativePosition.x) * Mathf.Rad2Deg, Vector3.forward);
+        _rotationBody.transform.rotation = Quaternion.AngleAxis(Mathf.Atan2(relativePosition.y, relativePosition.x) * Mathf.Rad2Deg, Vector3.forward);
     }
 
     private void FireBullets()

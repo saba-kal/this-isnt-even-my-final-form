@@ -8,11 +8,13 @@ public class AIController : MonoBehaviour
     [SerializeField] private float _maxForce = 0.25f;
     [SerializeField] private float _desiredDistanceFromPlayer = 1f;
     [SerializeField] private Transform _playerTarget;
+    [SerializeField] private GameObject _rotationBody;
 
     private Rigidbody2D _rigidbody;
     private Vector2 _currentVelocity;
     private ShootingManager _shootingManager;
     private PowerLevelManager _powerLevelManager;
+    private Vector2 _desiredLocation;
 
     // Start is called before the first frame update
     void Start()
@@ -22,13 +24,22 @@ public class AIController : MonoBehaviour
         _powerLevelManager = GetComponent<PowerLevelManager>();
     }
 
-    // Update is called once per frame
+    private void FixedUpdate()
+    {
+        ApplyVelocity();
+    }
+
     void Update()
     {
         var desiredLocation = GetDesiredMoveLocation();
-        MoveTowardsLocation(desiredLocation);
+        SetVelocity(desiredLocation);
         FaceSpriteTowardsTarget();
         FireBullets();
+    }
+
+    private void ApplyVelocity()
+    {
+        _rigidbody.velocity = _currentVelocity;
     }
 
     private Vector2 GetDesiredMoveLocation()
@@ -39,7 +50,7 @@ public class AIController : MonoBehaviour
         return new Vector2(_playerTarget.position.x + desiredX, _playerTarget.position.y + desiredY);
     }
 
-    private void MoveTowardsLocation(Vector2 desiredLocation)
+    private void SetVelocity(Vector2 desiredLocation)
     {
         if (Mathf.Abs(desiredLocation.x - transform.position.x) <= 0.5f &&
             Mathf.Abs(desiredLocation.y - transform.position.y) <= 0.5f)
@@ -55,15 +66,13 @@ public class AIController : MonoBehaviour
 
         _currentVelocity += steeringVelocity;
         _currentVelocity = Vector2.ClampMagnitude(_currentVelocity, _maxVelocity);
-
-        _rigidbody.velocity = _currentVelocity;
     }
 
     private void FaceSpriteTowardsTarget()
     {
         var relativePosition = _playerTarget.position - transform.position;
         var angle = Mathf.Atan2(relativePosition.y, relativePosition.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        _rotationBody.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
     }
 
     private void FireBullets()
