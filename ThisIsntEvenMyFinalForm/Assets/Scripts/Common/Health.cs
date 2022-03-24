@@ -1,19 +1,22 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Health : MonoBehaviour
 {
+    public bool DestroyOnDeath = true;
+
     [SerializeField] public int MaxHealth;
     [SerializeField] private HealthBar _healthBar;
 
     private int _currentHealth;
     private bool _immune = false;
+    private Action _onDeath = null;
 
     void Start()
     {
-        _currentHealth = MaxHealth;
-        _healthBar?.SetHealth(_currentHealth, MaxHealth);
+        Heal();
     }
 
     public void TakeDamage(int damage)
@@ -27,12 +30,24 @@ public class Health : MonoBehaviour
         _healthBar?.SetHealth(_currentHealth, MaxHealth);
         if (_currentHealth <= 0)
         {
-            Destroy(gameObject);
+            if (DestroyOnDeath) Destroy(gameObject);
+            _onDeath?.Invoke();
         }
     }
 
     public void SetImmune(bool immune)
     {
         _immune = immune;
+    }
+
+    public void SetOnDeath(Action onDeath)
+    {
+        _onDeath = onDeath;
+    }
+
+    public void Heal()
+    {
+        _currentHealth = MaxHealth;
+        _healthBar?.SetHealth(_currentHealth, MaxHealth);
     }
 }

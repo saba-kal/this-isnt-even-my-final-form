@@ -5,11 +5,10 @@ using UnityEngine.UI;
 
 public class HealthBar : MonoBehaviour
 {
-    private Slider _slider;
+    [SerializeField] private Slider _slider;
 
     private void Start()
     {
-        _slider = GetComponent<Slider>();
         _slider.minValue = 0;
         _slider.maxValue = 1;
     }

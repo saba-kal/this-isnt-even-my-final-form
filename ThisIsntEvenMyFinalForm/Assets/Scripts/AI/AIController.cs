@@ -37,6 +37,16 @@ public class AIController : MonoBehaviour
         FireBullets();
     }
 
+    public void SetMaxVelocity(float maxVelocity)
+    {
+        _maxVelocity = maxVelocity;
+    }
+
+    public void SetDistanceFromPlayer(float distance)
+    {
+        _desiredDistanceFromPlayer = distance;
+    }
+
     private void ApplyVelocity()
     {
         _rigidbody.velocity = _currentVelocity;

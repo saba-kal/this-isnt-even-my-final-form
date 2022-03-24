@@ -57,12 +57,15 @@ public class StageManager : MonoBehaviour
             door.OpenDoor();
         }
 
-        StartCoroutine(RemoveObstacleImmunity(currentStage.Obtacles, currentStage.ObstacleImmunityDuration));
+        var previousStage = _stages.FirstOrDefault(s => s.PowerLevel == _currentMaximumPowerLevel - 2);
+        if (previousStage != null)
+        {
+            StartCoroutine(RemoveObstacleImmunity(currentStage.Obtacles, currentStage.ObstacleImmunityDuration));
+        }
     }
 
     private IEnumerator RemoveObstacleImmunity(List<GameObject> destructibleObjects, float time)
     {
-        Debug.Log("Immunity start");
         yield return new WaitForSeconds(time);
 
         foreach (var destructibleObject in destructibleObjects)
@@ -70,6 +73,5 @@ public class StageManager : MonoBehaviour
             var gameObjectHealth = destructibleObject.GetComponent<Health>();
             gameObjectHealth?.SetImmune(false);
         }
-        Debug.Log("Immunity end");
     }
 }

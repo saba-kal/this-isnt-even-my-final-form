@@ -35,6 +35,11 @@ public class PlayerController : MonoBehaviour
         PowerUp();
     }
 
+    public void SetMaxVelocity(float maxVelocity)
+    {
+        _maxVelocity = maxVelocity;
+    }
+
     private void MoveCharacter()
     {
         _rigidBody.velocity = _playerInput * _maxVelocity;
