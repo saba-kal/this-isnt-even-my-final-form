@@ -25,9 +25,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.4142136"
-     inkscape:cx="242.04312"
-     inkscape:cy="1035.8538"
+     inkscape:zoom="5.6568543"
+     inkscape:cx="135.93281"
+     inkscape:cy="1045.1993"
      inkscape:document-units="mm"
      inkscape:current-layer="layer2"
      showgrid="true"
@@ -91,7 +91,10 @@
        inkscape:rounded="0"
        inkscape:randomized="0"
        d="m 24.776171,20.510415 -11.547005,0 5.773502,-9.999999 z"
-       inkscape:transform-center-y="-1.6666673" />
+       inkscape:transform-center-y="-1.6666673"
+       inkscape:export-filename="E:\Projects\Unity\ThisIsntEvenMyFinalForm\ThisIsntEvenMyFinalForm\Assets\Sprites\triangle.png"
+       inkscape:export-xdpi="300"
+       inkscape:export-ydpi="300" />
     <path
        sodipodi:type="star"
        style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.56499994;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
@@ -106,14 +109,20 @@
        inkscape:flatsided="true"
        inkscape:rounded="0"
        inkscape:randomized="0"
-       d="m 36.458332,20.510417 -10,0 0,-10 10,0 z" />
+       d="m 36.458332,20.510417 -10,0 0,-10 10,0 z"
+       inkscape:export-filename="E:\Projects\Unity\ThisIsntEvenMyFinalForm\ThisIsntEvenMyFinalForm\Assets\Sprites\square.png"
+       inkscape:export-xdpi="300"
+       inkscape:export-ydpi="300" />
     <path
        style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.56499994;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
        inkscape:transform-center-x="3.2496063"
        inkscape:transform-center-y="-4.9999943"
        d="m 47.625,20.510417 -6.498393,-5e-6 -2.008109,-6.18034 5.257312,-3.819655 5.257308,3.819663 z"
        id="path831"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="E:\Projects\Unity\ThisIsntEvenMyFinalForm\ThisIsntEvenMyFinalForm\Assets\Sprites\pentagon.png"
+       inkscape:export-xdpi="300"
+       inkscape:export-ydpi="300" />
     <path
        sodipodi:type="star"
        style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.56499994;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
@@ -128,7 +137,10 @@
        inkscape:flatsided="true"
        inkscape:rounded="0"
        inkscape:randomized="0"
-       d="m 61.336004,20.510417 -5.773503,0 -2.886751,-5 2.886752,-5 5.773503,0 2.886751,5 z" />
+       d="m 61.336004,20.510417 -5.773503,0 -2.886751,-5 2.886752,-5 5.773503,0 2.886751,5 z"
+       inkscape:export-filename="E:\Projects\Unity\ThisIsntEvenMyFinalForm\ThisIsntEvenMyFinalForm\Assets\Sprites\hexagon.png"
+       inkscape:export-xdpi="300"
+       inkscape:export-ydpi="300" />
     <path
        sodipodi:type="star"
        style="opacity:1;fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:0.56499982;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
@@ -144,7 +156,10 @@
        inkscape:rounded="0"
        inkscape:randomized="0"
        d="m 24.776167,32.416663 -11.547005,0 5.773503,-9.999999 z"
-       inkscape:transform-center-y="-1.6666673" />
+       inkscape:transform-center-y="-1.6666673"
+       inkscape:export-filename="E:\Projects\Unity\ThisIsntEvenMyFinalForm\ThisIsntEvenMyFinalForm\Assets\Sprites\triangle_outline.png"
+       inkscape:export-xdpi="300"
+       inkscape:export-ydpi="300" />
     <path
        sodipodi:type="star"
        style="opacity:1;fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:0.565;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
@@ -159,14 +174,20 @@
        inkscape:flatsided="true"
        inkscape:rounded="0"
        inkscape:randomized="0"
-       d="m 36.45833,32.416668 -10,0 0,-10 10,0 z" />
+       d="m 36.45833,32.416668 -10,0 0,-10 10,0 z"
+       inkscape:export-filename="E:\Projects\Unity\ThisIsntEvenMyFinalForm\ThisIsntEvenMyFinalForm\Assets\Sprites\square_outline.png"
+       inkscape:export-xdpi="300"
+       inkscape:export-ydpi="300" />
     <path
        style="opacity:1;fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:0.565;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
        inkscape:transform-center-x="3.2496063"
        inkscape:transform-center-y="-4.9999943"
        d="m 47.624997,32.416666 -6.498391,-4e-6 -2.008109,-6.180341 5.257311,-3.819655 5.257308,3.819663 z"
        id="path831-1"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="E:\Projects\Unity\ThisIsntEvenMyFinalForm\ThisIsntEvenMyFinalForm\Assets\Sprites\pentagon_outline.png"
+       inkscape:export-xdpi="300"
+       inkscape:export-ydpi="300" />
     <path
        sodipodi:type="star"
        style="opacity:1;fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:0.565;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
@@ -181,6 +202,9 @@
        inkscape:flatsided="true"
        inkscape:rounded="0"
        inkscape:randomized="0"
-       d="m 61.336004,32.416668 -5.773503,0 -2.886751,-5 2.886752,-5 5.773503,0 2.886751,5 z" />
+       d="m 61.336004,32.416668 -5.773503,0 -2.886751,-5 2.886752,-5 5.773503,0 2.886751,5 z"
+       inkscape:export-filename="E:\Projects\Unity\ThisIsntEvenMyFinalForm\ThisIsntEvenMyFinalForm\Assets\Sprites\hexagon_outline.png"
+       inkscape:export-xdpi="300"
+       inkscape:export-ydpi="300" />
   </g>
 </svg>
