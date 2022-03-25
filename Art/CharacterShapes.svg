@@ -26,8 +26,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="5.6568543"
-     inkscape:cx="135.93281"
-     inkscape:cy="1045.1993"
+     inkscape:cx="221.4917"
+     inkscape:cy="1027.134"
      inkscape:document-units="mm"
      inkscape:current-layer="layer2"
      showgrid="true"
@@ -55,7 +55,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -204,6 +204,15 @@
        inkscape:randomized="0"
        d="m 61.336004,32.416668 -5.773503,0 -2.886751,-5 2.886752,-5 5.773503,0 2.886751,5 z"
        inkscape:export-filename="E:\Projects\Unity\ThisIsntEvenMyFinalForm\ThisIsntEvenMyFinalForm\Assets\Sprites\hexagon_outline.png"
+       inkscape:export-xdpi="300"
+       inkscape:export-ydpi="300" />
+    <circle
+       style="opacity:1;fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:0.56499994;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
+       id="path832"
+       cx="71.25032"
+       cy="27.452007"
+       r="4.7175002"
+       inkscape:export-filename="E:\Projects\Unity\ThisIsntEvenMyFinalForm\ThisIsntEvenMyFinalForm\Assets\Sprites\circle_outline.png"
        inkscape:export-xdpi="300"
        inkscape:export-ydpi="300" />
   </g>

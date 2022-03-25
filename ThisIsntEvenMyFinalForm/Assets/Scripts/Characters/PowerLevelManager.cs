@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 public class PowerLevelManager : MonoBehaviour
 {
@@ -17,14 +18,14 @@ public class PowerLevelManager : MonoBehaviour
         SetDataForCurrentPowerLevel();
     }
 
-    public void PowerUp()
+    public void PowerUp(int healthIndex)
     {
         if (_currentPowerLevel >= _maxPowerLevel)
         {
             return;
         }
 
-        _currentPowerLevel++;
+        _currentPowerLevel = healthIndex + 1;
         SetDataForCurrentPowerLevel();
         OnPowerUp?.Invoke(_currentPowerLevel);
     }
@@ -36,23 +37,31 @@ public class PowerLevelManager : MonoBehaviour
 
     private void SetDataForCurrentPowerLevel()
     {
-        var playerController = GetComponent<PlayerController>();
-        var aiController = GetComponent<AIController>();
-
+        var currentPowerLevel = _powerLevels.FirstOrDefault();
         foreach (var powerLevel in _powerLevels)
         {
-            powerLevel.Sprite.SetActive(powerLevel.PowerLevel == _currentPowerLevel);
-
-            if (playerController != null)
+            if (powerLevel.PowerLevel == _currentPowerLevel)
             {
-                playerController.SetMaxVelocity(powerLevel.CharacterSpeed);
+                powerLevel.Sprite.SetActive(true);
+                currentPowerLevel = powerLevel;
             }
-
-            if (aiController != null)
+            else
             {
-                aiController.SetMaxVelocity(powerLevel.CharacterSpeed);
-                aiController.SetDistanceFromPlayer(powerLevel.AIDesiredDistanceFromPlayer);
+                powerLevel.Sprite.SetActive(false);
             }
+        }
+
+        var playerController = GetComponent<PlayerController>();
+        if (playerController != null)
+        {
+            playerController.SetMaxVelocity(currentPowerLevel.CharacterSpeed);
+        }
+
+        var aiController = GetComponent<AIController>();
+        if (aiController != null)
+        {
+            aiController.SetMaxVelocity(currentPowerLevel.CharacterSpeed);
+            aiController.SetDistanceFromPlayer(currentPowerLevel.AIDesiredDistanceFromPlayer);
         }
     }
 }

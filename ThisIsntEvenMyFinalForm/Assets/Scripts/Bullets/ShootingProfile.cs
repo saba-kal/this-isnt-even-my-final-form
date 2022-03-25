@@ -9,5 +9,5 @@ public class ShootingProfile
     [Range(1, 10)]
     public int PowerLevel = 1;
 
-    public List<BulletShooter> BulletShooters;
+    public GameObject BulletShootersContainer;
 }

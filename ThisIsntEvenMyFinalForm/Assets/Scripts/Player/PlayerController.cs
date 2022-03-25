@@ -32,7 +32,6 @@ public class PlayerController : MonoBehaviour
         GetMovementInput();
         FaceCharacterTowardsMouse();
         FireBullets();
-        PowerUp();
     }
 
     public void SetMaxVelocity(float maxVelocity)
@@ -62,14 +61,6 @@ public class PlayerController : MonoBehaviour
         if (Input.GetMouseButton(0))
         {
             _shootingManager.FireBulletShooters(CollisionLayer.PlayerBullet);
-        }
-    }
-
-    private void PowerUp()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            _powerLevelManager.PowerUp();
         }
     }
 }

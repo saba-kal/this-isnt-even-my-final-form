@@ -4,6 +4,9 @@ using System.Collections.Generic;
 
 public class CharacterHealth : MonoBehaviour
 {
+    public delegate void HealthLostEvent(int healthIndex);
+    public static HealthLostEvent OnHealthLost;
+
     [SerializeField] private List<Health> _healths;
 
     private int _currentHealthIndex = 0;
@@ -23,9 +26,6 @@ public class CharacterHealth : MonoBehaviour
 
     private void OnCurrentHealthDeath()
     {
-        var currentHealth = _healths[_currentHealthIndex];
-        Destroy(currentHealth.gameObject);
-
         _currentHealthIndex++;
         if (_currentHealthIndex >= _healths.Count)
         {
@@ -34,9 +34,17 @@ public class CharacterHealth : MonoBehaviour
         }
         else
         {
+            var oldHealth = _healths[_currentHealthIndex - 1];
+            Destroy(oldHealth.gameObject);
+
             var newHealth = _healths[_currentHealthIndex];
             newHealth.gameObject.SetActive(true);
             newHealth.SetOnDeath(OnCurrentHealthDeath);
+
+            var powerLevelManager = GetComponent<PowerLevelManager>();
+            powerLevelManager?.PowerUp(_currentHealthIndex);
+
+            OnHealthLost?.Invoke(_currentHealthIndex);
         }
     }
 }

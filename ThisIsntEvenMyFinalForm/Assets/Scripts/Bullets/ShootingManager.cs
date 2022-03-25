@@ -16,8 +16,14 @@ public class ShootingManager : MonoBehaviour
 
     public void FireBulletShooters(CollisionLayer collisionLayer)
     {
-        var bulletShooters = _bulletShootingProfiles.FirstOrDefault(b => b.PowerLevel == _powerLevelManager.GetPowerLevel())?.BulletShooters;
-        if (bulletShooters.Any())
+        var bulletShooterContainer = _bulletShootingProfiles.FirstOrDefault(b => b.PowerLevel == _powerLevelManager.GetPowerLevel())?.BulletShootersContainer;
+        if (bulletShooterContainer == null)
+        {
+            return;
+        }
+
+        var bulletShooters = bulletShooterContainer.GetComponentsInChildren<BulletShooter>();
+        if (bulletShooters != null)
         {
             foreach (var bulletShooter in bulletShooters)
             {

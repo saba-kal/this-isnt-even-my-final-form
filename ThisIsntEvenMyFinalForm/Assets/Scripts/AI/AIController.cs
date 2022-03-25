@@ -15,6 +15,7 @@ public class AIController : MonoBehaviour
     private ShootingManager _shootingManager;
     private PowerLevelManager _powerLevelManager;
     private Vector2 _desiredLocation;
+    private AStar _aStar;
 
     // Start is called before the first frame update
     void Start()
@@ -22,6 +23,7 @@ public class AIController : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody2D>();
         _shootingManager = GetComponent<ShootingManager>();
         _powerLevelManager = GetComponent<PowerLevelManager>();
+        _aStar = new AStar(20, 20, 1);
     }
 
     private void FixedUpdate()
@@ -31,8 +33,8 @@ public class AIController : MonoBehaviour
 
     void Update()
     {
-        var desiredLocation = GetDesiredMoveLocation();
-        SetVelocity(desiredLocation);
+        GetDesiredMoveLocation();
+        SetVelocity();
         FaceSpriteTowardsTarget();
         FireBullets();
     }
@@ -52,23 +54,50 @@ public class AIController : MonoBehaviour
         _rigidbody.velocity = _currentVelocity;
     }
 
-    private Vector2 GetDesiredMoveLocation()
+    private void GetDesiredMoveLocation()
     {
-        var distanceFromTarget = Vector2.Distance(transform.position, _playerTarget.position);
-        var desiredX = (_desiredDistanceFromPlayer / distanceFromTarget) * (transform.position.x - _playerTarget.position.x);
-        var desiredY = (_desiredDistanceFromPlayer / distanceFromTarget) * (transform.position.y - _playerTarget.position.y);
-        return new Vector2(_playerTarget.position.x + desiredX, _playerTarget.position.y + desiredY);
-    }
+        var desiredLocation = _playerTarget.position;
+        var minDistanceFromPlayer = float.MaxValue;
 
-    private void SetVelocity(Vector2 desiredLocation)
-    {
-        if (Mathf.Abs(desiredLocation.x - transform.position.x) <= 0.5f &&
-            Mathf.Abs(desiredLocation.y - transform.position.y) <= 0.5f)
+        const int circlePartitions = 10;
+        for (var i = 0; i < circlePartitions; i++)
         {
-            desiredLocation = transform.position;
+            var angle = 360f * i / circlePartitions;
+            var potentialLocation = new Vector2(
+                _playerTarget.position.x + _desiredDistanceFromPlayer * Mathf.Cos(angle),
+                _playerTarget.position.y + _desiredDistanceFromPlayer * Mathf.Sin(angle));
+
+            var distanceToLocation = Vector2.Distance(transform.position, potentialLocation);
+            if (distanceToLocation < minDistanceFromPlayer && HasLineOfSightToPlayer(potentialLocation))
+            {
+                minDistanceFromPlayer = distanceToLocation;
+                desiredLocation = potentialLocation;
+            }
         }
 
-        var desiredVelocity = (desiredLocation - (Vector2)transform.position).normalized * _maxVelocity;
+        _desiredLocation = desiredLocation;
+    }
+
+    private bool HasLineOfSightToPlayer(Vector2 potentialLocation)
+    {
+        var hit = Physics2D.Raycast(
+            potentialLocation,
+            (Vector2)_playerTarget.transform.position - potentialLocation,
+            _desiredDistanceFromPlayer,
+            LayerMask.GetMask(nameof(CollisionLayer.Obstacle)));
+
+        return hit.collider == null;
+    }
+
+    private void SetVelocity()
+    {
+        if (Mathf.Abs(_desiredLocation.x - transform.position.x) <= 0.5f &&
+            Mathf.Abs(_desiredLocation.y - transform.position.y) <= 0.5f)
+        {
+            _desiredLocation = transform.position;
+        }
+
+        var desiredVelocity = (_desiredLocation - (Vector2)transform.position).normalized * _maxVelocity;
 
         var steeringVelocity = desiredVelocity - _currentVelocity;
         steeringVelocity = Vector2.ClampMagnitude(steeringVelocity, _maxForce);
@@ -88,5 +117,11 @@ public class AIController : MonoBehaviour
     private void FireBullets()
     {
         _shootingManager.FireBulletShooters(CollisionLayer.EnemyBullet);
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawSphere(_desiredLocation, 0.5f);
     }
 }

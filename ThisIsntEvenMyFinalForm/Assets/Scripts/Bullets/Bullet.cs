@@ -46,7 +46,7 @@ public class Bullet : MonoBehaviour
 
         var effect = Instantiate(_onDestroyEffect);
         effect.transform.position = transform.position;
-        Destroy(effect, 10f);
+        Destroy(effect, 2f);
     }
 
     public void SetDirection(Vector2 direction)
