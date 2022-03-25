@@ -116,7 +116,7 @@ public class AIController : MonoBehaviour
 
     private void FireBullets()
     {
-        _shootingManager.FireBulletShooters(CollisionLayer.EnemyBullet);
+        _shootingManager.FireBulletShooters(CollisionLayer.EnemyBullet, BulletShooterType.Normal | BulletShooterType.Heavy);
     }
 
     private void OnDrawGizmos()

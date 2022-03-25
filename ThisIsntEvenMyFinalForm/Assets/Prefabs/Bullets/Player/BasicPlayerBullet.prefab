@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 117279492740593428}
   - component: {fileID: 1964997813340792939}
   - component: {fileID: 3239254001108431815}
+  - component: {fileID: 1929065698461425711}
   m_Layer: 0
   m_Name: Visual Effect
   m_TagString: Untagged
@@ -49,7 +50,10 @@ VisualEffect:
   m_ResourceVersion: 1
   m_PropertySheet:
     m_Float:
-      m_Array: []
+      m_Array:
+      - m_Value: 20
+        m_Name: SpawnRate
+        m_Overridden: 1
     m_Vector2f:
       m_Array: []
     m_Vector3f:
@@ -141,6 +145,19 @@ VFXRenderer:
   m_SortingLayerID: -1300259539
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &1929065698461425711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 872561554637911692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52d527860f194404280a54b277128916, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _lifetimeAfterParentDeath: 2
 --- !u!1 &1125285406268165747
 GameObject:
   m_ObjectHideFlags: 0
@@ -230,6 +247,7 @@ MonoBehaviour:
   _damage: 1
   _speed: 10
   _lifetime: 10
+  _onDestroyEffect: {fileID: 0}
 --- !u!114 &-73072428461353865
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -242,6 +260,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef2d4952495126249918f7c5516d21e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DestroyOnDeath: 1
   MaxHealth: 1
   _healthBar: {fileID: 0}
 --- !u!1 &8826804245893621537

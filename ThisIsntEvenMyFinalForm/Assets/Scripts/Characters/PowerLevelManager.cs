@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System;
 
 public class PowerLevelManager : MonoBehaviour
 {
@@ -27,6 +28,7 @@ public class PowerLevelManager : MonoBehaviour
 
         _currentPowerLevel = healthIndex + 1;
         SetDataForCurrentPowerLevel();
+
         OnPowerUp?.Invoke(_currentPowerLevel);
     }
 

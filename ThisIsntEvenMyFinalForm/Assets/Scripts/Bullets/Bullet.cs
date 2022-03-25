@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.VFX;
 
 public class Bullet : MonoBehaviour
 {
@@ -10,11 +11,9 @@ public class Bullet : MonoBehaviour
     [SerializeField] private GameObject _onDestroyEffect;
 
     private Vector2 _direction;
-    private Health _health;
 
     void Start()
     {
-        _health = GetComponent<Health>();
         Destroy(gameObject, _lifetime);
     }
 
@@ -46,7 +45,6 @@ public class Bullet : MonoBehaviour
 
         var effect = Instantiate(_onDestroyEffect);
         effect.transform.position = transform.position;
-        Destroy(effect, 2f);
     }
 
     public void SetDirection(Vector2 direction)

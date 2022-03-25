@@ -1,9 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class BulletShooter : MonoBehaviour
 {
+    [SerializeField] private BulletShooterType _type = BulletShooterType.Normal;
     [SerializeField] private int _bulletCount = 1;
     [SerializeField] private float _angleSpread = 15;
     [SerializeField] private float _horizontalSpread = 0;
@@ -11,6 +13,7 @@ public class BulletShooter : MonoBehaviour
     [SerializeField] private GameObject _bulletPrefab;
 
     private float _timeSinceLastFire = 0;
+    private Action _onFire = null;
 
     private void Update()
     {
@@ -45,6 +48,22 @@ public class BulletShooter : MonoBehaviour
         }
 
         _timeSinceLastFire = 0f;
+        _onFire?.Invoke();
+    }
+
+    public bool IsType(BulletShooterType type)
+    {
+        return type.HasFlag(_type);
+    }
+
+    public float GetFireRate()
+    {
+        return _fireRate;
+    }
+
+    public void SetOnFire(Action onFire)
+    {
+        _onFire = onFire;
     }
 
     private void OnDrawGizmos()

@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D _rigidBody;
     private ShootingManager _shootingManager;
     private PowerLevelManager _powerLevelManager;
+    private PlayerAbilityManager _playerAbilityManager;
     private Vector2 _playerInput;
 
     // Start is called before the first frame update
@@ -20,6 +21,7 @@ public class PlayerController : MonoBehaviour
         _rigidBody = GetComponent<Rigidbody2D>();
         _shootingManager = GetComponent<ShootingManager>();
         _powerLevelManager = GetComponent<PowerLevelManager>();
+        _playerAbilityManager = GetComponent<PlayerAbilityManager>();
     }
 
     private void FixedUpdate()
@@ -58,9 +60,16 @@ public class PlayerController : MonoBehaviour
 
     private void FireBullets()
     {
-        if (Input.GetMouseButton(0))
+        if (_playerAbilityManager.PlayerAbilityIsUnlocked(PlayerAbilityType.NormalShot) &&
+            Input.GetMouseButton(0))
         {
-            _shootingManager.FireBulletShooters(CollisionLayer.PlayerBullet);
+            _shootingManager.FireBulletShooters(CollisionLayer.PlayerBullet, BulletShooterType.Normal);
+        }
+
+        if (_playerAbilityManager.PlayerAbilityIsUnlocked(PlayerAbilityType.HeavyShot) &&
+            Input.GetMouseButton(1))
+        {
+            _shootingManager.FireBulletShooters(CollisionLayer.PlayerBullet, BulletShooterType.Heavy);
         }
     }
 }

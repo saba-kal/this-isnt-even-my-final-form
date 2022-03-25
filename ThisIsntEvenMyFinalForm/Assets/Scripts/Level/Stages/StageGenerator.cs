@@ -15,9 +15,9 @@ public class StageGenerator : MonoBehaviour
 
 
     [Header("Stage 2")]
-    [SerializeField] private GameObject _roatatingDoorPrefab;
-    [SerializeField] private GameObject _stage2PillarPrefab;
+    [SerializeField] private GameObject _rotatingDoorPrefab;
     [SerializeField] private float _doorImmunityDuration;
+    [SerializeField] private int _doorHealth;
 
 
     public Stage GenerateStage(int stageNumber)
@@ -27,6 +27,8 @@ public class StageGenerator : MonoBehaviour
         {
             case 1:
                 return GenerateHexagonalStage();
+            case 2:
+                return GenerateSquareStage();
             default:
                 Debug.LogError($"Stage {stageNumber} not implemented yet.");
                 return null;
@@ -64,6 +66,45 @@ public class StageGenerator : MonoBehaviour
             if (slidingDoor != null)
             {
                 stage.Doors.Add(slidingDoor);
+            }
+        }
+
+        return stage;
+    }
+
+    private Stage GenerateSquareStage()
+    {
+        var stage = new Stage(2)
+        {
+            Obtacles = new List<GameObject>(),
+            Doors = new List<Door>(),
+            ObstacleImmunityDuration = _doorImmunityDuration
+        };
+
+        const float distance = 20f;
+        var squareCorners = new[] {
+            new Vector2(-distance, distance),
+            new Vector2(distance, distance),
+            new Vector2(distance, -distance),
+            new Vector2(-distance, -distance)
+        };
+
+        for (var i = 0; i < squareCorners.Length; i++)
+        {
+            var door = Instantiate(_rotatingDoorPrefab, _foregroundContainer.transform);
+            door.transform.position = squareCorners[i];
+            door.transform.rotation = Quaternion.AngleAxis(-90 * i, Vector3.forward);
+
+            var health = door.AddComponent<Health>();
+            health.MaxHealth = _pillarHealth;
+            health.SetImmune(true);
+
+            stage.Obtacles.Add(door);
+
+            var rotatingDoor = door.GetComponent<RotatingDoor>();
+            if (rotatingDoor != null)
+            {
+                stage.Doors.Add(rotatingDoor);
             }
         }
 

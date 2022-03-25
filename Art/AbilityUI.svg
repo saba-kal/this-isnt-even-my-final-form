@@ -1,0 +1,415 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg8"
+   inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)"
+   sodipodi:docname="AbilityUI.svg">
+  <defs
+     id="defs2">
+    <filter
+       style="color-interpolation-filters:sRGB"
+       id="filter900"
+       inkscape:label="filter0"
+       x="-0.090000000000000011"
+       y="-0.089999999999999997"
+       width="1.1799999999999999"
+       height="1.1799999999999999">
+      <feGaussianBlur
+         stdDeviation="0.10000000000000001"
+         id="feGaussianBlur902" />
+    </filter>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="17.956731"
+     inkscape:cx="7.4927533"
+     inkscape:cy="1106.9543"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer5"
+     showgrid="false"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Background"
+     inkscape:groupmode="layer"
+     id="layer1"
+     sodipodi:insensitive="true">
+    <rect
+       style="opacity:1;fill:#303030;fill-opacity:1;stroke:#ffffff;stroke-width:0.56499994;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
+       id="rect817"
+       width="217.71428"
+       height="304.6488"
+       x="-3.0238097"
+       y="-3.1130953" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer3"
+     inkscape:label="NormalShotAbility"
+     style="display:inline"
+     sodipodi:insensitive="true">
+    <path
+       style="opacity:1;fill:#0040eb;fill-opacity:1;stroke:none;stroke-width:0.565;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
+       d="M 4.5552136,1.9807982 C 4.0905974,2.6285377 3.1438567,2.9602486 2.4439682,4.1316409 2.6134149,3.2254695 2.9862055,2.7733269 3.352674,2.0654177 3.7347537,1.327352 4.0361888,0.85423012 4.5230566,0.84717847 4.879432,0.84201686 5.1453159,1.1581131 4.5552136,1.9807982 Z"
+       id="path1394-01"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="scsss"
+       inkscape:export-filename="E:\Projects\Unity\ThisIsntEvenMyFinalForm\ThisIsntEvenMyFinalForm\Assets\Sprites\UI\Abilities\NormalShotAbility.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600" />
+    <ellipse
+       style="opacity:1;fill:#00e8eb;fill-opacity:1;stroke:none;stroke-width:0.59903854;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
+       id="path1394-0"
+       cy="1.6141086"
+       cx="5.0689182"
+       rx="0.44305953"
+       ry="0.61276102"
+       transform="matrix(1,0,-0.4567696,0.88958503,0,0)"
+       inkscape:export-filename="E:\Projects\Unity\ThisIsntEvenMyFinalForm\ThisIsntEvenMyFinalForm\Assets\Sprites\UI\Abilities\NormalShotAbility.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600" />
+    <ellipse
+       transform="rotate(45.780509)"
+       ry="0.39865655"
+       rx="0.2682189"
+       cx="4.040163"
+       cy="-2.2573512"
+       id="ellipse1347-4"
+       style="opacity:1;fill:#a4feff;fill-opacity:1;stroke:none;stroke-width:0.565;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
+       inkscape:export-filename="E:\Projects\Unity\ThisIsntEvenMyFinalForm\ThisIsntEvenMyFinalForm\Assets\Sprites\UI\Abilities\NormalShotAbility.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600" />
+    <ellipse
+       transform="matrix(0.70873966,0.70547013,-0.72768526,0.68591119,0,0)"
+       ry="2.0039506"
+       rx="1.3471023"
+       cx="5.47506"
+       cy="-2.3989854"
+       id="ellipse1345"
+       style="opacity:1;fill:#0040eb;fill-opacity:1;stroke:none;stroke-width:0.56514335;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
+       inkscape:export-filename="E:\Projects\Unity\ThisIsntEvenMyFinalForm\ThisIsntEvenMyFinalForm\Assets\Sprites\UI\Abilities\NormalShotAbility.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600" />
+    <path
+       style="fill:#0040eb;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 4.5171536,1.416197 c -1.3302257,1.3654151 -1.901982,4.044336 -1.901982,4.044336 0,0 2.8914709,-0.9034503 4.2199159,-2.5406798"
+       id="path1325"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccc"
+       inkscape:export-filename="E:\Projects\Unity\ThisIsntEvenMyFinalForm\ThisIsntEvenMyFinalForm\Assets\Sprites\UI\Abilities\NormalShotAbility.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600" />
+    <ellipse
+       style="opacity:1;fill:#00e8eb;fill-opacity:1;stroke:none;stroke-width:0.565;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
+       id="path1323-8"
+       cy="-2.7726095"
+       cx="5.5293231"
+       rx="1.1172718"
+       ry="1.6606126"
+       transform="rotate(45.78051)"
+       inkscape:export-filename="E:\Projects\Unity\ThisIsntEvenMyFinalForm\ThisIsntEvenMyFinalForm\Assets\Sprites\UI\Abilities\NormalShotAbility.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600" />
+    <path
+       style="fill:#00e8eb;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 5.2099495,1.122971 c -0.4543103,0.261244 -1.514916,1.82317 -1.514916,1.82317 l 0.3501372,0.1387897 c 0,0 0.065115,0.162413 -0.4777761,0.6635433 L 3.9507765,4.0291353 C 3.6918591,4.6639004 2.8913288,5.1058328 2.8913288,5.1058328 4.3446069,4.6965763 5.3105328,3.9015381 5.3105328,3.9015381 c 0,0 -0.5061258,0.2170432 -0.4476606,-0.1170437 0,0 1.7813006,-0.7623687 2.0777201,-1.3562564"
+       id="path1325-8"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccccccccc"
+       inkscape:export-filename="E:\Projects\Unity\ThisIsntEvenMyFinalForm\ThisIsntEvenMyFinalForm\Assets\Sprites\UI\Abilities\NormalShotAbility.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600" />
+    <ellipse
+       transform="rotate(45.78051)"
+       ry="0.9160136"
+       rx="0.6163004"
+       cx="5.5293231"
+       cy="-2.7726095"
+       id="ellipse1347"
+       style="opacity:1;fill:#a4feff;fill-opacity:1;stroke:none;stroke-width:0.565;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
+       inkscape:export-filename="E:\Projects\Unity\ThisIsntEvenMyFinalForm\ThisIsntEvenMyFinalForm\Assets\Sprites\UI\Abilities\NormalShotAbility.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600" />
+    <path
+       sodipodi:nodetypes="scsss"
+       inkscape:connector-curvature="0"
+       id="path1515"
+       d="m 6.1281816,4.2955878 c -0.4466931,0.5026066 -2.542808,1.2767469 -2.542808,1.2767469 0,0 1.1568641,-0.7496875 1.5265018,-1.3113956 0.3853838,-0.5856366 0.6798359,-0.9560826 1.0889139,-0.9192283 0.2994347,0.02698 0.4947306,0.3155232 -0.072608,0.953877 z"
+       style="opacity:1;fill:#0040eb;fill-opacity:1;stroke:none;stroke-width:0.565;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
+       inkscape:export-filename="E:\Projects\Unity\ThisIsntEvenMyFinalForm\ThisIsntEvenMyFinalForm\Assets\Sprites\UI\Abilities\NormalShotAbility.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600" />
+    <ellipse
+       transform="matrix(0.99456244,0.10414198,-0.54692904,0.83717897,0,0)"
+       ry="0.51688749"
+       rx="0.37373775"
+       cx="7.9835458"
+       cy="3.5683782"
+       id="ellipse1517"
+       style="opacity:1;fill:#00e8eb;fill-opacity:1;stroke:none;stroke-width:0.59903854;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
+       inkscape:export-filename="E:\Projects\Unity\ThisIsntEvenMyFinalForm\ThisIsntEvenMyFinalForm\Assets\Sprites\UI\Abilities\NormalShotAbility.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600" />
+    <ellipse
+       style="opacity:1;fill:#a4feff;fill-opacity:1;stroke:none;stroke-width:0.565;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
+       id="ellipse1519"
+       cy="-2.4698563"
+       cx="6.6977735"
+       rx="0.22625296"
+       ry="0.3362821"
+       transform="rotate(51.758244)"
+       inkscape:export-filename="E:\Projects\Unity\ThisIsntEvenMyFinalForm\ThisIsntEvenMyFinalForm\Assets\Sprites\UI\Abilities\NormalShotAbility.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600" />
+    <path
+       sodipodi:nodetypes="scsss"
+       inkscape:connector-curvature="0"
+       id="path1515-5"
+       d="M 3.3351964,4.5491197 C 2.8885033,5.0517263 2.469825,4.9975672 2.469825,4.9975672 c 0,0 0.1992967,-0.1934082 0.2437496,-0.8136557 0.033004,-0.4605022 0.2460808,-0.5890571 0.6551588,-0.5522028 0.2994349,0.02698 0.5338014,0.2790572 -0.033537,0.917411 z"
+       style="opacity:1;fill:#0040eb;fill-opacity:1;stroke:none;stroke-width:0.56500006;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
+       inkscape:export-filename="E:\Projects\Unity\ThisIsntEvenMyFinalForm\ThisIsntEvenMyFinalForm\Assets\Sprites\UI\Abilities\NormalShotAbility.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600" />
+    <circle
+       style="opacity:1;fill:#00e8eb;fill-opacity:1;stroke:none;stroke-width:0.56499994;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
+       id="circle1424"
+       r="0.40170065"
+       cy="4.0584178"
+       cx="3.2338583"
+       inkscape:export-filename="E:\Projects\Unity\ThisIsntEvenMyFinalForm\ThisIsntEvenMyFinalForm\Assets\Sprites\UI\Abilities\NormalShotAbility.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer4"
+     inkscape:label="HeavyShotAbility"
+     style="display:inline"
+     sodipodi:insensitive="true">
+    <circle
+       style="opacity:1;fill:#8000dc;fill-opacity:1;stroke:none;stroke-width:0.56499994;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
+       id="circle1592"
+       cx="5.5951929"
+       cy="2.2776282"
+       r="3.078773"
+       inkscape:export-filename="E:\Projects\Unity\ThisIsntEvenMyFinalForm\ThisIsntEvenMyFinalForm\Assets\Sprites\UI\Abilities\HeavyShotAbility.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600" />
+    <circle
+       r="1.5055252"
+       cy="3.6949482"
+       cx="5.9075594"
+       id="circle1654"
+       style="display:inline;opacity:1;fill:#8000dc;fill-opacity:1;stroke:none;stroke-width:0.565;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
+       inkscape:export-filename="E:\Projects\Unity\ThisIsntEvenMyFinalForm\ThisIsntEvenMyFinalForm\Assets\Sprites\UI\Abilities\HeavyShotAbility.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600" />
+    <circle
+       style="display:inline;opacity:1;fill:#8000dc;fill-opacity:1;stroke:none;stroke-width:0.565;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
+       id="circle1592-7"
+       cx="2.5179102"
+       cy="3.7784045"
+       r="1.0887707"
+       inkscape:export-filename="E:\Projects\Unity\ThisIsntEvenMyFinalForm\ThisIsntEvenMyFinalForm\Assets\Sprites\UI\Abilities\HeavyShotAbility.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600" />
+    <circle
+       r="0.81795973"
+       cy="3.8005116"
+       cx="2.5437014"
+       id="circle1590-6"
+       style="display:inline;opacity:1;fill:#00a1dc;fill-opacity:1;stroke:none;stroke-width:0.565;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
+       inkscape:export-filename="E:\Projects\Unity\ThisIsntEvenMyFinalForm\ThisIsntEvenMyFinalForm\Assets\Sprites\UI\Abilities\HeavyShotAbility.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600" />
+    <circle
+       style="display:inline;opacity:1;fill:#00eb92;fill-opacity:1;stroke:none;stroke-width:0.565;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
+       id="path1588-2"
+       cx="2.5584395"
+       cy="3.8152497"
+       r="0.54899102"
+       inkscape:export-filename="E:\Projects\Unity\ThisIsntEvenMyFinalForm\ThisIsntEvenMyFinalForm\Assets\Sprites\UI\Abilities\HeavyShotAbility.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600" />
+    <circle
+       r="2.2087982"
+       cy="1.7827325"
+       cx="6.0900888"
+       id="circle1590"
+       style="opacity:1;fill:#00a1dc;fill-opacity:1;stroke:none;stroke-width:0.56499994;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
+       inkscape:export-filename="E:\Projects\Unity\ThisIsntEvenMyFinalForm\ThisIsntEvenMyFinalForm\Assets\Sprites\UI\Abilities\HeavyShotAbility.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600" />
+    <circle
+       style="opacity:1;fill:#00eb92;fill-opacity:1;stroke:none;stroke-width:0.56499994;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
+       id="path1588"
+       cx="6.5797753"
+       cy="1.3555592"
+       r="1.5524101"
+       inkscape:export-filename="E:\Projects\Unity\ThisIsntEvenMyFinalForm\ThisIsntEvenMyFinalForm\Assets\Sprites\UI\Abilities\HeavyShotAbility.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600" />
+    <circle
+       style="display:inline;opacity:1;fill:#00a1dc;fill-opacity:1;stroke:none;stroke-width:0.565;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
+       id="circle1656"
+       cx="5.943223"
+       cy="3.7255177"
+       r="1.1310544"
+       inkscape:export-filename="E:\Projects\Unity\ThisIsntEvenMyFinalForm\ThisIsntEvenMyFinalForm\Assets\Sprites\UI\Abilities\HeavyShotAbility.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600" />
+    <circle
+       r="0.53811377"
+       cy="3.7458968"
+       cx="5.963603"
+       id="circle1658"
+       style="display:inline;opacity:1;fill:#00eb92;fill-opacity:1;stroke:none;stroke-width:0.565;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
+       inkscape:export-filename="E:\Projects\Unity\ThisIsntEvenMyFinalForm\ThisIsntEvenMyFinalForm\Assets\Sprites\UI\Abilities\HeavyShotAbility.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600" />
+    <circle
+       style="display:inline;opacity:1;fill:#8000dc;fill-opacity:1;stroke:none;stroke-width:0.565;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
+       id="circle1660"
+       cx="4.3967595"
+       cy="5.1573062"
+       r="0.63034087"
+       inkscape:export-filename="E:\Projects\Unity\ThisIsntEvenMyFinalForm\ThisIsntEvenMyFinalForm\Assets\Sprites\UI\Abilities\HeavyShotAbility.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600" />
+    <circle
+       r="0.47355559"
+       cy="5.170105"
+       cx="4.4116912"
+       id="circle1662"
+       style="display:inline;opacity:1;fill:#00a1dc;fill-opacity:1;stroke:none;stroke-width:0.565;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
+       inkscape:export-filename="E:\Projects\Unity\ThisIsntEvenMyFinalForm\ThisIsntEvenMyFinalForm\Assets\Sprites\UI\Abilities\HeavyShotAbility.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600" />
+    <circle
+       style="display:inline;opacity:1;fill:#00eb92;fill-opacity:1;stroke:none;stroke-width:0.565;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
+       id="circle1664"
+       cx="4.4202237"
+       cy="5.1786375"
+       r="0.31783688"
+       inkscape:export-filename="E:\Projects\Unity\ThisIsntEvenMyFinalForm\ThisIsntEvenMyFinalForm\Assets\Sprites\UI\Abilities\HeavyShotAbility.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600" />
+    <path
+       style="fill:#00eb92;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 2.7791682,6.0057628 4.9439502,4.0182327 4.2268577,5.4115978 5.8738199,3.7635958 5.7128394,4.8512545 7.2936005,2.6971101 5.1568558,0.70764669 3.3127282,2.7073889 4.5275337,2.2047313 2.5257279,3.9953122 3.9822343,3.2865848 1.9757759,5.5375988 1.5355282,6.3835554 Z"
+       id="path1594"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cccccccccccccc"
+       inkscape:export-filename="E:\Projects\Unity\ThisIsntEvenMyFinalForm\ThisIsntEvenMyFinalForm\Assets\Sprites\UI\Abilities\HeavyShotAbility.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600" />
+    <path
+       style="fill:#cdffed;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 6.306363,0.63039897 C 5.3486209,1.8312602 4.3423598,3.7313591 4.3423598,3.7313591 c 0,0 1.684048,-0.8613172 2.9512145,-1.9664042 C 8.1850112,0.86615084 7.1609636,-0.27577238 6.306363,0.63039897 Z"
+       id="path1596"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cccc"
+       inkscape:export-filename="E:\Projects\Unity\ThisIsntEvenMyFinalForm\ThisIsntEvenMyFinalForm\Assets\Sprites\UI\Abilities\HeavyShotAbility.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer5"
+     inkscape:label="Lock"
+     style="display:inline"
+     sodipodi:insensitive="true">
+    <rect
+       style="display:inline;opacity:1;fill:#000000;fill-opacity:0.58823529;stroke:none;stroke-width:0.56500006;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
+       id="rect822-0-6"
+       width="6.8271952"
+       height="6.8271952"
+       x="1.5355275"
+       y="-0.44363976"
+       ry="0"
+       inkscape:export-filename="E:\Projects\Unity\ThisIsntEvenMyFinalForm\ThisIsntEvenMyFinalForm\Assets\Sprites\UI\Abilities\AbilityLock.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600" />
+    <path
+       style="opacity:1;fill:#424242;fill-opacity:1;stroke:none;stroke-width:2.13543272;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
+       d="m 18.763672,2.2148438 a 6.2789825,6.2789825 0 0 0 -6.279297,6.2792968 6.2789825,6.2789825 0 0 0 6.279297,6.2792974 6.2789825,6.2789825 0 0 0 6.279297,-6.2792974 6.2789825,6.2789825 0 0 0 -6.279297,-6.2792968 z m 0,2.4785156 a 3.8008032,3.8008032 0 0 1 3.800781,3.8007812 3.8008032,3.8008032 0 0 1 -3.800781,3.8007814 3.8008032,3.8008032 0 0 1 -3.800781,-3.8007814 3.8008032,3.8008032 0 0 1 3.800781,-3.8007812 z"
+       transform="scale(0.26458333)"
+       id="path1688"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="E:\Projects\Unity\ThisIsntEvenMyFinalForm\ThisIsntEvenMyFinalForm\Assets\Sprites\UI\Abilities\AbilityLock.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600" />
+    <rect
+       style="opacity:1;fill:#424242;fill-opacity:1;stroke:none;stroke-width:0.56499994;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
+       id="rect1686"
+       width="4.0512757"
+       height="3.0527258"
+       x="2.9389491"
+       y="2.3233762"
+       ry="0"
+       inkscape:export-filename="E:\Projects\Unity\ThisIsntEvenMyFinalForm\ThisIsntEvenMyFinalForm\Assets\Sprites\UI\Abilities\AbilityLock.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="AbilityBox"
+     style="display:inline"
+     sodipodi:insensitive="true">
+    <rect
+       style="opacity:1;fill:none;fill-opacity:1;stroke:#424242;stroke-width:1.16499996;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
+       id="rect822"
+       width="6.8271947"
+       height="6.8271947"
+       x="1.5355282"
+       y="-0.44363916"
+       ry="0"
+       inkscape:export-filename="E:\Projects\Unity\ThisIsntEvenMyFinalForm\ThisIsntEvenMyFinalForm\Assets\Sprites\UI\Abilities\AbilityBox.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600" />
+    <rect
+       style="opacity:1;fill:none;fill-opacity:1;stroke:#868686;stroke-width:0.565;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
+       id="rect822-0"
+       width="6.8271952"
+       height="6.8271952"
+       x="1.5355279"
+       y="-0.4436394"
+       ry="0"
+       inkscape:export-filename="E:\Projects\Unity\ThisIsntEvenMyFinalForm\ThisIsntEvenMyFinalForm\Assets\Sprites\UI\Abilities\AbilityBox.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600" />
+  </g>
+</svg>
