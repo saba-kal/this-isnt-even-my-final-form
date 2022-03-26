@@ -3,19 +3,9 @@ using System.Collections;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.VFX;
 
-public class Bullet : MonoBehaviour
+public class Bullet : BaseBullet
 {
-    [SerializeField] private int _damage = 1;
-    [SerializeField] private float _speed = 10f;
-    [SerializeField] private float _lifetime = 10f;
-    [SerializeField] private GameObject _onDestroyEffect;
-
-    private Vector2 _direction;
-
-    void Start()
-    {
-        Destroy(gameObject, _lifetime);
-    }
+    [SerializeField] protected GameObject _onDestroyEffect;
 
     void Update()
     {
@@ -38,18 +28,13 @@ public class Bullet : MonoBehaviour
 
     private void OnDestroy()
     {
-        if (_onDestroyEffect == null)
+        if (_onDestroyEffect == null || !gameObject.scene.isLoaded)
         {
             return;
         }
 
         var effect = Instantiate(_onDestroyEffect);
         effect.transform.position = transform.position;
-    }
-
-    public void SetDirection(Vector2 direction)
-    {
-        _direction = direction;
     }
 
     private IEnumerator IncreaseLightBrightness()

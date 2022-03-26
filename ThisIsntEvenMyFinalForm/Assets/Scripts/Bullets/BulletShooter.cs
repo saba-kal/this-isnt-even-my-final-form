@@ -43,7 +43,7 @@ public class BulletShooter : MonoBehaviour
 
             //Set direction
             var direction = Quaternion.AngleAxis(i * _angleSpread - angleOffset, Vector3.forward) * transform.right;
-            var bulletComponent = bullet.GetComponent<Bullet>();
+            var bulletComponent = bullet.GetComponent<BaseBullet>();
             bulletComponent?.SetDirection(direction);
         }
 

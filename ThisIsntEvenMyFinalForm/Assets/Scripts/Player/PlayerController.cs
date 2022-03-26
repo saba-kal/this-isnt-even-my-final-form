@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public static PlayerController Instance { get; private set; }
+
+
     [SerializeField] private float _maxVelocity = 10f;
     [SerializeField] private GameObject _rotationBody;
 
@@ -13,6 +16,18 @@ public class PlayerController : MonoBehaviour
     private PowerLevelManager _powerLevelManager;
     private PlayerAbilityManager _playerAbilityManager;
     private Vector2 _playerInput;
+
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            Instance = this;
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
