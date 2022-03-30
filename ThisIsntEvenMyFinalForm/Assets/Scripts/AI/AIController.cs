@@ -16,9 +16,9 @@ public class AIController : MonoBehaviour
     private PowerLevelManager _powerLevelManager;
     private Vector2 _desiredLocation;
     private AStar _aStar;
+    private bool _disabled = false;
 
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
         _shootingManager = GetComponent<ShootingManager>();
@@ -28,11 +28,21 @@ public class AIController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (_disabled)
+        {
+            return;
+        }
+
         ApplyVelocity();
     }
 
     void Update()
     {
+        if (_disabled)
+        {
+            return;
+        }
+
         GetDesiredMoveLocation();
         SetVelocity();
         FaceSpriteTowardsTarget();
@@ -47,6 +57,19 @@ public class AIController : MonoBehaviour
     public void SetDistanceFromPlayer(float distance)
     {
         _desiredDistanceFromPlayer = distance;
+    }
+
+    public void SetDisabled(bool disabled)
+    {
+        _disabled = disabled;
+        if (_disabled)
+        {
+            _rigidbody.constraints = RigidbodyConstraints2D.FreezeAll;
+        }
+        else
+        {
+            _rigidbody.constraints = RigidbodyConstraints2D.FreezeRotation;
+        }
     }
 
     private void ApplyVelocity()

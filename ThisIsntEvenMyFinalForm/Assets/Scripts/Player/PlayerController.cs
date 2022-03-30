@@ -49,6 +49,7 @@ public class PlayerController : MonoBehaviour
         GetMovementInput();
         FaceCharacterTowardsMouse();
         FireBullets();
+        InteractWithObjects();
     }
 
     public void SetMaxVelocity(float maxVelocity)
@@ -85,6 +86,15 @@ public class PlayerController : MonoBehaviour
             Input.GetMouseButton(1))
         {
             _shootingManager.FireBulletShooters(CollisionLayer.PlayerBullet, BulletShooterType.Heavy);
+        }
+    }
+
+    private void InteractWithObjects()
+    {
+        if (Input.GetKey(KeyCode.F))
+        {
+            var interactible = InteractableObject.GetNearestInteractable(transform.position);
+            interactible?.Interact();
         }
     }
 }

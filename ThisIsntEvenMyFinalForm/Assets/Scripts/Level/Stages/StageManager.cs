@@ -21,7 +21,7 @@ public class StageManager : MonoBehaviour
         PowerLevelManager.OnPowerUp -= OnPowerUp;
     }
 
-    private void Start()
+    public void GenerateStages()
     {
         for (int i = 1; i <= _maxStages; i++)
         {
