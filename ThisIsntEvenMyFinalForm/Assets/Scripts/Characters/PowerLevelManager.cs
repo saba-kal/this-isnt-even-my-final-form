@@ -18,15 +18,14 @@ public class PowerLevelManager : MonoBehaviour
         SetDataForCurrentPowerLevel();
     }
 
-    public void PowerUp(int healthIndex)
+    public void PowerUp()
     {
         if (_currentPowerLevel >= _maxPowerLevel)
         {
             return;
         }
 
-        //DialogueManager.Instance.StartConversation()
-        _currentPowerLevel = healthIndex + 1;
+        _currentPowerLevel++;
         SetDataForCurrentPowerLevel();
 
         OnPowerUp?.Invoke(_currentPowerLevel);

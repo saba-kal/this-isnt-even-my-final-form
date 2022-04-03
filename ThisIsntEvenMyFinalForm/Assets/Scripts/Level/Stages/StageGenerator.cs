@@ -20,6 +20,11 @@ public class StageGenerator : MonoBehaviour
     [SerializeField] private int _doorHealth;
 
 
+    [Header("Stage 3")]
+    [SerializeField] private GameObject _singleRotatingDoorPrefab;
+    [SerializeField] private float _wallImmunityDuration;
+    [SerializeField] private int _wallHealth;
+
     public Stage GenerateStage(int stageNumber)
     {
         //TODO: do this in a more generic way.
@@ -29,6 +34,8 @@ public class StageGenerator : MonoBehaviour
                 return GenerateHexagonalStage();
             case 2:
                 return GenerateSquareStage();
+            case 3:
+                return GenerateTriangleStage();
             default:
                 Debug.LogError($"Stage {stageNumber} not implemented yet.");
                 return null;
@@ -94,6 +101,44 @@ public class StageGenerator : MonoBehaviour
             var door = Instantiate(_rotatingDoorPrefab, _foregroundContainer.transform);
             door.transform.position = squareCorners[i];
             door.transform.rotation = Quaternion.AngleAxis(-90 * i, Vector3.forward);
+
+            var health = door.AddComponent<Health>();
+            health.MaxHealth = _pillarHealth;
+            health.SetImmune(true);
+
+            stage.Obtacles.Add(door);
+
+            var rotatingDoor = door.GetComponent<RotatingDoor>();
+            if (rotatingDoor != null)
+            {
+                stage.Doors.Add(rotatingDoor);
+            }
+        }
+
+        return stage;
+    }
+
+    private Stage GenerateTriangleStage()
+    {
+        var stage = new Stage(3)
+        {
+            Obtacles = new List<GameObject>(),
+            Doors = new List<Door>(),
+            ObstacleImmunityDuration = _wallImmunityDuration
+        };
+
+
+        var triangleCorners = new[] {
+            new Vector2(-100f, -57.8f),
+            new Vector2(100f, -57.8f),
+            new Vector2(0, 115.4f)
+        };
+
+        for (var i = 0; i < triangleCorners.Length; i++)
+        {
+            var door = Instantiate(_singleRotatingDoorPrefab, _foregroundContainer.transform);
+            door.transform.position = triangleCorners[i];
+            door.transform.rotation = Quaternion.AngleAxis(120 * i, Vector3.forward);
 
             var health = door.AddComponent<Health>();
             health.MaxHealth = _pillarHealth;

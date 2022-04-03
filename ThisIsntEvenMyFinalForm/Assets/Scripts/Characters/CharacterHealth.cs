@@ -4,12 +4,16 @@ using System.Collections.Generic;
 
 public class CharacterHealth : MonoBehaviour
 {
-    public delegate void HealthLostEvent(int healthIndex);
+    public delegate void HealthLostEvent(CharacterHealth characterHealth);
     public static HealthLostEvent OnHealthLost;
+
+    public delegate void DeathEvent(CharacterHealth characterHealth);
+    public static DeathEvent OnDeath;
 
     [SerializeField] private List<Health> _healths;
 
     private int _currentHealthIndex = 0;
+    private bool _isDead = false;
 
     // Use this for initialization
     void Start()
@@ -24,13 +28,17 @@ public class CharacterHealth : MonoBehaviour
         _healths[_currentHealthIndex].SetOnDeath(OnCurrentHealthDeath);
     }
 
+    public bool IsDead()
+    {
+        return _isDead;
+    }
+
     private void OnCurrentHealthDeath()
     {
         _currentHealthIndex++;
         if (_currentHealthIndex >= _healths.Count)
         {
-            Debug.Log($"Character {gameObject.name} fully died");
-            Destroy(gameObject); //TODO death effects.
+            OnDeath?.Invoke(this);
         }
         else
         {
@@ -41,10 +49,7 @@ public class CharacterHealth : MonoBehaviour
             newHealth.gameObject.SetActive(true);
             newHealth.SetOnDeath(OnCurrentHealthDeath);
 
-            var powerLevelManager = GetComponent<PowerLevelManager>();
-            powerLevelManager?.PowerUp(_currentHealthIndex);
-
-            OnHealthLost?.Invoke(_currentHealthIndex);
+            OnHealthLost?.Invoke(this);
         }
     }
 }

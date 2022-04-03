@@ -4,5 +4,6 @@
     Enemy = 7,
     PlayerBullet = 8,
     EnemyBullet = 9,
-    Obstacle = 10
+    Obstacle = 10,
+    NoBulletCollision = 11
 }

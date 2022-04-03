@@ -11,11 +11,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject _rotationBody;
 
     private Camera _mainCamera;
-    private Rigidbody2D _rigidBody;
+    private Rigidbody2D _rigidbody;
     private ShootingManager _shootingManager;
     private PowerLevelManager _powerLevelManager;
     private PlayerAbilityManager _playerAbilityManager;
     private Vector2 _playerInput;
+    private bool _disabled = false;
 
     private void Awake()
     {
@@ -27,13 +28,9 @@ public class PlayerController : MonoBehaviour
         {
             Instance = this;
         }
-    }
 
-    // Start is called before the first frame update
-    void Start()
-    {
         _mainCamera = Camera.main;
-        _rigidBody = GetComponent<Rigidbody2D>();
+        _rigidbody = GetComponent<Rigidbody2D>();
         _shootingManager = GetComponent<ShootingManager>();
         _powerLevelManager = GetComponent<PowerLevelManager>();
         _playerAbilityManager = GetComponent<PlayerAbilityManager>();
@@ -41,11 +38,21 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (_disabled)
+        {
+            return;
+        }
+
         MoveCharacter();
     }
 
     private void Update()
     {
+        if (_disabled)
+        {
+            return;
+        }
+
         GetMovementInput();
         FaceCharacterTowardsMouse();
         FireBullets();
@@ -57,9 +64,27 @@ public class PlayerController : MonoBehaviour
         _maxVelocity = maxVelocity;
     }
 
+    public void SetDisabled(bool disabled)
+    {
+        _disabled = disabled;
+        if (_disabled)
+        {
+            _rigidbody.constraints = RigidbodyConstraints2D.FreezeAll;
+        }
+        else
+        {
+            _rigidbody.constraints = RigidbodyConstraints2D.FreezeRotation;
+        }
+    }
+
+    public int GetPowerLevel()
+    {
+        return _powerLevelManager.GetPowerLevel();
+    }
+
     private void MoveCharacter()
     {
-        _rigidBody.velocity = _playerInput * _maxVelocity;
+        _rigidbody.velocity = _playerInput * _maxVelocity;
     }
 
     private void GetMovementInput()

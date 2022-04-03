@@ -12,4 +12,6 @@ public class Sentence
 
     [TextArea]
     public string SentenceText;
+
+    public CharacterType TalkingCharacter { get; set; }
 }

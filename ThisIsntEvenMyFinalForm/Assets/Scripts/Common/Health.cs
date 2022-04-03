@@ -9,6 +9,7 @@ public class Health : MonoBehaviour
 
     [SerializeField] public int MaxHealth;
     [SerializeField] private HealthBar _healthBar;
+    [SerializeField] float _invulnerabilityDuration = 0f;
 
     private int _currentHealth;
     private bool _immune = false;
@@ -33,6 +34,10 @@ public class Health : MonoBehaviour
             if (DestroyOnDeath) Destroy(gameObject);
             _onDeath?.Invoke();
         }
+        else if (_invulnerabilityDuration > 0.01f)
+        {
+            StartCoroutine(MakeInvulnerable());
+        }
     }
 
     public void SetImmune(bool immune)
@@ -49,5 +54,15 @@ public class Health : MonoBehaviour
     {
         _currentHealth = MaxHealth;
         _healthBar?.SetHealth(_currentHealth, MaxHealth);
+    }
+
+    private IEnumerator MakeInvulnerable()
+    {
+        var originalCollisionLayer = gameObject.layer;
+        transform.parent.gameObject.layer = (int)CollisionLayer.NoBulletCollision;
+        _immune = true;
+        yield return new WaitForSeconds(_invulnerabilityDuration);
+        transform.parent.gameObject.layer = originalCollisionLayer;
+        _immune = false;
     }
 }

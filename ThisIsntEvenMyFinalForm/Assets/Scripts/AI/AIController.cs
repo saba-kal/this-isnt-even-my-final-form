@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class AIController : MonoBehaviour
 {
+    public static AIController Instance { get; private set; }
+
     [SerializeField] private float _maxVelocity = 10f;
     [SerializeField] private float _maxForce = 0.25f;
     [SerializeField] private float _desiredDistanceFromPlayer = 1f;
@@ -20,6 +22,15 @@ public class AIController : MonoBehaviour
 
     void Awake()
     {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            Instance = this;
+        }
+
         _rigidbody = GetComponent<Rigidbody2D>();
         _shootingManager = GetComponent<ShootingManager>();
         _powerLevelManager = GetComponent<PowerLevelManager>();
@@ -70,6 +81,11 @@ public class AIController : MonoBehaviour
         {
             _rigidbody.constraints = RigidbodyConstraints2D.FreezeRotation;
         }
+    }
+
+    public int GetPowerLevel()
+    {
+        return _powerLevelManager.GetPowerLevel();
     }
 
     private void ApplyVelocity()
