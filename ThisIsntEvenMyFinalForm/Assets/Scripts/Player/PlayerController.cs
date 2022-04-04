@@ -13,8 +13,10 @@ public class PlayerController : MonoBehaviour
     private Camera _mainCamera;
     private Rigidbody2D _rigidbody;
     private ShootingManager _shootingManager;
+    private DashAbility _dashAbility;
     private PowerLevelManager _powerLevelManager;
     private PlayerAbilityManager _playerAbilityManager;
+    private CharacterHealth _characterHealth;
     private Vector2 _playerInput;
     private bool _disabled = false;
 
@@ -32,8 +34,10 @@ public class PlayerController : MonoBehaviour
         _mainCamera = Camera.main;
         _rigidbody = GetComponent<Rigidbody2D>();
         _shootingManager = GetComponent<ShootingManager>();
+        _dashAbility = GetComponent<DashAbility>();
         _powerLevelManager = GetComponent<PowerLevelManager>();
         _playerAbilityManager = GetComponent<PlayerAbilityManager>();
+        _characterHealth = GetComponent<CharacterHealth>();
     }
 
     private void FixedUpdate()
@@ -57,6 +61,7 @@ public class PlayerController : MonoBehaviour
         FaceCharacterTowardsMouse();
         FireBullets();
         InteractWithObjects();
+        Dash();
     }
 
     public void SetMaxVelocity(float maxVelocity)
@@ -67,6 +72,7 @@ public class PlayerController : MonoBehaviour
     public void SetDisabled(bool disabled)
     {
         _disabled = disabled;
+        _characterHealth.SetImmune(disabled);
         if (_disabled)
         {
             _rigidbody.constraints = RigidbodyConstraints2D.FreezeAll;
@@ -111,6 +117,15 @@ public class PlayerController : MonoBehaviour
             Input.GetMouseButton(1))
         {
             _shootingManager.FireBulletShooters(CollisionLayer.PlayerBullet, BulletShooterType.Heavy);
+        }
+    }
+
+    private void Dash()
+    {
+        if (_playerAbilityManager.PlayerAbilityIsUnlocked(PlayerAbilityType.Dash) &&
+            Input.GetKey(KeyCode.Space))
+        {
+            _dashAbility.Dash();
         }
     }
 

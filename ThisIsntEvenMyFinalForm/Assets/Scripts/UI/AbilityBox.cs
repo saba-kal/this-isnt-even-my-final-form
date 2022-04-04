@@ -28,6 +28,11 @@ public class AbilityBox : MonoBehaviour
         UpdateAbilityBoxUI(1);
     }
 
+    public PlayerAbilityType GetType()
+    {
+        return _type;
+    }
+
     private void Update()
     {
         if (_abilityCooldownTime == null)

@@ -6,11 +6,13 @@ public class PlayerAbilityManager : MonoBehaviour
 {
     private PowerLevelManager _powerLevelManager;
     private ShootingManager _shootingManager;
+    private DashAbility _dashAbility;
 
     void Awake()
     {
         _powerLevelManager = GetComponent<PowerLevelManager>();
         _shootingManager = GetComponent<ShootingManager>();
+        _dashAbility = GetComponent<DashAbility>();
     }
 
     public void SetOnAbilityActivated(Action onAbilityActivated, PlayerAbilityType type)
@@ -24,6 +26,8 @@ public class PlayerAbilityManager : MonoBehaviour
                 _shootingManager.SetArbitraryOnFire(onAbilityActivated, BulletShooterType.Heavy);
                 break;
             case PlayerAbilityType.Dash:
+                _dashAbility.SetOnActivate(onAbilityActivated);
+                break;
             case PlayerAbilityType.Parry:
             default:
                 break;
@@ -57,7 +61,7 @@ public class PlayerAbilityManager : MonoBehaviour
             case PlayerAbilityType.HeavyShot:
                 return _shootingManager.GetMaxBulletShooterFireRate(BulletShooterType.Heavy);
             case PlayerAbilityType.Dash:
-                return null;
+                return _dashAbility.GetCooldown();
             case PlayerAbilityType.Parry:
                 return null;
             default:

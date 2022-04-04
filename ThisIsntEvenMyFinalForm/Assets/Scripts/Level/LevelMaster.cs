@@ -7,6 +7,7 @@ public class LevelMaster : MonoBehaviour
     [SerializeField] private AIController _aiController;
     [SerializeField] private StageManager _stageManager;
     [SerializeField] private GameObject _endGameScreen;
+    [SerializeField] private TutorialStage _tutorialStage;
 
     private void OnEnable()
     {
@@ -29,13 +30,18 @@ public class LevelMaster : MonoBehaviour
     public void StartLevel()
     {
         SetGameplayDisabled(true);
+        _tutorialStage.RemoveTutorialTooltips();
         DialogueManager.Instance.StartConversation(() =>
         {
-            _stageManager.GenerateStages();
-            SetGameplayDisabled(false);
+            _tutorialStage.RemoveTutorialStage(() =>
+            {
+                CinemachineShake.Instance?.Shake();
+                _stageManager.SetStagesActive(true);
+                SetGameplayDisabled(false);
 
-            var playerPowerLevelManager = _playerController.GetComponent<PowerLevelManager>();
-            playerPowerLevelManager.PowerUp();
+                var playerPowerLevelManager = _playerController.GetComponent<PowerLevelManager>();
+                playerPowerLevelManager.PowerUp();
+            });
         });
     }
 

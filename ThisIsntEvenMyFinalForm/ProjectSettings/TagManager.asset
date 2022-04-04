@@ -42,6 +42,9 @@ TagManager:
   - name: Background
     uniqueID: 1107561001
     locked: 0
+  - name: TutorialUI
+    uniqueID: 454289511
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0

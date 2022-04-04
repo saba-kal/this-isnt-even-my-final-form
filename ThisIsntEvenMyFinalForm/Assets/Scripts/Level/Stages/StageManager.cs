@@ -6,10 +6,9 @@ using System.Linq;
 public class StageManager : MonoBehaviour
 {
     [SerializeField] private int _maxStages;
-    [SerializeField] private StageGenerator _stageGenerator;
+    [SerializeField] private List<Stage> _stages;
 
     private int _currentMaximumPowerLevel = 1;
-    private List<Stage> _stages = new List<Stage>();
 
     private void OnEnable()
     {
@@ -21,15 +20,16 @@ public class StageManager : MonoBehaviour
         PowerLevelManager.OnPowerUp -= OnPowerUp;
     }
 
-    public void GenerateStages()
+    private void Awake()
     {
-        for (int i = 1; i <= _maxStages; i++)
+        SetStagesActive(false);
+    }
+
+    public void SetStagesActive(bool active)
+    {
+        foreach (var stage in _stages)
         {
-            var stage = _stageGenerator.GenerateStage(i);
-            if (stage != null)
-            {
-                _stages.Add(stage);
-            }
+            stage.gameObject.SetActive(active);
         }
     }
 
@@ -52,26 +52,7 @@ public class StageManager : MonoBehaviour
             return;
         }
 
-        foreach (var door in currentStage.Doors)
-        {
-            door.OpenDoor();
-        }
-
-        var previousStage = _stages.FirstOrDefault(s => s.PowerLevel == _currentMaximumPowerLevel - 2);
-        if (previousStage != null)
-        {
-            StartCoroutine(RemoveObstacleImmunity(currentStage.Obtacles, currentStage.ObstacleImmunityDuration));
-        }
-    }
-
-    private IEnumerator RemoveObstacleImmunity(List<GameObject> destructibleObjects, float time)
-    {
-        yield return new WaitForSeconds(time);
-
-        foreach (var destructibleObject in destructibleObjects)
-        {
-            var gameObjectHealth = destructibleObject.GetComponent<Health>();
-            gameObjectHealth?.SetImmune(false);
-        }
+        currentStage.OpenDoors();
+        currentStage.RemoveImmunity();
     }
 }

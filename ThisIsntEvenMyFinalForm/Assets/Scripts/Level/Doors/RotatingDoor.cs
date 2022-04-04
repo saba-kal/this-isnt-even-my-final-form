@@ -17,8 +17,8 @@ public class RotatingDoor : Door
             return;
         }
 
-        RotateDoor(_door1, -1);
-        RotateDoor(_door2, 1);
+        RotateDoor(_door1, 1);
+        RotateDoor(_door2, -1);
 
         if (_doorOpenFinished)
         {
@@ -29,13 +29,23 @@ public class RotatingDoor : Door
 
     private void RotateDoor(GameObject door, int direction)
     {
-        door.transform.rotation = Quaternion.AngleAxis(
-            direction * _doorOpenSpeed * Time.deltaTime,
+        door.transform.localRotation = Quaternion.AngleAxis(
+            door.transform.localEulerAngles.z + direction * _doorOpenSpeed * Time.deltaTime,
             Vector3.forward);
 
-        if (Mathf.Abs(door.transform.rotation.eulerAngles.z) >= _rotationAmount)
+        if (GetRotationAngle(door) >= _rotationAmount)
         {
             _doorOpenFinished = true;
         }
+    }
+
+    private float GetRotationAngle(GameObject door)
+    {
+        var absoluteAngle = Mathf.Abs(door.transform.localEulerAngles.z);
+        if (absoluteAngle > 180)
+        {
+            return 360 - absoluteAngle;
+        }
+        return absoluteAngle;
     }
 }

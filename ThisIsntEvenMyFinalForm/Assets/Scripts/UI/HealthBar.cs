@@ -9,11 +9,16 @@ public class HealthBar : MonoBehaviour
 
     private void Start()
     {
+        VirtualStart();
+    }
+
+    protected virtual void VirtualStart()
+    {
         _slider.minValue = 0;
         _slider.maxValue = 1;
     }
 
-    public void SetHealth(int currentHealth, int maxHealth)
+    public virtual void SetHealth(int currentHealth, int maxHealth)
     {
         _slider.value = (float)currentHealth / maxHealth;
     }

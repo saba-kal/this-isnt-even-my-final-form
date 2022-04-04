@@ -9,6 +9,7 @@ public class AIController : MonoBehaviour
     [SerializeField] private float _maxVelocity = 10f;
     [SerializeField] private float _maxForce = 0.25f;
     [SerializeField] private float _desiredDistanceFromPlayer = 1f;
+    [SerializeField] private float _timeUntilAICanStartShooting = 10f;
     [SerializeField] private Transform _playerTarget;
     [SerializeField] private GameObject _rotationBody;
 
@@ -16,9 +17,13 @@ public class AIController : MonoBehaviour
     private Vector2 _currentVelocity;
     private ShootingManager _shootingManager;
     private PowerLevelManager _powerLevelManager;
+    private CharacterHealth _characterHealth;
+    private BulletAvoidanceHelper _bulletAvoidanceHelper;
     private Vector2 _desiredLocation;
     private AStar _aStar;
     private bool _disabled = false;
+    private float _timeSinceEnabled = 0f;
+    private int _randomMoveOffset = 0;
 
     void Awake()
     {
@@ -34,6 +39,8 @@ public class AIController : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody2D>();
         _shootingManager = GetComponent<ShootingManager>();
         _powerLevelManager = GetComponent<PowerLevelManager>();
+        _characterHealth = GetComponent<CharacterHealth>();
+        _bulletAvoidanceHelper = GetComponent<BulletAvoidanceHelper>();
         _aStar = new AStar(20, 20, 1);
     }
 
@@ -57,7 +64,11 @@ public class AIController : MonoBehaviour
         GetDesiredMoveLocation();
         SetVelocity();
         FaceSpriteTowardsTarget();
-        FireBullets();
+        if (_timeSinceEnabled >= _timeUntilAICanStartShooting)
+        {
+            FireBullets();
+        }
+        _timeSinceEnabled += Time.deltaTime;
     }
 
     public void SetMaxVelocity(float maxVelocity)
@@ -73,9 +84,11 @@ public class AIController : MonoBehaviour
     public void SetDisabled(bool disabled)
     {
         _disabled = disabled;
+        _characterHealth.SetImmune(disabled);
         if (_disabled)
         {
             _rigidbody.constraints = RigidbodyConstraints2D.FreezeAll;
+            _timeSinceEnabled = 0f;
         }
         else
         {
@@ -95,19 +108,28 @@ public class AIController : MonoBehaviour
 
     private void GetDesiredMoveLocation()
     {
+        if (Random.value < 0.001)
+        {
+            var offset = Random.value < 0.5 ? -1 : 1;
+            Debug.Log($"Offsetting movement by {offset}. Total offset: {_randomMoveOffset}.");
+            _randomMoveOffset += offset;
+        }
+
         var desiredLocation = _playerTarget.position;
         var minDistanceFromPlayer = float.MaxValue;
 
         const int circlePartitions = 10;
         for (var i = 0; i < circlePartitions; i++)
         {
-            var angle = 360f * i / circlePartitions;
+            var angle = Mathf.PI * 2 * i / circlePartitions;
             var potentialLocation = new Vector2(
                 _playerTarget.position.x + _desiredDistanceFromPlayer * Mathf.Cos(angle),
                 _playerTarget.position.y + _desiredDistanceFromPlayer * Mathf.Sin(angle));
 
             var distanceToLocation = Vector2.Distance(transform.position, potentialLocation);
-            if (distanceToLocation < minDistanceFromPlayer && HasLineOfSightToPlayer(potentialLocation))
+            if (distanceToLocation < minDistanceFromPlayer &&
+                HasLineOfSightToPlayer(potentialLocation) &&
+                !_bulletAvoidanceHelper.ContainsPlayerBulletsInPosition(potentialLocation))
             {
                 minDistanceFromPlayer = distanceToLocation;
                 desiredLocation = potentialLocation;

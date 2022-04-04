@@ -13,7 +13,6 @@ public class CharacterHealth : MonoBehaviour
     [SerializeField] private List<Health> _healths;
 
     private int _currentHealthIndex = 0;
-    private bool _isDead = false;
 
     // Use this for initialization
     void Start()
@@ -28,9 +27,12 @@ public class CharacterHealth : MonoBehaviour
         _healths[_currentHealthIndex].SetOnDeath(OnCurrentHealthDeath);
     }
 
-    public bool IsDead()
+    public void SetImmune(bool immune)
     {
-        return _isDead;
+        foreach (var health in _healths)
+        {
+            health.SetImmune(immune);
+        }
     }
 
     private void OnCurrentHealthDeath()
