@@ -27,7 +27,7 @@ public class AbilityBoxManager : MonoBehaviour
     {
         foreach (var abilityBox in _abilityBoxes)
         {
-            abilityBox.gameObject.SetActive(_playerAbilityManager.PlayerAbilityIsUnlocked(abilityBox.GetType()));
+            abilityBox.gameObject.SetActive(_playerAbilityManager.PlayerAbilityIsUnlocked(abilityBox.GetAbilityType()));
         }
     }
 }

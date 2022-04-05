@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba6546d68ace001419bfab5ed4096778, type: 3}
+  m_Name: PlayerWinConversation1
+  m_EditorClassIdentifier: 
+  DialogeList:
+  - TalkingCharacter: 0
+    Sentences:
+    - PoseNumber: 1
+      Face: 0
+      SentenceText: Face it. You don't stand a chance.
+    - PoseNumber: 2
+      Face: 1
+      SentenceText: Now go buy me a new sandwich!
+  - TalkingCharacter: 1
+    Sentences:
+    - PoseNumber: 4
+      Face: 4
+      SentenceText: I never expected you to be this strong.
+    - PoseNumber: 1
+      Face: 1
+      SentenceText: But, it's not over yet.
+  - TalkingCharacter: 0
+    Sentences:
+    - PoseNumber: 1
+      Face: 0
+      SentenceText: You just don't know when to stop. Give up before I beat you to
+        a bloody pulp.
+  - TalkingCharacter: 1
+    Sentences:
+    - PoseNumber: 4
+      Face: 1
+      SentenceText: I hope you're ready for this.
+    - PoseNumber: 3
+      Face: 3
+      SentenceText: MY TRUE POWER IS BEYOND YOUR IMAGINATION!
+    - PoseNumber: 1
+      Face: 0
+      SentenceText: 'Be warned. I can''t control the power of {enemy_sides} sides
+        too much. '
+  - TalkingCharacter: 0
+    Sentences:
+    - PoseNumber: 1
+      Face: 0
+      SentenceText: Don't get so full of yourself just because your head is a {enemy_shape}.
+    - PoseNumber: 2
+      Face: 0
+      SentenceText: Your fancy transformation just shows your lack of skill.

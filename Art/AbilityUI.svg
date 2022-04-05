@@ -40,9 +40,9 @@
      inkscape:pageshadow="2"
      inkscape:zoom="12.697326"
      inkscape:cx="11.132046"
-     inkscape:cy="1111.8549"
+     inkscape:cy="1108.7046"
      inkscape:document-units="mm"
-     inkscape:current-layer="layer7"
+     inkscape:current-layer="layer6"
      showgrid="false"
      inkscape:window-width="1920"
      inkscape:window-height="1017"
@@ -80,6 +80,7 @@
      inkscape:groupmode="layer"
      id="layer6"
      inkscape:label="CircleContainer"
+     style="display:inline"
      sodipodi:insensitive="true">
     <circle
        style="opacity:1;fill:#000000;fill-opacity:0.27638191;stroke:none;stroke-width:0.67792404;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
@@ -87,6 +88,15 @@
        cx="4.8034444"
        cy="3.0100214"
        r="4.157454" />
+    <circle
+       r="4.157454"
+       cy="3.0100214"
+       cx="4.8034444"
+       id="circle876"
+       style="opacity:1;fill:none;fill-opacity:0.27638191;stroke:#ffffff;stroke-width:0.37799999;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:0.37799998, 0.75599996;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
+       inkscape:export-filename="E:\Projects\Unity\ThisIsntEvenMyFinalForm\ThisIsntEvenMyFinalForm\Assets\Sprites\Shapes\dashed_circle_outline.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600" />
   </g>
   <g
      inkscape:groupmode="layer"
@@ -363,7 +373,8 @@
      inkscape:groupmode="layer"
      id="layer7"
      inkscape:label="DashAbility"
-     style="display:inline">
+     style="display:inline"
+     sodipodi:insensitive="true">
     <path
        inkscape:transform-center-y="0.05497795"
        inkscape:transform-center-x="0.044492864"
@@ -576,7 +587,7 @@
      inkscape:groupmode="layer"
      id="layer5"
      inkscape:label="Lock"
-     style="display:inline"
+     style="display:none"
      sodipodi:insensitive="true">
     <path
        style="opacity:1;fill:#424242;fill-opacity:1;stroke:none;stroke-width:2.13543272;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"

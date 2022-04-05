@@ -7,8 +7,9 @@ public class AbilityBox : MonoBehaviour
 {
     [SerializeField] private PlayerAbilityType _type;
     [SerializeField] private PlayerAbilityManager _playerAbilityManager;
-    [SerializeField] private GameObject _lockSprite;
     [SerializeField] private Image _reloadMask;
+    [SerializeField] private GameObject _newAbilityIndicator;
+    [SerializeField] private float _newAbilityIndicatorTime = 10f;
 
     private float? _abilityCooldownTime = null;
     private float _abilityTimer = 0f;
@@ -16,6 +17,7 @@ public class AbilityBox : MonoBehaviour
     private void OnEnable()
     {
         PowerLevelManager.OnPowerUp += UpdateAbilityBoxUI;
+        ShowNewAbilityIndicator();
     }
 
     private void OnDisable()
@@ -28,7 +30,7 @@ public class AbilityBox : MonoBehaviour
         UpdateAbilityBoxUI(1);
     }
 
-    public PlayerAbilityType GetType()
+    public PlayerAbilityType GetAbilityType()
     {
         return _type;
     }
@@ -54,7 +56,6 @@ public class AbilityBox : MonoBehaviour
 
     private void UpdateAbilityBoxUI(int _)
     {
-        _lockSprite.SetActive(!_playerAbilityManager.PlayerAbilityIsUnlocked(_type));
         _abilityCooldownTime = _playerAbilityManager.GetAbilityCooldown(_type);
         _playerAbilityManager.SetOnAbilityActivated(StartAbilityCooldown, _type);
     }
@@ -69,5 +70,17 @@ public class AbilityBox : MonoBehaviour
 
         _abilityTimer = _abilityCooldownTime.Value;
         _reloadMask.fillAmount = 1f;
+    }
+
+    private void ShowNewAbilityIndicator()
+    {
+        _newAbilityIndicator.SetActive(true);
+        StartCoroutine(HideNewAbilityIndicator());
+    }
+
+    private IEnumerator HideNewAbilityIndicator()
+    {
+        yield return new WaitForSeconds(_newAbilityIndicatorTime);
+        _newAbilityIndicator.SetActive(false);
     }
 }

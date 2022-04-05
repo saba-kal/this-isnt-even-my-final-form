@@ -7,13 +7,18 @@ public class DialogueManager : MonoBehaviour
 {
     public static DialogueManager Instance { get; private set; }
 
+    [SerializeField] private string _playerName;
+    [SerializeField] private string _enemyName;
     [SerializeField] private DialogueView _dialogueView;
-    [SerializeField] private List<Conversation> _conversationList;
+    [SerializeField] private Conversation _initialConversation;
+    [SerializeField] private List<Conversation> _playerWinConversationList;
+    [SerializeField] private List<Conversation> _enemyWinConversationList;
     [SerializeField] private Conversation _endGameConversation;
     [SerializeField] private CharacterPoseManager _playerPoseManager;
     [SerializeField] private CharacterPoseManager _enemyPoseManager;
 
-    private Queue<Conversation> _conversationQueue = new Queue<Conversation>();
+    private Queue<Conversation> _playerWinConversationQueue = new Queue<Conversation>();
+    private Queue<Conversation> _enemyWinConversationQueue = new Queue<Conversation>();
     private Queue<Sentence> _sentenceQueue = new Queue<Sentence>();
     private Action _onConversationComplete;
     private bool _conversationInProgress = false;
@@ -30,7 +35,8 @@ public class DialogueManager : MonoBehaviour
             Instance = this;
         }
 
-        _conversationQueue = new Queue<Conversation>(_conversationList);
+        _playerWinConversationQueue = new Queue<Conversation>(_playerWinConversationList);
+        _enemyWinConversationQueue = new Queue<Conversation>(_enemyWinConversationList);
     }
 
     private void Update()
@@ -41,10 +47,25 @@ public class DialogueManager : MonoBehaviour
             ShowNextSentence();
         }
     }
-
-    public void StartConversation(Action onComplete)
+    public void StartInitialConversation(Action onComplete)
     {
-        if (_conversationQueue == null || _conversationQueue.Count == 0)
+        if (_conversationInProgress)
+        {
+            return;
+        }
+
+        _conversationInProgress = true;
+        _onConversationComplete = onComplete;
+        _sentenceQueue = new Queue<Sentence>();
+        StartConversation(_initialConversation);
+    }
+
+    public void StartConversation(bool playerIsWinner, Action onComplete)
+    {
+        var conversationQueue = playerIsWinner ?
+            _playerWinConversationQueue : _enemyWinConversationQueue;
+
+        if (conversationQueue == null || conversationQueue.Count == 0)
         {
             Debug.Log("No more conversations");
             onComplete?.Invoke();
@@ -55,7 +76,7 @@ public class DialogueManager : MonoBehaviour
         _onConversationComplete = onComplete;
         _sentenceQueue = new Queue<Sentence>();
 
-        var conversation = _conversationQueue.Dequeue();
+        var conversation = conversationQueue.Dequeue();
         StartConversation(conversation);
     }
 
@@ -113,7 +134,7 @@ public class DialogueManager : MonoBehaviour
 
         _currentSentence = _sentenceQueue.Dequeue();
         UpdateCharacterPose();
-        StartCoroutine(_dialogueView.AnimateSentence(_currentSentence.SentenceText));
+        StartCoroutine(_dialogueView.AnimateSentence(GetNameParam(_currentSentence.TalkingCharacter), BuildSentence()));
     }
 
     private void UpdateCharacterPose()
@@ -131,5 +152,109 @@ public class DialogueManager : MonoBehaviour
         poseView.gameObject.SetActive(true);
 
         poseView.UpdatePose(_currentSentence, powerLevel);
+    }
+
+    private string BuildSentence()
+    {
+        var sentence = _currentSentence.SentenceText;
+        sentence = sentence
+            .Replace("{enemy_name}", GetNameParam(CharacterType.Enemy))
+            .Replace("{player_name}", GetNameParam(CharacterType.Player))
+            .Replace("{enemy_sides}", GetSideCountParam(CharacterType.Enemy))
+            .Replace("{player_sides}", GetSideCountParam(CharacterType.Player))
+            .Replace("{enemy_shape}", GetShapeParam(CharacterType.Enemy))
+            .Replace("{player_shape}", GetShapeParam(CharacterType.Player))
+            .Replace("{enemy_sides_stutter}", GetSideCountStutterParam(CharacterType.Enemy))
+            .Replace("{player_sides_stutter}", GetSideCountStutterParam(CharacterType.Player))
+            .Replace("{enemy_shape_stutter}", GetShapeStutterParam(CharacterType.Enemy))
+            .Replace("{player_shape_stutter}", GetShapeStutterParam(CharacterType.Player));
+
+        return sentence;
+    }
+
+    private string GetNameParam(CharacterType characterType)
+    {
+        switch (characterType)
+        {
+            case CharacterType.Enemy:
+                return _enemyName;
+            case CharacterType.Player:
+                return _playerName;
+        }
+
+        return "No Name";
+    }
+
+    private string GetSideCountParam(CharacterType characterType)
+    {
+        switch (GetPowerLevel(characterType))
+        {
+            case 1:
+                return "three";
+            case 2:
+                return "four";
+            case 3:
+                return "five";
+            case 4:
+                return "six";
+        }
+        return "zero";
+    }
+
+    private string GetShapeParam(CharacterType characterType)
+    {
+        switch (GetPowerLevel(characterType))
+        {
+            case 1:
+                return "triangle";
+            case 2:
+                return "square";
+            case 3:
+                return "pentagon";
+            case 4:
+                return "hexagon";
+        }
+
+        return "no shape";
+    }
+
+    private string GetSideCountStutterParam(CharacterType characterType)
+    {
+        switch (GetPowerLevel(characterType))
+        {
+            case 1:
+                return "th-th-three";
+            case 2:
+                return "f-f-four";
+            case 3:
+                return "f-f-five";
+            case 4:
+                return "s-s-six";
+        }
+        return "z-z-zero";
+    }
+
+    private string GetShapeStutterParam(CharacterType characterType)
+    {
+        switch (GetPowerLevel(characterType))
+        {
+            case 1:
+                return "t-t-triangle";
+            case 2:
+                return "s-s-square";
+            case 3:
+                return "p-p-pentagon";
+            case 4:
+                return "h-h-hexagon";
+        }
+
+        return "n-n-no shape";
+    }
+
+    private int GetPowerLevel(CharacterType characterType)
+    {
+        return characterType == CharacterType.Enemy ?
+            AIController.Instance.GetPowerLevel() :
+            PlayerController.Instance.GetPowerLevel();
     }
 }

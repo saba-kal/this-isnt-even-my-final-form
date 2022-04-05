@@ -11,14 +11,12 @@ public abstract class BaseBullet : MonoBehaviour
 
     void Start()
     {
-        Destroy(gameObject, _lifetime);
         VirtualStart();
     }
 
     protected virtual void VirtualStart()
     {
-        //Method is meant to be overwritten by inheriting classes.
-        return;
+        Destroy(gameObject, _lifetime);
     }
 
     public void SetDirection(Vector2 direction)

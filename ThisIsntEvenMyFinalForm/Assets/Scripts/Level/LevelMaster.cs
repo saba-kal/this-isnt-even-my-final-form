@@ -31,7 +31,7 @@ public class LevelMaster : MonoBehaviour
     {
         SetGameplayDisabled(true);
         _tutorialStage.RemoveTutorialTooltips();
-        DialogueManager.Instance.StartConversation(() =>
+        DialogueManager.Instance.StartInitialConversation(() =>
         {
             _tutorialStage.RemoveTutorialStage(() =>
             {
@@ -47,8 +47,10 @@ public class LevelMaster : MonoBehaviour
 
     private void OnCharacterHealthLost(CharacterHealth characterHealth)
     {
+        var playerIsWinner = characterHealth.gameObject.layer == (int)CollisionLayer.Enemy;
+
         SetGameplayDisabled(true);
-        DialogueManager.Instance.StartConversation(() =>
+        DialogueManager.Instance.StartConversation(playerIsWinner, () =>
         {
             SetGameplayDisabled(false);
 

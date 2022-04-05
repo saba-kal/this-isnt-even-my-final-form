@@ -88,7 +88,7 @@ MonoBehaviour:
   _damage: 1
   _speed: 0
   _lifetime: 10
-  _onDestroyEffect: {fileID: 7319752281379485876, guid: 6f6344114731bdd41ba7cbdca4228158, type: 3}
+  _onDestroyEffect: {fileID: 0}
 --- !u!114 &1111494204890521647
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -104,6 +104,7 @@ MonoBehaviour:
   DestroyOnDeath: 1
   MaxHealth: 1
   _healthBar: {fileID: 0}
+  _invulnerabilityDuration: 0
 --- !u!1 &99245270377691122
 GameObject:
   m_ObjectHideFlags: 0
@@ -558,7 +559,7 @@ MonoBehaviour:
   _damage: 1
   _speed: 0
   _lifetime: 10
-  _onDestroyEffect: {fileID: 7319752281379485876, guid: 6f6344114731bdd41ba7cbdca4228158, type: 3}
+  _onDestroyEffect: {fileID: 0}
 --- !u!114 &2366602211214873778
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -574,6 +575,7 @@ MonoBehaviour:
   DestroyOnDeath: 1
   MaxHealth: 1
   _healthBar: {fileID: 0}
+  _invulnerabilityDuration: 0
 --- !u!1 &234478229311753884
 GameObject:
   m_ObjectHideFlags: 0
@@ -825,7 +827,7 @@ MonoBehaviour:
   _damage: 1
   _speed: 0
   _lifetime: 10
-  _onDestroyEffect: {fileID: 7319752281379485876, guid: 6f6344114731bdd41ba7cbdca4228158, type: 3}
+  _onDestroyEffect: {fileID: 0}
 --- !u!114 &5942611903137813438
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -841,6 +843,7 @@ MonoBehaviour:
   DestroyOnDeath: 1
   MaxHealth: 1
   _healthBar: {fileID: 0}
+  _invulnerabilityDuration: 0
 --- !u!1 &399699465701140692
 GameObject:
   m_ObjectHideFlags: 0
@@ -929,7 +932,7 @@ MonoBehaviour:
   _damage: 1
   _speed: 0
   _lifetime: 10
-  _onDestroyEffect: {fileID: 7319752281379485876, guid: 6f6344114731bdd41ba7cbdca4228158, type: 3}
+  _onDestroyEffect: {fileID: 0}
 --- !u!114 &6788172252993850052
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -945,6 +948,7 @@ MonoBehaviour:
   DestroyOnDeath: 1
   MaxHealth: 1
   _healthBar: {fileID: 0}
+  _invulnerabilityDuration: 0
 --- !u!1 &455583316923732131
 GameObject:
   m_ObjectHideFlags: 0
@@ -1136,7 +1140,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 520860064973030392}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.7, y: 0, z: 0}
+  m_LocalPosition: {x: 0.6999998, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1196,7 +1200,7 @@ MonoBehaviour:
   _damage: 1
   _speed: 0
   _lifetime: 10
-  _onDestroyEffect: {fileID: 7319752281379485876, guid: 6f6344114731bdd41ba7cbdca4228158, type: 3}
+  _onDestroyEffect: {fileID: 0}
 --- !u!114 &1458390240326129324
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1212,6 +1216,7 @@ MonoBehaviour:
   DestroyOnDeath: 1
   MaxHealth: 1
   _healthBar: {fileID: 0}
+  _invulnerabilityDuration: 0
 --- !u!1 &600360393801416738
 GameObject:
   m_ObjectHideFlags: 0
@@ -1300,7 +1305,7 @@ MonoBehaviour:
   _damage: 1
   _speed: 0
   _lifetime: 10
-  _onDestroyEffect: {fileID: 7319752281379485876, guid: 6f6344114731bdd41ba7cbdca4228158, type: 3}
+  _onDestroyEffect: {fileID: 0}
 --- !u!114 &9007465480035928188
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1316,6 +1321,7 @@ MonoBehaviour:
   DestroyOnDeath: 1
   MaxHealth: 1
   _healthBar: {fileID: 0}
+  _invulnerabilityDuration: 0
 --- !u!1 &724253296778591118
 GameObject:
   m_ObjectHideFlags: 0
@@ -1404,7 +1410,7 @@ MonoBehaviour:
   _damage: 1
   _speed: 0
   _lifetime: 10
-  _onDestroyEffect: {fileID: 7319752281379485876, guid: 6f6344114731bdd41ba7cbdca4228158, type: 3}
+  _onDestroyEffect: {fileID: 0}
 --- !u!114 &5837350537804145777
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1420,6 +1426,7 @@ MonoBehaviour:
   DestroyOnDeath: 1
   MaxHealth: 1
   _healthBar: {fileID: 0}
+  _invulnerabilityDuration: 0
 --- !u!1 &961828190218153589
 GameObject:
   m_ObjectHideFlags: 0
@@ -1834,7 +1841,7 @@ MonoBehaviour:
   _damage: 1
   _speed: 0
   _lifetime: 10
-  _onDestroyEffect: {fileID: 7319752281379485876, guid: 6f6344114731bdd41ba7cbdca4228158, type: 3}
+  _onDestroyEffect: {fileID: 0}
 --- !u!114 &3317731470327087510
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1850,6 +1857,7 @@ MonoBehaviour:
   DestroyOnDeath: 1
   MaxHealth: 1
   _healthBar: {fileID: 0}
+  _invulnerabilityDuration: 0
 --- !u!1 &1037564500174574019
 GameObject:
   m_ObjectHideFlags: 0
@@ -1938,7 +1946,7 @@ MonoBehaviour:
   _damage: 1
   _speed: 0
   _lifetime: 10
-  _onDestroyEffect: {fileID: 7319752281379485876, guid: 6f6344114731bdd41ba7cbdca4228158, type: 3}
+  _onDestroyEffect: {fileID: 0}
 --- !u!114 &534449759124137748
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1954,6 +1962,7 @@ MonoBehaviour:
   DestroyOnDeath: 1
   MaxHealth: 1
   _healthBar: {fileID: 0}
+  _invulnerabilityDuration: 0
 --- !u!1 &1043456003952779335
 GameObject:
   m_ObjectHideFlags: 0
@@ -2368,7 +2377,7 @@ MonoBehaviour:
   _damage: 1
   _speed: 0
   _lifetime: 10
-  _onDestroyEffect: {fileID: 7319752281379485876, guid: 6f6344114731bdd41ba7cbdca4228158, type: 3}
+  _onDestroyEffect: {fileID: 0}
 --- !u!114 &8248224738378630646
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2384,6 +2393,7 @@ MonoBehaviour:
   DestroyOnDeath: 1
   MaxHealth: 1
   _healthBar: {fileID: 0}
+  _invulnerabilityDuration: 0
 --- !u!1 &1268737840944186744
 GameObject:
   m_ObjectHideFlags: 0
@@ -2798,7 +2808,7 @@ MonoBehaviour:
   _damage: 1
   _speed: 0
   _lifetime: 10
-  _onDestroyEffect: {fileID: 7319752281379485876, guid: 6f6344114731bdd41ba7cbdca4228158, type: 3}
+  _onDestroyEffect: {fileID: 0}
 --- !u!114 &6306096518426304259
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2814,6 +2824,7 @@ MonoBehaviour:
   DestroyOnDeath: 1
   MaxHealth: 1
   _healthBar: {fileID: 0}
+  _invulnerabilityDuration: 0
 --- !u!1 &1749923957419135063
 GameObject:
   m_ObjectHideFlags: 0
@@ -3065,7 +3076,7 @@ MonoBehaviour:
   _damage: 1
   _speed: 0
   _lifetime: 10
-  _onDestroyEffect: {fileID: 7319752281379485876, guid: 6f6344114731bdd41ba7cbdca4228158, type: 3}
+  _onDestroyEffect: {fileID: 0}
 --- !u!114 &2585002651327016686
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3081,6 +3092,7 @@ MonoBehaviour:
   DestroyOnDeath: 1
   MaxHealth: 1
   _healthBar: {fileID: 0}
+  _invulnerabilityDuration: 0
 --- !u!1 &1770583604885195075
 GameObject:
   m_ObjectHideFlags: 0
@@ -3332,7 +3344,7 @@ MonoBehaviour:
   _damage: 1
   _speed: 0
   _lifetime: 10
-  _onDestroyEffect: {fileID: 7319752281379485876, guid: 6f6344114731bdd41ba7cbdca4228158, type: 3}
+  _onDestroyEffect: {fileID: 0}
 --- !u!114 &2197537070771739023
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3348,6 +3360,7 @@ MonoBehaviour:
   DestroyOnDeath: 1
   MaxHealth: 1
   _healthBar: {fileID: 0}
+  _invulnerabilityDuration: 0
 --- !u!1 &2013742891780347075
 GameObject:
   m_ObjectHideFlags: 0
@@ -3376,7 +3389,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2013742891780347075}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.7, y: 0, z: 0}
+  m_LocalPosition: {x: -0.70000005, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3436,7 +3449,7 @@ MonoBehaviour:
   _damage: 1
   _speed: 0
   _lifetime: 10
-  _onDestroyEffect: {fileID: 7319752281379485876, guid: 6f6344114731bdd41ba7cbdca4228158, type: 3}
+  _onDestroyEffect: {fileID: 0}
 --- !u!114 &5369516137009373224
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3452,6 +3465,7 @@ MonoBehaviour:
   DestroyOnDeath: 1
   MaxHealth: 1
   _healthBar: {fileID: 0}
+  _invulnerabilityDuration: 0
 --- !u!1 &2129854654249017350
 GameObject:
   m_ObjectHideFlags: 0
@@ -3580,7 +3594,7 @@ MonoBehaviour:
   _damage: 1
   _speed: 0
   _lifetime: 10
-  _onDestroyEffect: {fileID: 7319752281379485876, guid: 6f6344114731bdd41ba7cbdca4228158, type: 3}
+  _onDestroyEffect: {fileID: 0}
 --- !u!114 &8930698718245539749
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3596,6 +3610,7 @@ MonoBehaviour:
   DestroyOnDeath: 1
   MaxHealth: 1
   _healthBar: {fileID: 0}
+  _invulnerabilityDuration: 0
 --- !u!1 &2166886188528667577
 GameObject:
   m_ObjectHideFlags: 0
@@ -3950,7 +3965,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2314705160658626555}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.7, z: 0}
+  m_LocalPosition: {x: 0, y: 0.70000005, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4010,7 +4025,7 @@ MonoBehaviour:
   _damage: 1
   _speed: 0
   _lifetime: 10
-  _onDestroyEffect: {fileID: 7319752281379485876, guid: 6f6344114731bdd41ba7cbdca4228158, type: 3}
+  _onDestroyEffect: {fileID: 0}
 --- !u!114 &7088337343047236266
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4026,6 +4041,7 @@ MonoBehaviour:
   DestroyOnDeath: 1
   MaxHealth: 1
   _healthBar: {fileID: 0}
+  _invulnerabilityDuration: 0
 --- !u!1 &2320885095443418637
 GameObject:
   m_ObjectHideFlags: 0
@@ -4114,7 +4130,7 @@ MonoBehaviour:
   _damage: 1
   _speed: 0
   _lifetime: 10
-  _onDestroyEffect: {fileID: 7319752281379485876, guid: 6f6344114731bdd41ba7cbdca4228158, type: 3}
+  _onDestroyEffect: {fileID: 0}
 --- !u!114 &1708726749219467700
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4130,6 +4146,7 @@ MonoBehaviour:
   DestroyOnDeath: 1
   MaxHealth: 1
   _healthBar: {fileID: 0}
+  _invulnerabilityDuration: 0
 --- !u!1 &2356426453760694094
 GameObject:
   m_ObjectHideFlags: 0
@@ -4218,7 +4235,7 @@ MonoBehaviour:
   _damage: 1
   _speed: 0
   _lifetime: 10
-  _onDestroyEffect: {fileID: 7319752281379485876, guid: 6f6344114731bdd41ba7cbdca4228158, type: 3}
+  _onDestroyEffect: {fileID: 0}
 --- !u!114 &6292675489733866263
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4234,6 +4251,7 @@ MonoBehaviour:
   DestroyOnDeath: 1
   MaxHealth: 1
   _healthBar: {fileID: 0}
+  _invulnerabilityDuration: 0
 --- !u!1 &2503632339448928593
 GameObject:
   m_ObjectHideFlags: 0
@@ -4811,7 +4829,7 @@ MonoBehaviour:
   _damage: 1
   _speed: 0
   _lifetime: 10
-  _onDestroyEffect: {fileID: 7319752281379485876, guid: 6f6344114731bdd41ba7cbdca4228158, type: 3}
+  _onDestroyEffect: {fileID: 0}
 --- !u!114 &3782830570376138739
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4827,6 +4845,7 @@ MonoBehaviour:
   DestroyOnDeath: 1
   MaxHealth: 1
   _healthBar: {fileID: 0}
+  _invulnerabilityDuration: 0
 --- !u!1 &3149415461153546195
 GameObject:
   m_ObjectHideFlags: 0
@@ -4855,7 +4874,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3149415461153546195}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.7, y: 0.7, z: 0}
+  m_LocalPosition: {x: -0.70000005, y: 0.70000005, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4915,7 +4934,7 @@ MonoBehaviour:
   _damage: 1
   _speed: 0
   _lifetime: 10
-  _onDestroyEffect: {fileID: 7319752281379485876, guid: 6f6344114731bdd41ba7cbdca4228158, type: 3}
+  _onDestroyEffect: {fileID: 0}
 --- !u!114 &8515840400757218763
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4931,6 +4950,7 @@ MonoBehaviour:
   DestroyOnDeath: 1
   MaxHealth: 1
   _healthBar: {fileID: 0}
+  _invulnerabilityDuration: 0
 --- !u!1 &3241932737240255656
 GameObject:
   m_ObjectHideFlags: 0
@@ -5019,7 +5039,7 @@ MonoBehaviour:
   _damage: 1
   _speed: 0
   _lifetime: 10
-  _onDestroyEffect: {fileID: 7319752281379485876, guid: 6f6344114731bdd41ba7cbdca4228158, type: 3}
+  _onDestroyEffect: {fileID: 0}
 --- !u!114 &3237906003482939496
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5035,6 +5055,7 @@ MonoBehaviour:
   DestroyOnDeath: 1
   MaxHealth: 1
   _healthBar: {fileID: 0}
+  _invulnerabilityDuration: 0
 --- !u!1 &3310797213386977382
 GameObject:
   m_ObjectHideFlags: 0
@@ -5737,7 +5758,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damage: 1
-  _speed: 7
+  _speed: 5
   _lifetime: 10
   _rotationSpeed: 120
   _arcHeight: 7
@@ -6155,7 +6176,7 @@ MonoBehaviour:
   _damage: 1
   _speed: 0
   _lifetime: 10
-  _onDestroyEffect: {fileID: 7319752281379485876, guid: 6f6344114731bdd41ba7cbdca4228158, type: 3}
+  _onDestroyEffect: {fileID: 0}
 --- !u!114 &7178679352589560773
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6171,6 +6192,7 @@ MonoBehaviour:
   DestroyOnDeath: 1
   MaxHealth: 1
   _healthBar: {fileID: 0}
+  _invulnerabilityDuration: 0
 --- !u!1 &3845440162520101495
 GameObject:
   m_ObjectHideFlags: 0
@@ -6259,7 +6281,7 @@ MonoBehaviour:
   _damage: 1
   _speed: 0
   _lifetime: 10
-  _onDestroyEffect: {fileID: 7319752281379485876, guid: 6f6344114731bdd41ba7cbdca4228158, type: 3}
+  _onDestroyEffect: {fileID: 0}
 --- !u!114 &6810157410046747007
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6275,6 +6297,7 @@ MonoBehaviour:
   DestroyOnDeath: 1
   MaxHealth: 1
   _healthBar: {fileID: 0}
+  _invulnerabilityDuration: 0
 --- !u!1 &3884590557518716540
 GameObject:
   m_ObjectHideFlags: 0
@@ -6566,7 +6589,7 @@ MonoBehaviour:
   _damage: 1
   _speed: 0
   _lifetime: 10
-  _onDestroyEffect: {fileID: 7319752281379485876, guid: 6f6344114731bdd41ba7cbdca4228158, type: 3}
+  _onDestroyEffect: {fileID: 0}
 --- !u!114 &8736904221371611729
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6582,6 +6605,7 @@ MonoBehaviour:
   DestroyOnDeath: 1
   MaxHealth: 1
   _healthBar: {fileID: 0}
+  _invulnerabilityDuration: 0
 --- !u!1 &4100071962259770819
 GameObject:
   m_ObjectHideFlags: 0
@@ -6833,7 +6857,7 @@ MonoBehaviour:
   _damage: 1
   _speed: 0
   _lifetime: 10
-  _onDestroyEffect: {fileID: 7319752281379485876, guid: 6f6344114731bdd41ba7cbdca4228158, type: 3}
+  _onDestroyEffect: {fileID: 0}
 --- !u!114 &4713500168978619393
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6849,6 +6873,7 @@ MonoBehaviour:
   DestroyOnDeath: 1
   MaxHealth: 1
   _healthBar: {fileID: 0}
+  _invulnerabilityDuration: 0
 --- !u!1 &4397436234683847588
 GameObject:
   m_ObjectHideFlags: 0
@@ -7263,7 +7288,7 @@ MonoBehaviour:
   _damage: 1
   _speed: 0
   _lifetime: 10
-  _onDestroyEffect: {fileID: 7319752281379485876, guid: 6f6344114731bdd41ba7cbdca4228158, type: 3}
+  _onDestroyEffect: {fileID: 0}
 --- !u!114 &5335513210131301317
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7279,6 +7304,7 @@ MonoBehaviour:
   DestroyOnDeath: 1
   MaxHealth: 1
   _healthBar: {fileID: 0}
+  _invulnerabilityDuration: 0
 --- !u!1 &4682755969211258601
 GameObject:
   m_ObjectHideFlags: 0
@@ -7530,7 +7556,7 @@ MonoBehaviour:
   _damage: 1
   _speed: 0
   _lifetime: 10
-  _onDestroyEffect: {fileID: 7319752281379485876, guid: 6f6344114731bdd41ba7cbdca4228158, type: 3}
+  _onDestroyEffect: {fileID: 0}
 --- !u!114 &3663482308780991693
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7546,6 +7572,7 @@ MonoBehaviour:
   DestroyOnDeath: 1
   MaxHealth: 1
   _healthBar: {fileID: 0}
+  _invulnerabilityDuration: 0
 --- !u!1 &4878069522218441370
 GameObject:
   m_ObjectHideFlags: 0
@@ -7797,7 +7824,7 @@ MonoBehaviour:
   _damage: 1
   _speed: 0
   _lifetime: 10
-  _onDestroyEffect: {fileID: 7319752281379485876, guid: 6f6344114731bdd41ba7cbdca4228158, type: 3}
+  _onDestroyEffect: {fileID: 0}
 --- !u!114 &6552438534402535282
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7813,6 +7840,7 @@ MonoBehaviour:
   DestroyOnDeath: 1
   MaxHealth: 1
   _healthBar: {fileID: 0}
+  _invulnerabilityDuration: 0
 --- !u!1 &5053794523619935480
 GameObject:
   m_ObjectHideFlags: 0
@@ -8227,7 +8255,7 @@ MonoBehaviour:
   _damage: 1
   _speed: 0
   _lifetime: 10
-  _onDestroyEffect: {fileID: 7319752281379485876, guid: 6f6344114731bdd41ba7cbdca4228158, type: 3}
+  _onDestroyEffect: {fileID: 0}
 --- !u!114 &4463741277131287889
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8243,6 +8271,7 @@ MonoBehaviour:
   DestroyOnDeath: 1
   MaxHealth: 1
   _healthBar: {fileID: 0}
+  _invulnerabilityDuration: 0
 --- !u!1 &5282215813997767523
 GameObject:
   m_ObjectHideFlags: 0
@@ -8271,7 +8300,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5282215813997767523}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.7, y: -0.7, z: 0}
+  m_LocalPosition: {x: 0.6999998, y: -0.6999998, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -8331,7 +8360,7 @@ MonoBehaviour:
   _damage: 1
   _speed: 0
   _lifetime: 10
-  _onDestroyEffect: {fileID: 7319752281379485876, guid: 6f6344114731bdd41ba7cbdca4228158, type: 3}
+  _onDestroyEffect: {fileID: 0}
 --- !u!114 &5850194733126656869
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8347,6 +8376,7 @@ MonoBehaviour:
   DestroyOnDeath: 1
   MaxHealth: 1
   _healthBar: {fileID: 0}
+  _invulnerabilityDuration: 0
 --- !u!1 &5416237608332227550
 GameObject:
   m_ObjectHideFlags: 0
@@ -8435,7 +8465,7 @@ MonoBehaviour:
   _damage: 1
   _speed: 0
   _lifetime: 10
-  _onDestroyEffect: {fileID: 7319752281379485876, guid: 6f6344114731bdd41ba7cbdca4228158, type: 3}
+  _onDestroyEffect: {fileID: 0}
 --- !u!114 &2678795443876401061
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8451,6 +8481,7 @@ MonoBehaviour:
   DestroyOnDeath: 1
   MaxHealth: 1
   _healthBar: {fileID: 0}
+  _invulnerabilityDuration: 0
 --- !u!1 &5469333876852004607
 GameObject:
   m_ObjectHideFlags: 0
@@ -8479,7 +8510,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5469333876852004607}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.7, y: 0.7, z: 0}
+  m_LocalPosition: {x: 0.6999998, y: 0.70000005, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -8539,7 +8570,7 @@ MonoBehaviour:
   _damage: 1
   _speed: 0
   _lifetime: 10
-  _onDestroyEffect: {fileID: 7319752281379485876, guid: 6f6344114731bdd41ba7cbdca4228158, type: 3}
+  _onDestroyEffect: {fileID: 0}
 --- !u!114 &6022901382648051970
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8555,6 +8586,7 @@ MonoBehaviour:
   DestroyOnDeath: 1
   MaxHealth: 1
   _healthBar: {fileID: 0}
+  _invulnerabilityDuration: 0
 --- !u!1 &5534532937461478638
 GameObject:
   m_ObjectHideFlags: 0
@@ -8643,7 +8675,7 @@ MonoBehaviour:
   _damage: 1
   _speed: 0
   _lifetime: 10
-  _onDestroyEffect: {fileID: 7319752281379485876, guid: 6f6344114731bdd41ba7cbdca4228158, type: 3}
+  _onDestroyEffect: {fileID: 0}
 --- !u!114 &7329878423854130082
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8659,6 +8691,7 @@ MonoBehaviour:
   DestroyOnDeath: 1
   MaxHealth: 1
   _healthBar: {fileID: 0}
+  _invulnerabilityDuration: 0
 --- !u!1 &5844963174635292863
 GameObject:
   m_ObjectHideFlags: 0
@@ -8747,7 +8780,7 @@ MonoBehaviour:
   _damage: 1
   _speed: 0
   _lifetime: 10
-  _onDestroyEffect: {fileID: 7319752281379485876, guid: 6f6344114731bdd41ba7cbdca4228158, type: 3}
+  _onDestroyEffect: {fileID: 0}
 --- !u!114 &3433207509102786584
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8763,6 +8796,7 @@ MonoBehaviour:
   DestroyOnDeath: 1
   MaxHealth: 1
   _healthBar: {fileID: 0}
+  _invulnerabilityDuration: 0
 --- !u!1 &5872598691205851041
 GameObject:
   m_ObjectHideFlags: 0
@@ -8791,7 +8825,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5872598691205851041}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.7, y: -0.7, z: 0}
+  m_LocalPosition: {x: -0.70000005, y: -0.6999998, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -8851,7 +8885,7 @@ MonoBehaviour:
   _damage: 1
   _speed: 0
   _lifetime: 10
-  _onDestroyEffect: {fileID: 7319752281379485876, guid: 6f6344114731bdd41ba7cbdca4228158, type: 3}
+  _onDestroyEffect: {fileID: 0}
 --- !u!114 &4863980723871805084
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8867,6 +8901,7 @@ MonoBehaviour:
   DestroyOnDeath: 1
   MaxHealth: 1
   _healthBar: {fileID: 0}
+  _invulnerabilityDuration: 0
 --- !u!1 &6121343914977807528
 GameObject:
   m_ObjectHideFlags: 0
@@ -9321,7 +9356,7 @@ MonoBehaviour:
   _damage: 1
   _speed: 0
   _lifetime: 10
-  _onDestroyEffect: {fileID: 7319752281379485876, guid: 6f6344114731bdd41ba7cbdca4228158, type: 3}
+  _onDestroyEffect: {fileID: 0}
 --- !u!114 &9142245020701947264
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9337,6 +9372,7 @@ MonoBehaviour:
   DestroyOnDeath: 1
   MaxHealth: 1
   _healthBar: {fileID: 0}
+  _invulnerabilityDuration: 0
 --- !u!1 &6605697820239151332
 GameObject:
   m_ObjectHideFlags: 0
@@ -9425,7 +9461,7 @@ MonoBehaviour:
   _damage: 1
   _speed: 0
   _lifetime: 10
-  _onDestroyEffect: {fileID: 7319752281379485876, guid: 6f6344114731bdd41ba7cbdca4228158, type: 3}
+  _onDestroyEffect: {fileID: 0}
 --- !u!114 &9035183758625801330
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9441,6 +9477,7 @@ MonoBehaviour:
   DestroyOnDeath: 1
   MaxHealth: 1
   _healthBar: {fileID: 0}
+  _invulnerabilityDuration: 0
 --- !u!1 &6661952204533344731
 GameObject:
   m_ObjectHideFlags: 0
@@ -9692,7 +9729,7 @@ MonoBehaviour:
   _damage: 1
   _speed: 0
   _lifetime: 10
-  _onDestroyEffect: {fileID: 7319752281379485876, guid: 6f6344114731bdd41ba7cbdca4228158, type: 3}
+  _onDestroyEffect: {fileID: 0}
 --- !u!114 &6322958629364422500
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9708,6 +9745,7 @@ MonoBehaviour:
   DestroyOnDeath: 1
   MaxHealth: 1
   _healthBar: {fileID: 0}
+  _invulnerabilityDuration: 0
 --- !u!1 &6832739643029453756
 GameObject:
   m_ObjectHideFlags: 0
@@ -10611,7 +10649,7 @@ MonoBehaviour:
   _damage: 1
   _speed: 0
   _lifetime: 10
-  _onDestroyEffect: {fileID: 7319752281379485876, guid: 6f6344114731bdd41ba7cbdca4228158, type: 3}
+  _onDestroyEffect: {fileID: 0}
 --- !u!114 &4709406644803597772
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10627,6 +10665,7 @@ MonoBehaviour:
   DestroyOnDeath: 1
   MaxHealth: 1
   _healthBar: {fileID: 0}
+  _invulnerabilityDuration: 0
 --- !u!1 &7591015295606413144
 GameObject:
   m_ObjectHideFlags: 0
@@ -11041,7 +11080,7 @@ MonoBehaviour:
   _damage: 1
   _speed: 0
   _lifetime: 10
-  _onDestroyEffect: {fileID: 7319752281379485876, guid: 6f6344114731bdd41ba7cbdca4228158, type: 3}
+  _onDestroyEffect: {fileID: 0}
 --- !u!114 &4556350467222519394
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11057,6 +11096,7 @@ MonoBehaviour:
   DestroyOnDeath: 1
   MaxHealth: 1
   _healthBar: {fileID: 0}
+  _invulnerabilityDuration: 0
 --- !u!1 &7785741212006406695
 GameObject:
   m_ObjectHideFlags: 0
@@ -11145,7 +11185,7 @@ MonoBehaviour:
   _damage: 1
   _speed: 0
   _lifetime: 10
-  _onDestroyEffect: {fileID: 7319752281379485876, guid: 6f6344114731bdd41ba7cbdca4228158, type: 3}
+  _onDestroyEffect: {fileID: 0}
 --- !u!114 &8229190895991614370
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11161,6 +11201,7 @@ MonoBehaviour:
   DestroyOnDeath: 1
   MaxHealth: 1
   _healthBar: {fileID: 0}
+  _invulnerabilityDuration: 0
 --- !u!1 &7965498622421451300
 GameObject:
   m_ObjectHideFlags: 0
@@ -11189,7 +11230,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7965498622421451300}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.7, z: 0}
+  m_LocalPosition: {x: 0, y: -0.6999998, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -11249,7 +11290,7 @@ MonoBehaviour:
   _damage: 1
   _speed: 0
   _lifetime: 10
-  _onDestroyEffect: {fileID: 7319752281379485876, guid: 6f6344114731bdd41ba7cbdca4228158, type: 3}
+  _onDestroyEffect: {fileID: 0}
 --- !u!114 &8268448657154629051
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11265,6 +11306,7 @@ MonoBehaviour:
   DestroyOnDeath: 1
   MaxHealth: 1
   _healthBar: {fileID: 0}
+  _invulnerabilityDuration: 0
 --- !u!1 &8050974614838955661
 GameObject:
   m_ObjectHideFlags: 0
@@ -11516,7 +11558,7 @@ MonoBehaviour:
   _damage: 1
   _speed: 0
   _lifetime: 10
-  _onDestroyEffect: {fileID: 7319752281379485876, guid: 6f6344114731bdd41ba7cbdca4228158, type: 3}
+  _onDestroyEffect: {fileID: 0}
 --- !u!114 &2997037372759696407
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11532,6 +11574,7 @@ MonoBehaviour:
   DestroyOnDeath: 1
   MaxHealth: 1
   _healthBar: {fileID: 0}
+  _invulnerabilityDuration: 0
 --- !u!1 &8166891206392066803
 GameObject:
   m_ObjectHideFlags: 0
@@ -11946,7 +11989,7 @@ MonoBehaviour:
   _damage: 1
   _speed: 0
   _lifetime: 10
-  _onDestroyEffect: {fileID: 7319752281379485876, guid: 6f6344114731bdd41ba7cbdca4228158, type: 3}
+  _onDestroyEffect: {fileID: 0}
 --- !u!114 &8451529319472774528
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11962,6 +12005,7 @@ MonoBehaviour:
   DestroyOnDeath: 1
   MaxHealth: 1
   _healthBar: {fileID: 0}
+  _invulnerabilityDuration: 0
 --- !u!1 &8581519573818927984
 GameObject:
   m_ObjectHideFlags: 0
@@ -12090,7 +12134,7 @@ MonoBehaviour:
   _damage: 1
   _speed: 0
   _lifetime: 10
-  _onDestroyEffect: {fileID: 7319752281379485876, guid: 6f6344114731bdd41ba7cbdca4228158, type: 3}
+  _onDestroyEffect: {fileID: 0}
 --- !u!114 &4011392810198187253
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12106,6 +12150,7 @@ MonoBehaviour:
   DestroyOnDeath: 1
   MaxHealth: 1
   _healthBar: {fileID: 0}
+  _invulnerabilityDuration: 0
 --- !u!1 &9206842967928499035
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba6546d68ace001419bfab5ed4096778, type: 3}
+  m_Name: ConversationInitial
+  m_EditorClassIdentifier: 
+  DialogeList:
+  - TalkingCharacter: 1
+    Sentences:
+    - PoseNumber: 1
+      Face: 0
+      SentenceText: Well if it isn't {player_name}.
+    - PoseNumber: 2
+      Face: 0
+      SentenceText: What brings you to this part of the office?
+  - TalkingCharacter: 0
+    Sentences:
+    - PoseNumber: 1
+      Face: 0
+      SentenceText: I'm not here to play games, {enemy_name}.
+    - PoseNumber: 4
+      Face: 1
+      SentenceText: Someone ate my sandwich. MY LABELED SANDWICH.
+    - PoseNumber: 2
+      Face: 0
+      SentenceText: And I only have one other coworker.
+  - TalkingCharacter: 1
+    Sentences:
+    - PoseNumber: 1
+      Face: 0
+      SentenceText: Oh? And, what are you going to do about it?
+  - TalkingCharacter: 0
+    Sentences:
+    - PoseNumber: 4
+      Face: 1
+      SentenceText: I'm going to beat you up!

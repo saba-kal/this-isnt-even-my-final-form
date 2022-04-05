@@ -104,6 +104,7 @@ MonoBehaviour:
   DestroyOnDeath: 1
   MaxHealth: 1
   _healthBar: {fileID: 0}
+  _invulnerabilityDuration: 0
 --- !u!1 &99245270377691122
 GameObject:
   m_ObjectHideFlags: 0
@@ -574,6 +575,7 @@ MonoBehaviour:
   DestroyOnDeath: 1
   MaxHealth: 1
   _healthBar: {fileID: 0}
+  _invulnerabilityDuration: 0
 --- !u!1 &234478229311753884
 GameObject:
   m_ObjectHideFlags: 0
@@ -841,6 +843,7 @@ MonoBehaviour:
   DestroyOnDeath: 1
   MaxHealth: 1
   _healthBar: {fileID: 0}
+  _invulnerabilityDuration: 0
 --- !u!1 &399699465701140692
 GameObject:
   m_ObjectHideFlags: 0
@@ -945,6 +948,7 @@ MonoBehaviour:
   DestroyOnDeath: 1
   MaxHealth: 1
   _healthBar: {fileID: 0}
+  _invulnerabilityDuration: 0
 --- !u!1 &455583316923732131
 GameObject:
   m_ObjectHideFlags: 0
@@ -1212,6 +1216,7 @@ MonoBehaviour:
   DestroyOnDeath: 1
   MaxHealth: 1
   _healthBar: {fileID: 0}
+  _invulnerabilityDuration: 0
 --- !u!1 &600360393801416738
 GameObject:
   m_ObjectHideFlags: 0
@@ -1316,6 +1321,7 @@ MonoBehaviour:
   DestroyOnDeath: 1
   MaxHealth: 1
   _healthBar: {fileID: 0}
+  _invulnerabilityDuration: 0
 --- !u!1 &724253296778591118
 GameObject:
   m_ObjectHideFlags: 0
@@ -1420,6 +1426,7 @@ MonoBehaviour:
   DestroyOnDeath: 1
   MaxHealth: 1
   _healthBar: {fileID: 0}
+  _invulnerabilityDuration: 0
 --- !u!1 &961828190218153589
 GameObject:
   m_ObjectHideFlags: 0
@@ -1850,6 +1857,7 @@ MonoBehaviour:
   DestroyOnDeath: 1
   MaxHealth: 1
   _healthBar: {fileID: 0}
+  _invulnerabilityDuration: 0
 --- !u!1 &1037564500174574019
 GameObject:
   m_ObjectHideFlags: 0
@@ -1954,6 +1962,7 @@ MonoBehaviour:
   DestroyOnDeath: 1
   MaxHealth: 1
   _healthBar: {fileID: 0}
+  _invulnerabilityDuration: 0
 --- !u!1 &1043456003952779335
 GameObject:
   m_ObjectHideFlags: 0
@@ -2384,6 +2393,7 @@ MonoBehaviour:
   DestroyOnDeath: 1
   MaxHealth: 1
   _healthBar: {fileID: 0}
+  _invulnerabilityDuration: 0
 --- !u!1 &1268737840944186744
 GameObject:
   m_ObjectHideFlags: 0
@@ -2814,6 +2824,7 @@ MonoBehaviour:
   DestroyOnDeath: 1
   MaxHealth: 1
   _healthBar: {fileID: 0}
+  _invulnerabilityDuration: 0
 --- !u!1 &1749923957419135063
 GameObject:
   m_ObjectHideFlags: 0
@@ -3081,6 +3092,7 @@ MonoBehaviour:
   DestroyOnDeath: 1
   MaxHealth: 1
   _healthBar: {fileID: 0}
+  _invulnerabilityDuration: 0
 --- !u!1 &1770583604885195075
 GameObject:
   m_ObjectHideFlags: 0
@@ -3348,6 +3360,7 @@ MonoBehaviour:
   DestroyOnDeath: 1
   MaxHealth: 1
   _healthBar: {fileID: 0}
+  _invulnerabilityDuration: 0
 --- !u!1 &2013742891780347075
 GameObject:
   m_ObjectHideFlags: 0
@@ -3452,6 +3465,7 @@ MonoBehaviour:
   DestroyOnDeath: 1
   MaxHealth: 1
   _healthBar: {fileID: 0}
+  _invulnerabilityDuration: 0
 --- !u!1 &2129854654249017350
 GameObject:
   m_ObjectHideFlags: 0
@@ -3596,6 +3610,7 @@ MonoBehaviour:
   DestroyOnDeath: 1
   MaxHealth: 1
   _healthBar: {fileID: 0}
+  _invulnerabilityDuration: 0
 --- !u!1 &2166886188528667577
 GameObject:
   m_ObjectHideFlags: 0
@@ -4026,6 +4041,7 @@ MonoBehaviour:
   DestroyOnDeath: 1
   MaxHealth: 1
   _healthBar: {fileID: 0}
+  _invulnerabilityDuration: 0
 --- !u!1 &2320885095443418637
 GameObject:
   m_ObjectHideFlags: 0
@@ -4130,6 +4146,7 @@ MonoBehaviour:
   DestroyOnDeath: 1
   MaxHealth: 1
   _healthBar: {fileID: 0}
+  _invulnerabilityDuration: 0
 --- !u!1 &2356426453760694094
 GameObject:
   m_ObjectHideFlags: 0
@@ -4234,6 +4251,7 @@ MonoBehaviour:
   DestroyOnDeath: 1
   MaxHealth: 1
   _healthBar: {fileID: 0}
+  _invulnerabilityDuration: 0
 --- !u!1 &2503632339448928593
 GameObject:
   m_ObjectHideFlags: 0
@@ -4827,6 +4845,7 @@ MonoBehaviour:
   DestroyOnDeath: 1
   MaxHealth: 1
   _healthBar: {fileID: 0}
+  _invulnerabilityDuration: 0
 --- !u!1 &3149415461153546195
 GameObject:
   m_ObjectHideFlags: 0
@@ -4931,6 +4950,7 @@ MonoBehaviour:
   DestroyOnDeath: 1
   MaxHealth: 1
   _healthBar: {fileID: 0}
+  _invulnerabilityDuration: 0
 --- !u!1 &3241932737240255656
 GameObject:
   m_ObjectHideFlags: 0
@@ -5035,6 +5055,7 @@ MonoBehaviour:
   DestroyOnDeath: 1
   MaxHealth: 1
   _healthBar: {fileID: 0}
+  _invulnerabilityDuration: 0
 --- !u!1 &3310797213386977382
 GameObject:
   m_ObjectHideFlags: 0
@@ -5737,7 +5758,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damage: 1
-  _speed: 7
+  _speed: 5
   _lifetime: 10
   _rotationSpeed: -120
   _arcHeight: -7
@@ -6171,6 +6192,7 @@ MonoBehaviour:
   DestroyOnDeath: 1
   MaxHealth: 1
   _healthBar: {fileID: 0}
+  _invulnerabilityDuration: 0
 --- !u!1 &3845440162520101495
 GameObject:
   m_ObjectHideFlags: 0
@@ -6275,6 +6297,7 @@ MonoBehaviour:
   DestroyOnDeath: 1
   MaxHealth: 1
   _healthBar: {fileID: 0}
+  _invulnerabilityDuration: 0
 --- !u!1 &3884590557518716540
 GameObject:
   m_ObjectHideFlags: 0
@@ -6582,6 +6605,7 @@ MonoBehaviour:
   DestroyOnDeath: 1
   MaxHealth: 1
   _healthBar: {fileID: 0}
+  _invulnerabilityDuration: 0
 --- !u!1 &4100071962259770819
 GameObject:
   m_ObjectHideFlags: 0
@@ -6849,6 +6873,7 @@ MonoBehaviour:
   DestroyOnDeath: 1
   MaxHealth: 1
   _healthBar: {fileID: 0}
+  _invulnerabilityDuration: 0
 --- !u!1 &4397436234683847588
 GameObject:
   m_ObjectHideFlags: 0
@@ -7279,6 +7304,7 @@ MonoBehaviour:
   DestroyOnDeath: 1
   MaxHealth: 1
   _healthBar: {fileID: 0}
+  _invulnerabilityDuration: 0
 --- !u!1 &4682755969211258601
 GameObject:
   m_ObjectHideFlags: 0
@@ -7546,6 +7572,7 @@ MonoBehaviour:
   DestroyOnDeath: 1
   MaxHealth: 1
   _healthBar: {fileID: 0}
+  _invulnerabilityDuration: 0
 --- !u!1 &4878069522218441370
 GameObject:
   m_ObjectHideFlags: 0
@@ -7813,6 +7840,7 @@ MonoBehaviour:
   DestroyOnDeath: 1
   MaxHealth: 1
   _healthBar: {fileID: 0}
+  _invulnerabilityDuration: 0
 --- !u!1 &5053794523619935480
 GameObject:
   m_ObjectHideFlags: 0
@@ -8243,6 +8271,7 @@ MonoBehaviour:
   DestroyOnDeath: 1
   MaxHealth: 1
   _healthBar: {fileID: 0}
+  _invulnerabilityDuration: 0
 --- !u!1 &5282215813997767523
 GameObject:
   m_ObjectHideFlags: 0
@@ -8347,6 +8376,7 @@ MonoBehaviour:
   DestroyOnDeath: 1
   MaxHealth: 1
   _healthBar: {fileID: 0}
+  _invulnerabilityDuration: 0
 --- !u!1 &5416237608332227550
 GameObject:
   m_ObjectHideFlags: 0
@@ -8451,6 +8481,7 @@ MonoBehaviour:
   DestroyOnDeath: 1
   MaxHealth: 1
   _healthBar: {fileID: 0}
+  _invulnerabilityDuration: 0
 --- !u!1 &5469333876852004607
 GameObject:
   m_ObjectHideFlags: 0
@@ -8555,6 +8586,7 @@ MonoBehaviour:
   DestroyOnDeath: 1
   MaxHealth: 1
   _healthBar: {fileID: 0}
+  _invulnerabilityDuration: 0
 --- !u!1 &5534532937461478638
 GameObject:
   m_ObjectHideFlags: 0
@@ -8659,6 +8691,7 @@ MonoBehaviour:
   DestroyOnDeath: 1
   MaxHealth: 1
   _healthBar: {fileID: 0}
+  _invulnerabilityDuration: 0
 --- !u!1 &5844963174635292863
 GameObject:
   m_ObjectHideFlags: 0
@@ -8763,6 +8796,7 @@ MonoBehaviour:
   DestroyOnDeath: 1
   MaxHealth: 1
   _healthBar: {fileID: 0}
+  _invulnerabilityDuration: 0
 --- !u!1 &5872598691205851041
 GameObject:
   m_ObjectHideFlags: 0
@@ -8867,6 +8901,7 @@ MonoBehaviour:
   DestroyOnDeath: 1
   MaxHealth: 1
   _healthBar: {fileID: 0}
+  _invulnerabilityDuration: 0
 --- !u!1 &6121343914977807528
 GameObject:
   m_ObjectHideFlags: 0
@@ -9337,6 +9372,7 @@ MonoBehaviour:
   DestroyOnDeath: 1
   MaxHealth: 1
   _healthBar: {fileID: 0}
+  _invulnerabilityDuration: 0
 --- !u!1 &6605697820239151332
 GameObject:
   m_ObjectHideFlags: 0
@@ -9441,6 +9477,7 @@ MonoBehaviour:
   DestroyOnDeath: 1
   MaxHealth: 1
   _healthBar: {fileID: 0}
+  _invulnerabilityDuration: 0
 --- !u!1 &6661952204533344731
 GameObject:
   m_ObjectHideFlags: 0
@@ -9708,6 +9745,7 @@ MonoBehaviour:
   DestroyOnDeath: 1
   MaxHealth: 1
   _healthBar: {fileID: 0}
+  _invulnerabilityDuration: 0
 --- !u!1 &6832739643029453756
 GameObject:
   m_ObjectHideFlags: 0
@@ -10627,6 +10665,7 @@ MonoBehaviour:
   DestroyOnDeath: 1
   MaxHealth: 1
   _healthBar: {fileID: 0}
+  _invulnerabilityDuration: 0
 --- !u!1 &7591015295606413144
 GameObject:
   m_ObjectHideFlags: 0
@@ -11057,6 +11096,7 @@ MonoBehaviour:
   DestroyOnDeath: 1
   MaxHealth: 1
   _healthBar: {fileID: 0}
+  _invulnerabilityDuration: 0
 --- !u!1 &7785741212006406695
 GameObject:
   m_ObjectHideFlags: 0
@@ -11161,6 +11201,7 @@ MonoBehaviour:
   DestroyOnDeath: 1
   MaxHealth: 1
   _healthBar: {fileID: 0}
+  _invulnerabilityDuration: 0
 --- !u!1 &7965498622421451300
 GameObject:
   m_ObjectHideFlags: 0
@@ -11265,6 +11306,7 @@ MonoBehaviour:
   DestroyOnDeath: 1
   MaxHealth: 1
   _healthBar: {fileID: 0}
+  _invulnerabilityDuration: 0
 --- !u!1 &8050974614838955661
 GameObject:
   m_ObjectHideFlags: 0
@@ -11532,6 +11574,7 @@ MonoBehaviour:
   DestroyOnDeath: 1
   MaxHealth: 1
   _healthBar: {fileID: 0}
+  _invulnerabilityDuration: 0
 --- !u!1 &8166891206392066803
 GameObject:
   m_ObjectHideFlags: 0
@@ -11962,6 +12005,7 @@ MonoBehaviour:
   DestroyOnDeath: 1
   MaxHealth: 1
   _healthBar: {fileID: 0}
+  _invulnerabilityDuration: 0
 --- !u!1 &8581519573818927984
 GameObject:
   m_ObjectHideFlags: 0
@@ -12106,6 +12150,7 @@ MonoBehaviour:
   DestroyOnDeath: 1
   MaxHealth: 1
   _healthBar: {fileID: 0}
+  _invulnerabilityDuration: 0
 --- !u!1 &9206842967928499035
 GameObject:
   m_ObjectHideFlags: 0

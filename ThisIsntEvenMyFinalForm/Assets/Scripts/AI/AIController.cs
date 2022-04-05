@@ -8,7 +8,6 @@ public class AIController : MonoBehaviour
 
     [SerializeField] private float _maxVelocity = 10f;
     [SerializeField] private float _maxForce = 0.25f;
-    [SerializeField] private float _desiredDistanceFromPlayer = 1f;
     [SerializeField] private float _timeUntilAICanStartShooting = 10f;
     [SerializeField] private Transform _playerTarget;
     [SerializeField] private GameObject _rotationBody;
@@ -18,12 +17,9 @@ public class AIController : MonoBehaviour
     private ShootingManager _shootingManager;
     private PowerLevelManager _powerLevelManager;
     private CharacterHealth _characterHealth;
-    private BulletAvoidanceHelper _bulletAvoidanceHelper;
-    private Vector2 _desiredLocation;
-    private AStar _aStar;
+    private AIMovementHelper _aiMovementHelper;
     private bool _disabled = false;
     private float _timeSinceEnabled = 0f;
-    private int _randomMoveOffset = 0;
 
     void Awake()
     {
@@ -40,8 +36,7 @@ public class AIController : MonoBehaviour
         _shootingManager = GetComponent<ShootingManager>();
         _powerLevelManager = GetComponent<PowerLevelManager>();
         _characterHealth = GetComponent<CharacterHealth>();
-        _bulletAvoidanceHelper = GetComponent<BulletAvoidanceHelper>();
-        _aStar = new AStar(20, 20, 1);
+        _aiMovementHelper = GetComponent<AIMovementHelper>();
     }
 
     private void FixedUpdate()
@@ -61,7 +56,6 @@ public class AIController : MonoBehaviour
             return;
         }
 
-        GetDesiredMoveLocation();
         SetVelocity();
         FaceSpriteTowardsTarget();
         if (_timeSinceEnabled >= _timeUntilAICanStartShooting)
@@ -78,7 +72,7 @@ public class AIController : MonoBehaviour
 
     public void SetDistanceFromPlayer(float distance)
     {
-        _desiredDistanceFromPlayer = distance;
+        _aiMovementHelper.SetDistanceFromPlayer(distance);
     }
 
     public void SetDisabled(bool disabled)
@@ -106,59 +100,17 @@ public class AIController : MonoBehaviour
         _rigidbody.velocity = _currentVelocity;
     }
 
-    private void GetDesiredMoveLocation()
-    {
-        if (Random.value < 0.001)
-        {
-            var offset = Random.value < 0.5 ? -1 : 1;
-            Debug.Log($"Offsetting movement by {offset}. Total offset: {_randomMoveOffset}.");
-            _randomMoveOffset += offset;
-        }
-
-        var desiredLocation = _playerTarget.position;
-        var minDistanceFromPlayer = float.MaxValue;
-
-        const int circlePartitions = 10;
-        for (var i = 0; i < circlePartitions; i++)
-        {
-            var angle = Mathf.PI * 2 * i / circlePartitions;
-            var potentialLocation = new Vector2(
-                _playerTarget.position.x + _desiredDistanceFromPlayer * Mathf.Cos(angle),
-                _playerTarget.position.y + _desiredDistanceFromPlayer * Mathf.Sin(angle));
-
-            var distanceToLocation = Vector2.Distance(transform.position, potentialLocation);
-            if (distanceToLocation < minDistanceFromPlayer &&
-                HasLineOfSightToPlayer(potentialLocation) &&
-                !_bulletAvoidanceHelper.ContainsPlayerBulletsInPosition(potentialLocation))
-            {
-                minDistanceFromPlayer = distanceToLocation;
-                desiredLocation = potentialLocation;
-            }
-        }
-
-        _desiredLocation = desiredLocation;
-    }
-
-    private bool HasLineOfSightToPlayer(Vector2 potentialLocation)
-    {
-        var hit = Physics2D.Raycast(
-            potentialLocation,
-            (Vector2)_playerTarget.transform.position - potentialLocation,
-            _desiredDistanceFromPlayer,
-            LayerMask.GetMask(nameof(CollisionLayer.Obstacle)));
-
-        return hit.collider == null;
-    }
-
     private void SetVelocity()
     {
-        if (Mathf.Abs(_desiredLocation.x - transform.position.x) <= 0.5f &&
-            Mathf.Abs(_desiredLocation.y - transform.position.y) <= 0.5f)
+        var desiredLocation = _aiMovementHelper.GetMoveLocation();
+
+        if (Mathf.Abs(desiredLocation.x - transform.position.x) <= 0.1f &&
+            Mathf.Abs(desiredLocation.y - transform.position.y) <= 0.1f)
         {
-            _desiredLocation = transform.position;
+            desiredLocation = transform.position;
         }
 
-        var desiredVelocity = (_desiredLocation - (Vector2)transform.position).normalized * _maxVelocity;
+        var desiredVelocity = (desiredLocation - (Vector2)transform.position).normalized * _maxVelocity;
 
         var steeringVelocity = desiredVelocity - _currentVelocity;
         steeringVelocity = Vector2.ClampMagnitude(steeringVelocity, _maxForce);
@@ -178,11 +130,5 @@ public class AIController : MonoBehaviour
     private void FireBullets()
     {
         _shootingManager.FireBulletShooters(CollisionLayer.EnemyBullet, BulletShooterType.Normal | BulletShooterType.Heavy);
-    }
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawSphere(_desiredLocation, 0.5f);
     }
 }
