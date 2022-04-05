@@ -6,10 +6,10 @@ public class CinemachineShake : MonoBehaviour
 {
     public static CinemachineShake Instance { get; private set; }
 
-    private CinemachineVirtualCamera _virtualCamera;
-    private float _maxAmplitudeGain = 5f;
-    private float _shakeDuration = 0.3f;
+    [SerializeField] private float _maxAmplitudeGain = 5f;
+    [SerializeField] private float _shakeDuration = 0.3f;
 
+    private CinemachineVirtualCamera _virtualCamera;
     private float _shakeTotalTime = 0;
 
     // Use this for initialization
@@ -40,5 +40,7 @@ public class CinemachineShake : MonoBehaviour
             _shakeTotalTime += Time.deltaTime;
             yield return null;
         }
+
+        _shakeTotalTime = 0f;
     }
 }

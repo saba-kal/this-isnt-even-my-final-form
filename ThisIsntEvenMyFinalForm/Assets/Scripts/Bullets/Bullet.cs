@@ -6,6 +6,7 @@ using UnityEngine.VFX;
 public class Bullet : BaseBullet
 {
     [SerializeField] protected GameObject _onDestroyEffect;
+    [SerializeField] protected bool _shakeCameraOnDestory;
 
     void Update()
     {
@@ -28,6 +29,11 @@ public class Bullet : BaseBullet
 
     private void OnDestroy()
     {
+        if (_shakeCameraOnDestory)
+        {
+            CinemachineShake.Instance.Shake();
+        }
+
         if (_onDestroyEffect == null || !gameObject.scene.isLoaded)
         {
             return;

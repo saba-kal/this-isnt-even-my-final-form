@@ -90,6 +90,7 @@ MonoBehaviour:
   _speed: 40
   _lifetime: 5
   _onDestroyEffect: {fileID: 5253965845543023493, guid: 6f6344114731bdd41ba7cbdca4228158, type: 3}
+  _shakeCameraOnDestory: 1
 --- !u!114 &-73072428461353865
 MonoBehaviour:
   m_ObjectHideFlags: 0

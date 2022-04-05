@@ -13,5 +13,7 @@ public class Sentence
     [TextArea]
     public string SentenceText;
 
+    public bool IsPowerUp = false;
+
     public CharacterType TalkingCharacter { get; set; }
 }

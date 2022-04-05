@@ -23,6 +23,8 @@ public class DialogueManager : MonoBehaviour
     private Action _onConversationComplete;
     private bool _conversationInProgress = false;
     private Sentence _currentSentence;
+    private int _playerPowerLevelOffset = 0;
+    private int _enemyPowerLevelOffset = 0;
 
     private void Awake()
     {
@@ -129,12 +131,19 @@ public class DialogueManager : MonoBehaviour
             _dialogueView.HideDialogue();
             _enemyPoseManager.HideCharacter();
             _playerPoseManager.HideCharacter();
+            _enemyPowerLevelOffset = 0;
+            _playerPowerLevelOffset = 0;
             return;
         }
 
         _currentSentence = _sentenceQueue.Dequeue();
         UpdateCharacterPose();
         StartCoroutine(_dialogueView.AnimateSentence(GetNameParam(_currentSentence.TalkingCharacter), BuildSentence()));
+
+        if (_currentSentence.IsPowerUp)
+        {
+            UpdatePowerLevelOffset();
+        }
     }
 
     private void UpdateCharacterPose()
@@ -143,15 +152,13 @@ public class DialogueManager : MonoBehaviour
         _playerPoseManager.gameObject.SetActive(false);
 
         var poseView = _playerPoseManager;
-        var powerLevel = PlayerController.Instance.GetPowerLevel();
         if (_currentSentence.TalkingCharacter == CharacterType.Enemy)
         {
             poseView = _enemyPoseManager;
-            powerLevel = AIController.Instance.GetPowerLevel();
         }
-        poseView.gameObject.SetActive(true);
 
-        poseView.UpdatePose(_currentSentence, powerLevel);
+        poseView.gameObject.SetActive(true);
+        poseView.UpdatePose(_currentSentence, GetPowerLevel(_currentSentence.TalkingCharacter));
     }
 
     private string BuildSentence()
@@ -254,7 +261,19 @@ public class DialogueManager : MonoBehaviour
     private int GetPowerLevel(CharacterType characterType)
     {
         return characterType == CharacterType.Enemy ?
-            AIController.Instance.GetPowerLevel() :
-            PlayerController.Instance.GetPowerLevel();
+            (AIController.Instance.GetPowerLevel() + _enemyPowerLevelOffset) :
+            (PlayerController.Instance.GetPowerLevel() + _playerPowerLevelOffset);
+    }
+
+    private void UpdatePowerLevelOffset()
+    {
+        if (_currentSentence.TalkingCharacter == CharacterType.Enemy)
+        {
+            _enemyPowerLevelOffset = 1;
+        }
+        else
+        {
+            _playerPowerLevelOffset = 1;
+        }
     }
 }
