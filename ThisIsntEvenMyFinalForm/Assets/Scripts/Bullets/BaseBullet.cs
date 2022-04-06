@@ -21,7 +21,6 @@ public abstract class BaseBullet : MonoBehaviour
 
     public void SetDirection(Vector2 direction)
     {
-
         _direction = direction;
     }
 }

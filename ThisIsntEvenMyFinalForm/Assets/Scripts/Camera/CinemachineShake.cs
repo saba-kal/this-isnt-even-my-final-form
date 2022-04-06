@@ -41,6 +41,7 @@ public class CinemachineShake : MonoBehaviour
             yield return null;
         }
 
+        cameraNoise.m_AmplitudeGain = 0;
         _shakeTotalTime = 0f;
     }
 }

@@ -289,9 +289,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DestroyOnDeath: 1
-  MaxHealth: 20
+  MaxHealth: 50
   _healthBar: {fileID: 88344132493619633}
   _invulnerabilityDuration: 0
+  _triggerChromaticAberrationOnDamage: 0
+  _triggerCameraShakeOnDamage: 0
 --- !u!114 &88344132493619633
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -323,7 +325,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6601bb969387e442a9b27d631e0884d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _doorOpenSpeed: 20
+  _doorOpenSpeed: 10
   _leftDoor: {fileID: 1413467006470322560}
   _rightDoor: {fileID: 3117619326436944863}
 --- !u!1 &8636622634357785849

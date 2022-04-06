@@ -13,6 +13,7 @@ public class DashAbility : MonoBehaviour
     private Rigidbody2D _rigidbody;
     private float _timeSinceLastDash = 100f;
     private Action _onActivate;
+    private CharacterHealth _characterHealth;
 
     // Use this for initialization
     void Awake()
@@ -20,6 +21,7 @@ public class DashAbility : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody2D>();
         _ghostEffect.enabled = false;
         _mainCamera = Camera.main;
+        _characterHealth = GetComponent<CharacterHealth>();
     }
 
     private void Update()
@@ -52,8 +54,12 @@ public class DashAbility : MonoBehaviour
 
     private IEnumerator MoveTowardVelocity()
     {
+        _characterHealth.SetImmune(true);
+
         var worldMousePos = _mainCamera.ScreenToWorldPoint(Input.mousePosition);
-        var direction = (worldMousePos - transform.position).normalized;
+        var direction = (worldMousePos - transform.position);
+        direction.z = 0f;
+        direction.Normalize();
 
         var timeSinceAbilityStart = 0f;
         while (timeSinceAbilityStart < _duration)
@@ -69,5 +75,7 @@ public class DashAbility : MonoBehaviour
             yield return null;
         }
         _ghostEffect.enabled = false;
+
+        _characterHealth.SetImmune(false);
     }
 }

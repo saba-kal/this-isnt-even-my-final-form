@@ -20,6 +20,7 @@ public class AIController : MonoBehaviour
     private AIMovementHelper _aiMovementHelper;
     private bool _disabled = false;
     private float _timeSinceEnabled = 0f;
+    private bool _reachedFinalPhasePosition = false;
 
     void Awake()
     {
@@ -41,7 +42,7 @@ public class AIController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (_disabled)
+        if (_disabled || _powerLevelManager.ReachedMaxPowerLevel())
         {
             return;
         }
@@ -56,12 +57,16 @@ public class AIController : MonoBehaviour
             return;
         }
 
-        SetVelocity();
-        FaceSpriteTowardsTarget();
-        if (_timeSinceEnabled >= _timeUntilAICanStartShooting)
+        if (_powerLevelManager.ReachedMaxPowerLevel())
         {
-            FireBullets();
+            MoveToCenter();
         }
+        else
+        {
+            SetVelocity();
+        }
+        FaceSpriteTowardsTarget();
+        FireBullets();
         _timeSinceEnabled += Time.deltaTime;
     }
 
@@ -102,8 +107,7 @@ public class AIController : MonoBehaviour
 
     private void SetVelocity()
     {
-        var desiredLocation = _aiMovementHelper.GetMoveLocation();
-
+        var desiredLocation = GetMoveLocation();
         if (Mathf.Abs(desiredLocation.x - transform.position.x) <= 0.1f &&
             Mathf.Abs(desiredLocation.y - transform.position.y) <= 0.1f)
         {
@@ -120,6 +124,18 @@ public class AIController : MonoBehaviour
         _currentVelocity = Vector2.ClampMagnitude(_currentVelocity, _maxVelocity);
     }
 
+    private void MoveToCenter()
+    {
+        if (Mathf.Abs(transform.position.x) <= 0.01f &&
+            Mathf.Abs(transform.position.y) <= 0.01f)
+        {
+            _reachedFinalPhasePosition = true;
+            return;
+        }
+
+        transform.position = Vector2.MoveTowards(transform.position, Vector2.zero, _maxVelocity * Time.deltaTime);
+    }
+
     private void FaceSpriteTowardsTarget()
     {
         var relativePosition = _playerTarget.position - transform.position;
@@ -129,6 +145,27 @@ public class AIController : MonoBehaviour
 
     private void FireBullets()
     {
+        if (_timeSinceEnabled < _timeUntilAICanStartShooting)
+        {
+            return;
+        }
+
+        if (_powerLevelManager.ReachedMaxPowerLevel() && !_reachedFinalPhasePosition)
+        {
+            //This is the AI's final phase. Don't do anything until they are in place.
+            return;
+        }
+
         _shootingManager.FireBulletShooters(CollisionLayer.EnemyBullet, BulletShooterType.Normal | BulletShooterType.Heavy);
+    }
+
+    private Vector2 GetMoveLocation()
+    {
+        if (_powerLevelManager.ReachedMaxPowerLevel())
+        {
+            return Vector2.zero;
+        }
+
+        return _aiMovementHelper.GetMoveLocation();
     }
 }

@@ -15,12 +15,23 @@ public class BulletShooter : MonoBehaviour
     private float _timeSinceLastFire = 0;
     private Action _onFire = null;
 
+    private void Start()
+    {
+        VirtualStart();
+    }
+
     private void Update()
+    {
+        VirtualUpdate();
+    }
+
+    protected virtual void VirtualStart() { }
+    protected virtual void VirtualUpdate()
     {
         _timeSinceLastFire += Time.deltaTime;
     }
 
-    public void Fire(CollisionLayer layer)
+    public virtual void Fire(CollisionLayer layer)
     {
         if (_timeSinceLastFire < _fireRate)
         {

@@ -10,47 +10,37 @@ public class CharacterHealth : MonoBehaviour
     public delegate void DeathEvent(CharacterHealth characterHealth);
     public static DeathEvent OnDeath;
 
-    [SerializeField] private List<Health> _healths;
+    private PowerLevelManager _powerLevelManager;
+    private int _powerLevel = 0;
+    private Health _currentHealth;
 
-    private int _currentHealthIndex = 0;
-
-    // Use this for initialization
-    void Start()
+    private void Awake()
     {
-        foreach (var health in _healths)
-        {
-            health.gameObject.SetActive(false);
-            health.DestroyOnDeath = false;
-        }
-
-        _healths[_currentHealthIndex].gameObject.SetActive(true);
-        _healths[_currentHealthIndex].SetOnDeath(OnCurrentHealthDeath);
+        _powerLevelManager = GetComponent<PowerLevelManager>();
     }
 
     public void SetImmune(bool immune)
     {
-        foreach (var health in _healths)
-        {
-            health.SetImmune(immune);
-        }
+        _currentHealth.SetImmune(immune);
+    }
+
+    public void SetCurrentHealth(Health health, int powerLevel)
+    {
+        _powerLevel = powerLevel;
+        _currentHealth = health;
+        _currentHealth.DestroyOnDeath = false;
+        _currentHealth.SetOnDeath(OnCurrentHealthDeath);
     }
 
     private void OnCurrentHealthDeath()
     {
-        _currentHealthIndex++;
-        if (_currentHealthIndex >= _healths.Count)
+        _currentHealth.gameObject.SetActive(false);
+        if (_powerLevel >= _powerLevelManager.GetMaxPowerLevel())
         {
             OnDeath?.Invoke(this);
         }
         else
         {
-            var oldHealth = _healths[_currentHealthIndex - 1];
-            Destroy(oldHealth.gameObject);
-
-            var newHealth = _healths[_currentHealthIndex];
-            newHealth.gameObject.SetActive(true);
-            newHealth.SetOnDeath(OnCurrentHealthDeath);
-
             OnHealthLost?.Invoke(this);
         }
     }

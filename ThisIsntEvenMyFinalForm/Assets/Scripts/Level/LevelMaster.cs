@@ -61,8 +61,10 @@ public class LevelMaster : MonoBehaviour
 
     private void OnDeath(CharacterHealth characterHealth)
     {
+        var playerIsWinner = characterHealth.gameObject.layer == (int)CollisionLayer.Enemy;
+
         SetGameplayDisabled(true);
-        DialogueManager.Instance.StartEndGameConversation(() =>
+        DialogueManager.Instance.StartEndGameConversation(playerIsWinner, () =>
         {
             //TODO: death effects?
             _endGameScreen.SetActive(true);

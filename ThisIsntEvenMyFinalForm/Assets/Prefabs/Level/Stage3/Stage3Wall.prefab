@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1944986115509401441}
   - component: {fileID: 5524309085682482715}
   - component: {fileID: 3557884584934231391}
+  - component: {fileID: 2691861210195434681}
   m_Layer: 10
   m_Name: Stage3Wall
   m_TagString: Untagged
@@ -50,9 +51,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DestroyOnDeath: 1
-  MaxHealth: 30
+  MaxHealth: 80
   _healthBar: {fileID: 5524309085682482715}
   _invulnerabilityDuration: 0
+  _triggerChromaticAberrationOnDamage: 0
+  _triggerCameraShakeOnDamage: 0
 --- !u!114 &5524309085682482715
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -84,9 +87,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6601bb969387e442a9b27d631e0884d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _doorOpenSpeed: 50
+  _doorOpenSpeed: 15
   _leftDoor: {fileID: 1346291943921264969}
   _rightDoor: {fileID: 4917394839499035299}
+--- !u!58 &2691861210195434681
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1346291943852353125}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 10
 --- !u!1 &1346291943921264969
 GameObject:
   m_ObjectHideFlags: 0
@@ -318,7 +337,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6642682577529753063}
-  - component: {fileID: 6642682577529753057}
   m_Layer: 10
   m_Name: Pillar
   m_TagString: Untagged
@@ -342,22 +360,6 @@ Transform:
   m_Father: {fileID: 1346291943852353124}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &6642682577529753057
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6642682577529753062}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 1.25
 --- !u!1 &6642682578796976874
 GameObject:
   m_ObjectHideFlags: 0

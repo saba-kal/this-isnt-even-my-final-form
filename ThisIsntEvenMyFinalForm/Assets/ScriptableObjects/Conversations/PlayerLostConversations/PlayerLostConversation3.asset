@@ -1,0 +1,66 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba6546d68ace001419bfab5ed4096778, type: 3}
+  m_Name: PlayerLostConversation3
+  m_EditorClassIdentifier: 
+  DialogeList:
+  - TalkingCharacter: 0
+    Sentences:
+    - PoseNumber: 4
+      Face: 4
+      SentenceText: Even with {player_sides} on my side, I can't beat you. Why?
+      IsPowerUp: 0
+  - TalkingCharacter: 1
+    Sentences:
+    - PoseNumber: 1
+      Face: 0
+      SentenceText: It's simple.
+      IsPowerUp: 0
+    - PoseNumber: 2
+      Face: 1
+      SentenceText: Your powers are second-rate and your skills are third-rate.
+      IsPowerUp: 0
+  - TalkingCharacter: 0
+    Sentences:
+    - PoseNumber: 2
+      Face: 1
+      SentenceText: Then let me show you first-rate power.
+      IsPowerUp: 0
+    - PoseNumber: 4
+      Face: 1
+      SentenceText: This isn't even my final form.
+      IsPowerUp: 0
+    - PoseNumber: 3
+      Face: 3
+      SentenceText: AAAAAAHHHHHHHHHHHHHHHHHHHHHHHHHH!
+      IsPowerUp: 1
+    - PoseNumber: 1
+      Face: 0
+      SentenceText: Be ready for what's coming.
+      IsPowerUp: 0
+  - TalkingCharacter: 1
+    Sentences:
+    - PoseNumber: 4
+      Face: 4
+      SentenceText: I-i-impossible! No one other than me has been able to achive
+        {player_sides_stutter}.
+      IsPowerUp: 0
+    - PoseNumber: 4
+      Face: 1
+      SentenceText: Just die already!
+      IsPowerUp: 0
+  - TalkingCharacter: 0
+    Sentences:
+    - PoseNumber: 1
+      Face: 1
+      SentenceText: I'm too powerful to die.
+      IsPowerUp: 0

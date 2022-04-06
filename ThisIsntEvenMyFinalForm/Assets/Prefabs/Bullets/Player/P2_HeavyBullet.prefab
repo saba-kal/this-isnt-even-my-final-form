@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5778950727379292733}
   - component: {fileID: 3383934040827174248}
   - component: {fileID: -73072428461353865}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: P2_HeavyBullet
   m_TagString: Bullet
   m_Icon: {fileID: 0}
@@ -52,7 +52,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 1.2
+  m_Radius: 0.6
 --- !u!50 &5778950727379292733
 Rigidbody2D:
   serializedVersion: 4
@@ -89,7 +89,7 @@ MonoBehaviour:
   _damage: 10
   _speed: 40
   _lifetime: 5
-  _onDestroyEffect: {fileID: 5253965845543023493, guid: 6f6344114731bdd41ba7cbdca4228158, type: 3}
+  _onDestroyEffect: {fileID: 5253965845543023493, guid: 6c8940e45acf5e24899003997beb869f, type: 3}
   _shakeCameraOnDestory: 1
 --- !u!114 &-73072428461353865
 MonoBehaviour:
@@ -104,9 +104,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DestroyOnDeath: 1
-  MaxHealth: 100
+  MaxHealth: 1000
   _healthBar: {fileID: 0}
   _invulnerabilityDuration: 0
+  _triggerChromaticAberrationOnDamage: 0
+  _triggerCameraShakeOnDamage: 0
 --- !u!1 &6943699023799766122
 GameObject:
   m_ObjectHideFlags: 0
@@ -119,7 +121,7 @@ GameObject:
   - component: {fileID: 6567458308611536667}
   - component: {fileID: 7000634145590396032}
   - component: {fileID: 9167419984226707131}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Trail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -393,7 +395,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 1.5
+      scalar: 0.5
       minScalar: 0.1
       maxCurve:
         serializedVersion: 2
@@ -856,7 +858,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 1
+      value: 0.5
       mode: 0
       spread: 0
       speed:
@@ -4944,7 +4946,7 @@ GameObject:
   - component: {fileID: 1189762987843207867}
   - component: {fileID: 4858675568997635027}
   - component: {fileID: 1627405716240864445}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BulletSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4960,7 +4962,7 @@ Transform:
   m_GameObject: {fileID: 8826804245893621537}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.6, y: 1.6, z: 1.6}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 9085157254138735463}
@@ -5035,7 +5037,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.819
   m_Color: {r: 0.2117647, g: 1, b: 0.5984044, a: 1}
-  m_Intensity: 10
+  m_Intensity: 5
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
   m_ApplyToSortingLayers: 290a044267e8131b00000000a90c1cce
@@ -5085,7 +5087,7 @@ MonoBehaviour:
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
-  m_PointLightOuterRadius: 2.28
+  m_PointLightOuterRadius: 1.6
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
   m_ShapeLightParametricRadius: 1

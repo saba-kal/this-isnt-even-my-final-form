@@ -54,7 +54,7 @@ Material:
     - _LaserSmoothness: 4.49
     - _LaserThickness: 6.31
     m_Colors:
-    - _Color: {r: 734.1887, g: 24.242094, b: 473.99878, a: 1}
+    - _Color: {r: 734.18866, g: 26.907448, b: 120.54544, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
     - _LaserSpeed: {r: -1, g: 0, b: 0, a: 0}
     - _LaserTiling: {r: 0.03, g: 1, b: 0, a: 0}

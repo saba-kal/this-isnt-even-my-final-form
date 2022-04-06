@@ -13,7 +13,8 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private Conversation _initialConversation;
     [SerializeField] private List<Conversation> _playerWinConversationList;
     [SerializeField] private List<Conversation> _enemyWinConversationList;
-    [SerializeField] private Conversation _endGameConversation;
+    [SerializeField] private Conversation _playerWinEndGameConversation;
+    [SerializeField] private Conversation _enemyWinEndGameConversation;
     [SerializeField] private CharacterPoseManager _playerPoseManager;
     [SerializeField] private CharacterPoseManager _enemyPoseManager;
 
@@ -56,6 +57,12 @@ public class DialogueManager : MonoBehaviour
             return;
         }
 
+        if (DialogueSkipToggle.Instance?.IsOn() ?? false)
+        {
+            onComplete?.Invoke();
+            return;
+        }
+
         _conversationInProgress = true;
         _onConversationComplete = onComplete;
         _sentenceQueue = new Queue<Sentence>();
@@ -67,9 +74,10 @@ public class DialogueManager : MonoBehaviour
         var conversationQueue = playerIsWinner ?
             _playerWinConversationQueue : _enemyWinConversationQueue;
 
-        if (conversationQueue == null || conversationQueue.Count == 0)
+        if (conversationQueue == null ||
+            conversationQueue.Count == 0 ||
+            (DialogueSkipToggle.Instance?.IsOn() ?? false))
         {
-            Debug.Log("No more conversations");
             onComplete?.Invoke();
             return;
         }
@@ -82,17 +90,26 @@ public class DialogueManager : MonoBehaviour
         StartConversation(conversation);
     }
 
-    public void StartEndGameConversation(Action onComplete)
+    public void StartEndGameConversation(bool playerIsWinner, Action onComplete)
     {
+        var conversation = playerIsWinner ?
+            _playerWinEndGameConversation : _enemyWinEndGameConversation;
+
         if (_conversationInProgress)
         {
+            return;
+        }
+
+        if (DialogueSkipToggle.Instance?.IsOn() ?? false)
+        {
+            onComplete?.Invoke();
             return;
         }
 
         _conversationInProgress = true;
         _onConversationComplete = onComplete;
         _sentenceQueue = new Queue<Sentence>();
-        StartConversation(_endGameConversation);
+        StartConversation(conversation);
     }
 
     private void StartConversation(Conversation conversation)

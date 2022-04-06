@@ -10,6 +10,8 @@ public class Health : MonoBehaviour
     [SerializeField] public int MaxHealth;
     [SerializeField] private HealthBar _healthBar;
     [SerializeField] float _invulnerabilityDuration = 0f;
+    [SerializeField] bool _triggerChromaticAberrationOnDamage = false;
+    [SerializeField] bool _triggerCameraShakeOnDamage = false;
 
     private int _currentHealth;
     private bool _immune = false;
@@ -20,12 +22,14 @@ public class Health : MonoBehaviour
         Heal();
     }
 
-    public void TakeDamage(int damage)
+    public bool TakeDamage(int damage)
     {
         if (_immune)
         {
-            return;
+            return false;
         }
+
+        var dead = false;
 
         _currentHealth -= damage;
         _healthBar?.SetHealth(_currentHealth, MaxHealth);
@@ -33,11 +37,24 @@ public class Health : MonoBehaviour
         {
             if (DestroyOnDeath) Destroy(gameObject);
             _onDeath?.Invoke();
+            dead = true;
         }
         else if (_invulnerabilityDuration > 0.01f)
         {
             StartCoroutine(MakeInvulnerable());
         }
+
+        if (_triggerChromaticAberrationOnDamage)
+        {
+            ChromaticAberrationEffect.Instance?.Trigger();
+        }
+
+        if (_triggerCameraShakeOnDamage)
+        {
+            CinemachineShake.Instance?.Shake();
+        }
+
+        return dead;
     }
 
     public void SetImmune(bool immune)

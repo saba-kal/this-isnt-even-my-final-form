@@ -200,9 +200,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DestroyOnDeath: 1
-  MaxHealth: 10
+  MaxHealth: 20
   _healthBar: {fileID: 8775422817941289085}
   _invulnerabilityDuration: 0
+  _triggerChromaticAberrationOnDamage: 0
+  _triggerCameraShakeOnDamage: 0
 --- !u!114 &8775422817941289085
 MonoBehaviour:
   m_ObjectHideFlags: 0

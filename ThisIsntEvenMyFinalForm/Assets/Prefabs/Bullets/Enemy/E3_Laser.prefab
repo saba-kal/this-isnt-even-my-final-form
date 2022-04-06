@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7480516968456074151}
   - component: {fileID: 7480516968456074149}
   m_Layer: 0
-  m_Name: Laser
+  m_Name: E3_Laser
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damage: 10
-  _timeBetweenDamage: 0.1
+  _timeBetweenDamage: 0.5
   _laserRenderer: {fileID: 7480516970011510282}
   _laserStartEffect: {fileID: 7480516969379305509}
   _laserEndEffect: {fileID: 7480516968552954865}

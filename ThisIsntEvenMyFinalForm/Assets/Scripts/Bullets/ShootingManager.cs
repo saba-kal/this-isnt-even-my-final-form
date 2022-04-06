@@ -6,13 +6,11 @@ using System;
 
 public class ShootingManager : MonoBehaviour
 {
-    [SerializeField] private List<ShootingProfile> _bulletShootingProfiles;
+    private List<BulletShooter> _bulletShooters = new List<BulletShooter>();
 
-    private PowerLevelManager _powerLevelManager;
-
-    private void Awake()
+    public void SetBulletShooters(List<BulletShooter> bulletShooters)
     {
-        _powerLevelManager = GetComponent<PowerLevelManager>();
+        _bulletShooters = bulletShooters;
     }
 
     public void FireBulletShooters(CollisionLayer collisionLayer, BulletShooterType type)
@@ -53,21 +51,11 @@ public class ShootingManager : MonoBehaviour
     {
         var resultBulletShooters = new List<BulletShooter>();
 
-        var bulletShooterContainer = _bulletShootingProfiles.FirstOrDefault(b => b.PowerLevel == _powerLevelManager.GetPowerLevel())?.BulletShootersContainer;
-        if (bulletShooterContainer == null)
+        foreach (var bulletShooter in _bulletShooters)
         {
-            return resultBulletShooters;
-        }
-
-        var bulletShooters = bulletShooterContainer.GetComponentsInChildren<BulletShooter>();
-        if (bulletShooters != null)
-        {
-            foreach (var bulletShooter in bulletShooters)
+            if (bulletShooter.IsType(type))
             {
-                if (bulletShooter.IsType(type))
-                {
-                    resultBulletShooters.Add(bulletShooter);
-                }
+                resultBulletShooters.Add(bulletShooter);
             }
         }
 

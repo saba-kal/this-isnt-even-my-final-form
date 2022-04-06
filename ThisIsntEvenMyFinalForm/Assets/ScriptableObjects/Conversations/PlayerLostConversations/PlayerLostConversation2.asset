@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba6546d68ace001419bfab5ed4096778, type: 3}
+  m_Name: PlayerLostConversation2
+  m_EditorClassIdentifier: 
+  DialogeList:
+  - TalkingCharacter: 1
+    Sentences:
+    - PoseNumber: 1
+      Face: 0
+      SentenceText: Give up yet?
+      IsPowerUp: 0
+  - TalkingCharacter: 0
+    Sentences:
+    - PoseNumber: 4
+      Face: 1
+      SentenceText: In your dreams.
+      IsPowerUp: 0
+    - PoseNumber: 2
+      Face: 1
+      SentenceText: I hope you're ready for this.
+      IsPowerUp: 0
+  - TalkingCharacter: 1
+    Sentences:
+    - PoseNumber: 4
+      Face: 4
+      SentenceText: Don't tell me you have another form?!
+      IsPowerUp: 0
+  - TalkingCharacter: 0
+    Sentences:
+    - PoseNumber: 3
+      Face: 3
+      SentenceText: AAAAHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH!
+      IsPowerUp: 1
+    - PoseNumber: 1
+      Face: 0
+      SentenceText: Behold, the awesome power of a {player_shape}.
+      IsPowerUp: 0
+  - TalkingCharacter: 1
+    Sentences:
+    - PoseNumber: 4
+      Face: 4
+      SentenceText: How did you achieve {player_sides_stutter} sides?!
+      IsPowerUp: 0
+    - PoseNumber: 4
+      Face: 1
+      SentenceText: Finally a challenge.
+      IsPowerUp: 0

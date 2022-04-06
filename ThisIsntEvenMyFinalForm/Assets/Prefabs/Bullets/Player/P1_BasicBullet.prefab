@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5778950727379292733}
   - component: {fileID: 3383934040827174248}
   - component: {fileID: -73072428461353865}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: P1_BasicBullet
   m_TagString: Bullet
   m_Icon: {fileID: 0}
@@ -89,7 +89,9 @@ MonoBehaviour:
   _damage: 1
   _speed: 10
   _lifetime: 5
-  _onDestroyEffect: {fileID: 0}
+  _onDestroyEffect: {fileID: 7663566196636155077, guid: 9edd59161cba4824fb0cfab44837215f, type: 3}
+  _shakeCameraOnDestory: 0
+  _destroyIfCollidingObjectNotDestroyed: 1
 --- !u!114 &-73072428461353865
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -106,6 +108,8 @@ MonoBehaviour:
   MaxHealth: 1
   _healthBar: {fileID: 0}
   _invulnerabilityDuration: 0
+  _triggerChromaticAberrationOnDamage: 0
+  _triggerCameraShakeOnDamage: 0
 --- !u!1 &8826804245893621537
 GameObject:
   m_ObjectHideFlags: 0
@@ -117,7 +121,7 @@ GameObject:
   - component: {fileID: 1189762987843207867}
   - component: {fileID: 4858675568997635027}
   - component: {fileID: 1627405716240864445}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BulletSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -323,6 +327,10 @@ PrefabInstance:
     - target: {fileID: 5994740889992604096, guid: 7ef439c9fddd8634faa7cfd0d9c568ab, type: 3}
       propertyPath: m_Name
       value: BasicBulletTrail
+      objectReference: {fileID: 0}
+    - target: {fileID: 5994740889992604096, guid: 7ef439c9fddd8634faa7cfd0d9c568ab, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7ef439c9fddd8634faa7cfd0d9c568ab, type: 3}

@@ -44,6 +44,7 @@ public class PlayerController : MonoBehaviour
     {
         if (_disabled)
         {
+            _playerInput = Vector2.zero;
             return;
         }
 
@@ -54,6 +55,7 @@ public class PlayerController : MonoBehaviour
     {
         if (_disabled)
         {
+            _playerInput = Vector2.zero;
             return;
         }
 

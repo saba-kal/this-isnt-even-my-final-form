@@ -21,7 +21,7 @@ MonoBehaviour:
       IsPowerUp: 0
     - PoseNumber: 2
       Face: 1
-      SentenceText: Now go buy me a new sandwich!
+      SentenceText: Now go make me a new sandwich!
       IsPowerUp: 0
   - TalkingCharacter: 1
     Sentences:
