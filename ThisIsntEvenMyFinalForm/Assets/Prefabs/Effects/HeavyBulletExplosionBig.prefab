@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5253965845543023494}
   - component: {fileID: 2444647197733315975}
   - component: {fileID: 6163151969846559491}
+  - component: {fileID: 9119460637591836718}
   m_Layer: 0
   m_Name: HeavyBulletExplosionBig
   m_TagString: Untagged
@@ -4871,3 +4872,16 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &9119460637591836718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5253965845543023493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9f2318001a771341b8f86e62c453dd3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _soundName: Explosion

@@ -1,3 +1,49 @@
-Xelu's Free Controllers & Keyboard Prompts
+Keyboard Prompt Icons
 - Author: Nicolae Berbece
 - Website: https://thoseawesomeguys.com/prompts/
+- License: CC0 (https://creativecommons.org/publicdomain/zero/1.0/)
+
+Soundtrack
+- Author: Metaruka
+- Website: https://opengameart.org/content/game-game
+- Licence: CC BY-SA (https://creativecommons.org/licenses/by-sa/3.0/)
+- Tracks used: 
+	- 00 intro_0
+	- 10 running wild
+	- 12 final battle
+	- 13 the end
+	
+Looping Laser Sound Effect
+- Author: SamsterBirdies
+- Website: https://freesound.org/people/SamsterBirdies/sounds/470903/
+- License: CC0 (https://creativecommons.org/publicdomain/zero/1.0/)
+
+Small Bullet Shoot Effect
+- Author: Daleonfire
+- Website: https://freesound.org/people/Daleonfire/sounds/376694/
+- License: CC0 (https://creativecommons.org/publicdomain/zero/1.0/)
+
+Large Bullet Shoot Effect
+- Author: Julien Matthey
+- Website: https://freesound.org/people/Julien%20Matthey/sounds/470933/
+- License: CC0 (https://creativecommons.org/publicdomain/zero/1.0/)
+
+Enemy Bullet Shoot Effect
+- Author: peepholecircus
+- Website: https://freesound.org/people/peepholecircus/sounds/169989/
+- License: CC0 (https://creativecommons.org/publicdomain/zero/1.0/)
+
+Damage Sound Effect
+- Author: Temp6754
+- Website: https://freesound.org/people/Temp6754/sounds/535905/
+- License: CC0 (https://creativecommons.org/publicdomain/zero/1.0/)
+
+Explosion Sound Effect
+- Author: OnlyTheGhosts
+- Website: https://freesound.org/people/OnlyTheGhosts/sounds/251431/
+- License: CC BY 3.0 (https://creativecommons.org/licenses/by/3.0/)
+
+Enemy Damage Sound Effect
+- Author: MortisBlack
+- Website: https://freesound.org/people/MortisBlack/sounds/385046/
+- License: CC BY 3.0 (https://creativecommons.org/licenses/by/3.0/)

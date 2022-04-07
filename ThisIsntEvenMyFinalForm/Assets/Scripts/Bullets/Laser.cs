@@ -12,11 +12,22 @@ public class Laser : MonoBehaviour
 
     private float _timeSinceLastDamage = 0f;
 
+    private void OnEnable()
+    {
+        SoundManager.Instance?.Play(SoundClipNames.LASER_SFX, true);
+    }
+
+    private void OnDisable()
+    {
+        SoundManager.Instance?.Stop(SoundClipNames.LASER_SFX);
+    }
+
     private void Update()
     {
         FireLaser();
         _timeSinceLastDamage += Time.deltaTime;
     }
+
 
     private void FireLaser()
     {

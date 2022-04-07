@@ -9,6 +9,17 @@ public abstract class BaseBullet : MonoBehaviour
 
     protected Vector2 _direction;
 
+    private void OnEnable()
+    {
+        LevelMaster.OnStageStart += OnStageStart;
+    }
+
+    private void OnDisable()
+    {
+        LevelMaster.OnStageStart -= OnStageStart;
+    }
+
+
     void Start()
     {
         VirtualStart();
@@ -22,5 +33,10 @@ public abstract class BaseBullet : MonoBehaviour
     public void SetDirection(Vector2 direction)
     {
         _direction = direction;
+    }
+
+    private void OnStageStart()
+    {
+        Destroy(gameObject, 0.5f);
     }
 }

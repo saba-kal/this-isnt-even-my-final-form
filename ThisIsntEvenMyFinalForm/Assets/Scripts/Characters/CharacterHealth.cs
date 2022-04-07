@@ -10,6 +10,8 @@ public class CharacterHealth : MonoBehaviour
     public delegate void DeathEvent(CharacterHealth characterHealth);
     public static DeathEvent OnDeath;
 
+    [SerializeField] private List<GameObject> _headIcons;
+
     private PowerLevelManager _powerLevelManager;
     private int _powerLevel = 0;
     private Health _currentHealth;
@@ -30,11 +32,12 @@ public class CharacterHealth : MonoBehaviour
         _currentHealth = health;
         _currentHealth.DestroyOnDeath = false;
         _currentHealth.SetOnDeath(OnCurrentHealthDeath);
+        UpdateHeadIcons();
     }
 
     private void OnCurrentHealthDeath()
     {
-        _currentHealth.gameObject.SetActive(false);
+        _currentHealth.MakeInactive();
         if (_powerLevel >= _powerLevelManager.GetMaxPowerLevel())
         {
             OnDeath?.Invoke(this);
@@ -43,5 +46,15 @@ public class CharacterHealth : MonoBehaviour
         {
             OnHealthLost?.Invoke(this);
         }
+    }
+
+    private void UpdateHeadIcons()
+    {
+        foreach (var icon in _headIcons)
+        {
+            icon.SetActive(false);
+        }
+
+        _headIcons[Mathf.Clamp(_powerLevel - 1, 0, _headIcons.Count)].SetActive(true);
     }
 }

@@ -100,6 +100,11 @@ public class AIController : MonoBehaviour
         return _powerLevelManager.GetPowerLevel();
     }
 
+    public bool ReachedMaxPowerLevel()
+    {
+        return _powerLevelManager.ReachedMaxPowerLevel();
+    }
+
     private void ApplyVelocity()
     {
         _rigidbody.velocity = _currentVelocity;

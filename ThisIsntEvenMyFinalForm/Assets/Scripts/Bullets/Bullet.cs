@@ -42,6 +42,17 @@ public class Bullet : BaseBullet
 
     private void OnDestroy()
     {
+        VirtualDestroy();
+    }
+
+    protected virtual void VirtualUpdate()
+    {
+        transform.Translate(_direction.normalized * _speed * Time.deltaTime, Space.World);
+        _timeSinceSpawn += Time.deltaTime;
+    }
+
+    protected virtual void VirtualDestroy()
+    {
         if (_shakeCameraOnDestory)
         {
             CinemachineShake.Instance.Shake();
@@ -54,12 +65,6 @@ public class Bullet : BaseBullet
 
         var effect = Instantiate(_onDestroyEffect);
         effect.transform.position = transform.position;
-    }
-
-    protected virtual void VirtualUpdate()
-    {
-        transform.Translate(_direction.normalized * _speed * Time.deltaTime, Space.World);
-        _timeSinceSpawn += Time.deltaTime;
     }
 
     private bool CollisionIsFromSpawningOnTopOfObstacle()

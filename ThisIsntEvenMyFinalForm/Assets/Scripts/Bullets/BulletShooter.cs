@@ -60,6 +60,7 @@ public class BulletShooter : MonoBehaviour
 
         _timeSinceLastFire = 0f;
         _onFire?.Invoke();
+        PlaySound();
     }
 
     public bool IsType(BulletShooterType type)
@@ -75,6 +76,22 @@ public class BulletShooter : MonoBehaviour
     public void SetOnFire(Action onFire)
     {
         _onFire = onFire;
+    }
+
+    private void PlaySound()
+    {
+        if (_type == BulletShooterType.Heavy)
+        {
+            SoundManager.Instance?.Play(SoundClipNames.LARGE_BULLET_SFX);
+        }
+        else if (gameObject.layer == (int)CollisionLayer.Enemy)
+        {
+            SoundManager.Instance?.Play(SoundClipNames.ENEMY_BULLET_SFX);
+        }
+        else
+        {
+            SoundManager.Instance?.Play(SoundClipNames.SMALL_BULLET_SFX);
+        }
     }
 
     private void OnDrawGizmos()
