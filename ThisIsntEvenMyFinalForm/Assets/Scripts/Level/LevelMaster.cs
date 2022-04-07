@@ -11,8 +11,9 @@ public class LevelMaster : MonoBehaviour
     [SerializeField] private PlayerController _playerController;
     [SerializeField] private AIController _aiController;
     [SerializeField] private StageManager _stageManager;
-    [SerializeField] private GameObject _endGameScreen;
+    [SerializeField] private EndGameView _endGameView;
     [SerializeField] private TutorialStage _tutorialStage;
+    [SerializeField] private LevelTimer _levelTimer;
 
     private void OnEnable()
     {
@@ -28,7 +29,6 @@ public class LevelMaster : MonoBehaviour
 
     private void Start()
     {
-        _endGameScreen.SetActive(false);
         _aiController.SetDisabled(true);
     }
 
@@ -48,6 +48,7 @@ public class LevelMaster : MonoBehaviour
 
                 var playerPowerLevelManager = _playerController.GetComponent<PowerLevelManager>();
                 playerPowerLevelManager.PowerUp();
+                _levelTimer.StartTimer();
             });
         });
     }
@@ -83,8 +84,14 @@ public class LevelMaster : MonoBehaviour
         SetGameplayDisabled(true);
         DialogueManager.Instance.StartEndGameConversation(playerIsWinner, () =>
         {
-            //TODO: death effects?
-            _endGameScreen.SetActive(true);
+            _levelTimer.StopTimer();
+            _endGameView.ShowEndGame(new EngGameResult
+            {
+                PlayerWon = playerIsWinner,
+                ElapsedTimeSeconds = _levelTimer.GetElapsedTimeInSeconds(),
+                PlayerPowerLevel = _playerController.GetPowerLevel(),
+                EnemyPowerLevel = _aiController.GetPowerLevel()
+            });
         });
     }
 
@@ -97,13 +104,16 @@ public class LevelMaster : MonoBehaviour
     private IEnumerator SlowGameDown(Action onComplete)
     {
         Time.timeScale = 0.1f;
+        SoundManager.Instance?.SetAllPitch(Time.timeScale);
         yield return new WaitForSeconds(0.01f);
         while (Time.timeScale < 1f)
         {
             Time.timeScale += _slowMotionSpeed * Time.deltaTime;
+            SoundManager.Instance?.SetAllPitch(Time.timeScale);
             yield return null;
         }
         Time.timeScale = 1f;
+        SoundManager.Instance?.SetAllPitch(Time.timeScale);
         onComplete.Invoke();
     }
 }

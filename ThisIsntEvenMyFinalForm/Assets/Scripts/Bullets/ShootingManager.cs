@@ -47,6 +47,14 @@ public class ShootingManager : MonoBehaviour
         bulletShooter?.SetOnFire(onFire);
     }
 
+    public void SetShooterEnabled(bool enabled)
+    {
+        foreach (var bulletShooter in _bulletShooters)
+        {
+            bulletShooter.gameObject.SetActive(enabled);
+        }
+    }
+
     private List<BulletShooter> GetBulletShooters(BulletShooterType type)
     {
         var resultBulletShooters = new List<BulletShooter>();

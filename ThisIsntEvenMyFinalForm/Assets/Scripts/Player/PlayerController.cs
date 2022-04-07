@@ -75,6 +75,7 @@ public class PlayerController : MonoBehaviour
     {
         _disabled = disabled;
         _characterHealth.SetImmune(disabled);
+        _shootingManager.SetShooterEnabled(!disabled);
         if (_disabled)
         {
             _rigidbody.constraints = RigidbodyConstraints2D.FreezeAll;

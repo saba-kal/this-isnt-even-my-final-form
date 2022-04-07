@@ -44,17 +44,6 @@ public class SoundManager : MonoBehaviour
         }
     }
 
-    public void Update()
-    {
-        foreach (var audio in _soundBank.Values)
-        {
-            if (audio != null)
-            {
-                audio.pitch = Time.timeScale;
-            }
-        }
-    }
-
     public void Play(string soundName, bool preventDuplicateSounds = false)
     {
         if (_soundBank.ContainsKey(soundName))
@@ -103,6 +92,17 @@ public class SoundManager : MonoBehaviour
         else
         {
             Debug.LogError($"Unable to find sound clip named {soundName}");
+        }
+    }
+
+    public void SetAllPitch(float pitch)
+    {
+        foreach (var audio in _soundBank.Values)
+        {
+            if (audio != null)
+            {
+                audio.pitch = pitch;
+            }
         }
     }
 }

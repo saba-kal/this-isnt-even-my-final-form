@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 9085157254138735463}
   - component: {fileID: 1224530131293248196}
   - component: {fileID: 5778950727379292733}
-  - component: {fileID: 8012906306257208536}
+  - component: {fileID: 2140948325847105171}
   - component: {fileID: -73072428461353865}
   m_Layer: 8
-  m_Name: P3_BasicBullet
+  m_Name: P4_BasicBullet
   m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -74,7 +74,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
---- !u!114 &8012906306257208536
+--- !u!114 &2140948325847105171
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -83,7 +83,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1125285406268165747}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d95d9de9f0685bb42ae1f82fa7a2c49d, type: 3}
+  m_Script: {fileID: 11500000, guid: 5a0002de3b13bfb4c99cfff533fee882, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _damage: 1
@@ -92,7 +92,6 @@ MonoBehaviour:
   _onDestroyEffect: {fileID: 7663566196636155077, guid: 9edd59161cba4824fb0cfab44837215f, type: 3}
   _shakeCameraOnDestory: 0
   _destroyIfCollidingObjectNotDestroyed: 1
-  _followTurnSpeed: 2
 --- !u!114 &-73072428461353865
 MonoBehaviour:
   m_ObjectHideFlags: 0

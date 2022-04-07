@@ -24,6 +24,14 @@ public class InteractableObject : MonoBehaviour
         _allInteractibleObjects.TryAdd(_key, this);
     }
 
+    private void OnDestroy()
+    {
+        if (_allInteractibleObjects.ContainsKey(_key))
+        {
+            _allInteractibleObjects.Remove(_key);
+        }
+    }
+
     public void Interact()
     {
         _onInteract?.Invoke();

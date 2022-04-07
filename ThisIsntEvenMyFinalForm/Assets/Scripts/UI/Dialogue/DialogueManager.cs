@@ -112,6 +112,11 @@ public class DialogueManager : MonoBehaviour
         StartConversation(conversation);
     }
 
+    public bool ConversationInProgress()
+    {
+        return _conversationInProgress;
+    }
+
     private void StartConversation(Conversation conversation)
     {
         if (_sentenceQueue.Count > 0)
