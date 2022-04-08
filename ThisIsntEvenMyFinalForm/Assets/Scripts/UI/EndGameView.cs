@@ -6,6 +6,7 @@ using System;
 public class EndGameView : MonoBehaviour
 {
 
+    [SerializeField] private int _scoreMultiplier = 100;
     [SerializeField] private int _basePoints;
     [SerializeField] private int _victoryPoints;
     [SerializeField] private int _defeatPoints;
@@ -42,11 +43,11 @@ public class EndGameView : MonoBehaviour
 
     private int CalculateScore(EngGameResult result)
     {
-        return _basePoints +
+        return _scoreMultiplier * (_basePoints +
             (result.PlayerWon ? _victoryPoints : _defeatPoints) +
             ((int)result.ElapsedTimeSeconds * _pointsPerSecond) +
             (result.PlayerPowerLevel * _pointsPerPlayerPowerLevel) +
-            (result.EnemyPowerLevel * _pointsPerEnemyPowerLevel);
+            (result.EnemyPowerLevel * _pointsPerEnemyPowerLevel));
     }
 }
 

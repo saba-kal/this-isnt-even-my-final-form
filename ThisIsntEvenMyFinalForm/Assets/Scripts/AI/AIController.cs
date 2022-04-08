@@ -153,6 +153,7 @@ public class AIController : MonoBehaviour
     {
         if (_timeSinceEnabled < _timeUntilAICanStartShooting)
         {
+            _shootingManager.SetShooterEnabled(false);
             return;
         }
 
@@ -162,6 +163,7 @@ public class AIController : MonoBehaviour
             return;
         }
 
+        _shootingManager.SetShooterEnabled(true);
         _shootingManager.FireBulletShooters(CollisionLayer.EnemyBullet, BulletShooterType.Normal | BulletShooterType.Heavy);
     }
 

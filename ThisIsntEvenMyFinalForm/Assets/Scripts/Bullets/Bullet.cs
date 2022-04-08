@@ -65,6 +65,7 @@ public class Bullet : BaseBullet
 
         var effect = Instantiate(_onDestroyEffect);
         effect.transform.position = transform.position;
+        Destroy(effect, 2f);
     }
 
     private bool CollisionIsFromSpawningOnTopOfObstacle()
