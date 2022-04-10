@@ -12,9 +12,9 @@ public class PorabolaBullet : BaseBullet
     private float _stepScale;
     private float _progress;
 
-    protected override void VirtualStart()
+    public override void Initialize()
     {
-        base.VirtualStart();
+        base.Initialize();
         SetupParabola();
     }
 

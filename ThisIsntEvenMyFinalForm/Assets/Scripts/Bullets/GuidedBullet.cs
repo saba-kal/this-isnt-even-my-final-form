@@ -7,9 +7,9 @@ public class GuidedBullet : Bullet
 
     private Transform _target;
 
-    protected override void VirtualStart()
+    public override void Initialize()
     {
-        base.VirtualStart();
+        base.Initialize();
 
         if (gameObject.layer == (int)CollisionLayer.EnemyBullet)
         {
@@ -28,7 +28,6 @@ public class GuidedBullet : Bullet
             var desiredDirection = (_target.position - transform.position).normalized;
             _direction = Vector3.RotateTowards(_direction, desiredDirection, Time.deltaTime * _followTurnSpeed, 1f);
         }
-
 
         base.VirtualUpdate();
     }

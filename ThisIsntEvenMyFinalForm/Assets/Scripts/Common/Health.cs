@@ -36,7 +36,7 @@ public class Health : MonoBehaviour
         _healthBar?.SetHealth(_currentHealth, MaxHealth);
         if (_currentHealth <= 0)
         {
-            if (DestroyOnDeath) Destroy(gameObject);
+            if (DestroyOnDeath) DestroySelf();
             _onDeath?.Invoke();
             dead = true;
         }
@@ -100,5 +100,18 @@ public class Health : MonoBehaviour
         yield return new WaitForSeconds(_invulnerabilityDuration);
         transform.parent.gameObject.layer = originalCollisionLayer;
         _immune = false;
+    }
+
+    private void DestroySelf()
+    {
+        var bulletComponent = GetComponent<BaseBullet>();
+        if (bulletComponent != null)
+        {
+            bulletComponent.DisableBullet();
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 }

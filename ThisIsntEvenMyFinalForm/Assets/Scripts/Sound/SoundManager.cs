@@ -46,11 +46,11 @@ public class SoundManager : MonoBehaviour
 
     public void Play(string soundName, bool preventDuplicateSounds = false)
     {
-        if (_soundBank.ContainsKey(soundName))
+        if (_soundBank.ContainsKey(soundName) && _soundBank[soundName] != null)
         {
             if (!preventDuplicateSounds || !_soundBank[soundName].isPlaying)
             {
-                _soundBank[soundName]?.Play();
+                _soundBank[soundName].Play();
             }
         }
         else
@@ -61,9 +61,9 @@ public class SoundManager : MonoBehaviour
 
     public void Stop(string soundName)
     {
-        if (_soundBank.ContainsKey(soundName))
+        if (_soundBank.ContainsKey(soundName) && _soundBank[soundName] != null)
         {
-            _soundBank[soundName]?.Stop();
+            _soundBank[soundName].Stop();
         }
         else
         {
@@ -73,9 +73,9 @@ public class SoundManager : MonoBehaviour
 
     public void Pause(string soundName)
     {
-        if (_soundBank.ContainsKey(soundName))
+        if (_soundBank.ContainsKey(soundName) && _soundBank[soundName] != null)
         {
-            _soundBank[soundName]?.Pause();
+            _soundBank[soundName].Pause();
         }
         else
         {
@@ -85,9 +85,9 @@ public class SoundManager : MonoBehaviour
 
     public void Resume(string soundName)
     {
-        if (_soundBank.ContainsKey(soundName))
+        if (_soundBank.ContainsKey(soundName) && _soundBank[soundName] != null)
         {
-            _soundBank[soundName]?.UnPause();
+            _soundBank[soundName].UnPause();
         }
         else
         {

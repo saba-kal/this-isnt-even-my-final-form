@@ -19,13 +19,15 @@ public class Bullet : BaseBullet
     private void OnCollisionEnter2D(Collision2D collision)
     {
         var otherObjectsHealth = collision.gameObject.GetComponentInChildren<Health>();
+        var bulletWasDestroyed = false;
         if (otherObjectsHealth != null)
         {
             var otherObjectWasDestroyed = otherObjectsHealth.TakeDamage(_damage);
             if (_destroyIfCollidingObjectNotDestroyed &&
                 !otherObjectWasDestroyed)
             {
-                Destroy(gameObject);
+                DisableBullet();
+                bulletWasDestroyed = true;
             }
         }
 
@@ -34,15 +36,18 @@ public class Bullet : BaseBullet
             !CollisionIsFromSpawningOnTopOfObstacle())
         {
             //Colliding with a non-bullet object should destroy this bullet.
-            Destroy(gameObject);
+            DisableBullet();
+            bulletWasDestroyed = true;
         }
 
-        StartCoroutine(IncreaseLightBrightness());
-    }
-
-    private void OnDestroy()
-    {
-        VirtualDestroy();
+        if (!bulletWasDestroyed && gameObject.activeSelf)
+        {
+            StartCoroutine(IncreaseLightBrightness());
+        }
+        else
+        {
+            ShowDestructionEffects();
+        }
     }
 
     protected virtual void VirtualUpdate()
@@ -51,11 +56,11 @@ public class Bullet : BaseBullet
         _timeSinceSpawn += Time.deltaTime;
     }
 
-    protected virtual void VirtualDestroy()
+    private void ShowDestructionEffects()
     {
         if (_shakeCameraOnDestory)
         {
-            CinemachineShake.Instance.Shake();
+            CinemachineShake.Instance?.Shake();
         }
 
         if (_onDestroyEffect == null || !gameObject.scene.isLoaded)

@@ -10,7 +10,17 @@ public class ShootingManager : MonoBehaviour
 
     public void SetBulletShooters(List<BulletShooter> bulletShooters)
     {
+        foreach (var existingShooter in _bulletShooters)
+        {
+            existingShooter.Cleanup();
+        }
+
         _bulletShooters = bulletShooters;
+
+        foreach (var newShooter in _bulletShooters)
+        {
+            newShooter.Initialize();
+        }
     }
 
     public void FireBulletShooters(CollisionLayer collisionLayer, BulletShooterType type)

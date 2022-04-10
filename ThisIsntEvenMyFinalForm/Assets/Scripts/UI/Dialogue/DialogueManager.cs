@@ -57,7 +57,7 @@ public class DialogueManager : MonoBehaviour
             return;
         }
 
-        if (DialogueSkipToggle.Instance?.IsOn() ?? false)
+        if (DialogueSkipToggle.IsOn)
         {
             onComplete?.Invoke();
             return;
@@ -76,7 +76,7 @@ public class DialogueManager : MonoBehaviour
 
         if (conversationQueue == null ||
             conversationQueue.Count == 0 ||
-            (DialogueSkipToggle.Instance?.IsOn() ?? false))
+            DialogueSkipToggle.IsOn)
         {
             onComplete?.Invoke();
             return;
@@ -100,7 +100,7 @@ public class DialogueManager : MonoBehaviour
             return;
         }
 
-        if (DialogueSkipToggle.Instance?.IsOn() ?? false)
+        if (DialogueSkipToggle.IsOn)
         {
             onComplete?.Invoke();
             return;

@@ -6,6 +6,7 @@ public abstract class BaseBullet : MonoBehaviour
     [SerializeField] protected int _damage = 1;
     [SerializeField] protected float _speed = 10f;
     [SerializeField] protected float _lifetime = 10f;
+    [SerializeField] protected string _bulletTrailName;
 
     protected Vector2 _direction;
 
@@ -19,15 +20,10 @@ public abstract class BaseBullet : MonoBehaviour
         LevelMaster.OnStageStart -= OnStageStart;
     }
 
-
-    void Start()
+    public virtual void Initialize()
     {
-        VirtualStart();
-    }
-
-    protected virtual void VirtualStart()
-    {
-        Destroy(gameObject, _lifetime);
+        Invoke("DisableBullet", _lifetime);
+        BulletTrailManager.Instance?.EnableTrail(_bulletTrailName, gameObject);
     }
 
     public void SetDirection(Vector2 direction)
@@ -37,6 +33,11 @@ public abstract class BaseBullet : MonoBehaviour
 
     private void OnStageStart()
     {
-        Destroy(gameObject, 0.5f);
+        Invoke("DisableBullet", 0.5f);
+    }
+
+    public void DisableBullet()
+    {
+        gameObject.SetActive(false);
     }
 }

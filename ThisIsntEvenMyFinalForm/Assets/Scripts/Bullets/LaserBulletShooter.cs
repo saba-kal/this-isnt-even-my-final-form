@@ -16,14 +16,19 @@ public class LaserBulletShooter : BulletShooter
         LevelMaster.OnStageStart -= OnStageStart;
     }
 
-    protected override void VirtualStart()
+    public override void Initialize()
     {
-        SetLasersActive(false);
+        SetLasersActive(true);
     }
 
     public override void Fire(CollisionLayer layer)
     {
         SetLasersActive(true);
+    }
+
+    public override void Cleanup()
+    {
+        SetLasersActive(false);
     }
 
     private void OnStageStart()

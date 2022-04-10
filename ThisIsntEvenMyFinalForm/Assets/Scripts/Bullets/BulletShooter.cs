@@ -10,25 +10,27 @@ public class BulletShooter : MonoBehaviour
     [SerializeField] private float _angleSpread = 15;
     [SerializeField] private float _horizontalSpread = 0;
     [SerializeField] private float _fireRate = 1f;
+    [SerializeField] private int _bulletPoolCapacity = 10;
     [SerializeField] private GameObject _bulletPrefab;
 
     private float _timeSinceLastFire = 0;
     private Action _onFire = null;
-
-    private void Start()
-    {
-        VirtualStart();
-    }
+    private BulletPooler _bulletPooler;
 
     private void Update()
     {
         VirtualUpdate();
     }
 
-    protected virtual void VirtualStart() { }
     protected virtual void VirtualUpdate()
     {
         _timeSinceLastFire += Time.deltaTime;
+    }
+
+    public virtual void Initialize()
+    {
+        _bulletPooler = new BulletPooler(_bulletPrefab, _bulletPoolCapacity);
+        _bulletPooler.CreatePool();
     }
 
     public virtual void Fire(CollisionLayer layer)
@@ -38,24 +40,22 @@ public class BulletShooter : MonoBehaviour
             return;
         }
 
-
         var angleOffset = _angleSpread * (_bulletCount - 1) / 2;
         var positionOffset = _horizontalSpread * (_bulletCount - 1) / 2;
         for (int i = 0; i < _bulletCount; i++)
         {
-            //Create bullet.
-            var bullet = Instantiate(_bulletPrefab);
-            bullet.layer = (int)layer;
-
-            //Set start position
+            //Get start position
             var position = transform.localPosition;
             position.y += i * _horizontalSpread - positionOffset;
-            bullet.transform.position = transform.TransformPoint(position);
 
-            //Set direction
+            //Get direction
             var direction = Quaternion.AngleAxis(i * _angleSpread - angleOffset, Vector3.forward) * transform.right;
+
+            var bullet = _bulletPooler.CreateBullet(transform.TransformPoint(position), Quaternion.identity);
+
             var bulletComponent = bullet.GetComponent<BaseBullet>();
             bulletComponent?.SetDirection(direction);
+            bulletComponent?.Initialize();
         }
 
         _timeSinceLastFire = 0f;
@@ -76,6 +76,11 @@ public class BulletShooter : MonoBehaviour
     public void SetOnFire(Action onFire)
     {
         _onFire = onFire;
+    }
+
+    public virtual void Cleanup()
+    {
+        _bulletPooler.Cleanup();
     }
 
     private void PlaySound()

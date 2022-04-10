@@ -5,26 +5,15 @@ using UnityEngine.UI;
 
 public class DialogueSkipToggle : MonoBehaviour
 {
-    public static DialogueSkipToggle Instance { get; private set; }
-
-    private Toggle _toggle;
+    public static bool IsOn { get; private set; } = false;
 
     void Awake()
     {
-        if (Instance != null && Instance != this)
+        var toggle = GetComponent<Toggle>();
+        toggle.isOn = IsOn;
+        toggle.onValueChanged.AddListener(isOn =>
         {
-            Destroy(gameObject);
-        }
-        else
-        {
-            Instance = this;
-        }
-
-        _toggle = GetComponent<Toggle>();
-    }
-
-    public bool IsOn()
-    {
-        return _toggle.isOn;
+            IsOn = isOn;
+        });
     }
 }
