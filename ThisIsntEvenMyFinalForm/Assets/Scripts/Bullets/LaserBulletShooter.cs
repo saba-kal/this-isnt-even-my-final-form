@@ -18,7 +18,7 @@ public class LaserBulletShooter : BulletShooter
 
     public override void Initialize()
     {
-        SetLasersActive(true);
+        SetLasersActive(false);
     }
 
     public override void Fire(CollisionLayer layer)

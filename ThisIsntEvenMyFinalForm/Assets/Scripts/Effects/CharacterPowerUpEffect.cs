@@ -12,8 +12,10 @@ public class CharacterPowerUpEffect : MonoBehaviour
     [SerializeField] private float _powerDownAcceleration = 10f;
     [SerializeField] private float _maxPowerDownGlow = 10f;
     [SerializeField] private Image _characterImage;
+    [SerializeField] private GameObject _poweredUpEffect;
 
     private Material _characterImageMaterial;
+    private PowerLevelManager _powerLevelManager;
     private bool _showPoweringUpEffect = false;
     private bool _showPoweredUpEffect = false;
     private bool _isPoweringDown = false;
@@ -27,6 +29,8 @@ public class CharacterPowerUpEffect : MonoBehaviour
         _characterImageMaterial = _characterImage.material;
         _characterImageMaterial.SetFloat("_GradientStrength", 0);
         _characterImageMaterial.SetFloat("_GradientOffset", 0);
+        _poweredUpEffect.SetActive(false);
+        _powerLevelManager = GetComponent<PowerLevelManager>();
     }
 
     void Update()
@@ -53,6 +57,8 @@ public class CharacterPowerUpEffect : MonoBehaviour
     public void EnablePoweredUpEffect()
     {
         _showPoweredUpEffect = true;
+        _poweredUpEffect.transform.localScale = Vector3.one * _powerLevelManager.GetPowerLevel() * 0.5f;
+        _poweredUpEffect.SetActive(true);
     }
 
     private void ShowPoweringUpEffect()
@@ -63,7 +69,6 @@ public class CharacterPowerUpEffect : MonoBehaviour
 
         _effectGlowSpeed += (_effectGlowAcceleration * Time.deltaTime);
         _characterImageMaterial.SetFloat("_GradientStrength", Mathf.Clamp(_effectGlowSpeed, 0, _imageGlowStrength));
-
     }
 
     private void ShowPoweredUpEffect()
@@ -77,6 +82,7 @@ public class CharacterPowerUpEffect : MonoBehaviour
                 imageGlowStrength = 0;
                 _isPoweringDown = false;
                 _showPoweredUpEffect = false;
+                _poweredUpEffect.SetActive(false);
             }
         }
         else

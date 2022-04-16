@@ -50,13 +50,13 @@ Material:
     m_Ints: []
     m_Floats:
     - _EnableExternalAlpha: 0
-    - _GradientOffset: -84.463776
-    - _GradientStrength: 231.202
-    - _TileSize: 10.2
+    - _GradientOffset: 0
+    - _GradientStrength: 0
+    - _TileSize: 10
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
-    - _GradientColor1: {r: 0, g: 0.07481241, b: 1, a: 1}
-    - _GradientColor2: {r: 0, g: 0.9056604, b: 0.90013874, a: 1}
+    - _GradientColor1: {r: 0.76566637, g: 0.99607843, b: 0.59607846, a: 1}
+    - _GradientColor2: {r: 0.90588236, g: 0, b: 0.02600778, a: 1}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
