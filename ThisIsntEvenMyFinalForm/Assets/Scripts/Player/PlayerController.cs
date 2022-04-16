@@ -42,7 +42,7 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (_disabled)
+        if (_disabled || PauseMenu.GameIsPaused)
         {
             _playerInput = Vector2.zero;
             return;
@@ -53,7 +53,7 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        if (_disabled)
+        if (_disabled || PauseMenu.GameIsPaused)
         {
             _playerInput = Vector2.zero;
             return;

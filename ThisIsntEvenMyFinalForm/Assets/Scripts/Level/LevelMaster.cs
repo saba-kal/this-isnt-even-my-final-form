@@ -49,6 +49,7 @@ public class LevelMaster : MonoBehaviour
                 var playerPowerLevelManager = _playerController.GetComponent<PowerLevelManager>();
                 playerPowerLevelManager.PowerUp();
                 _levelTimer.StartTimer();
+                _stageManager.GoToNextStage(playerPowerLevelManager.GetPowerLevel());
             });
         });
     }
@@ -56,24 +57,34 @@ public class LevelMaster : MonoBehaviour
     private void OnCharacterHealthLost(CharacterHealth characterHealth)
     {
         var playerIsWinner = characterHealth.gameObject.layer == (int)CollisionLayer.Enemy;
+        var powerLevelManager = characterHealth.GetComponent<PowerLevelManager>();
+        var powerUpEffect = characterHealth.GetComponent<CharacterPowerUpEffect>();
 
         StartCoroutine(SlowGameDown(() =>
         {
             SetGameplayDisabled(true);
             OnStageStart?.Invoke();
-            DialogueManager.Instance.StartConversation(playerIsWinner, () =>
-            {
-                SetGameplayDisabled(false);
-
-                var playerPowerLevelManager = characterHealth.GetComponent<PowerLevelManager>();
-                playerPowerLevelManager.PowerUp();
-
-                if (_aiController.ReachedMaxPowerLevel())
+            DialogueManager.Instance.StartConversation(
+                playerIsWinner,
+                () => //On character power up start.
                 {
-                    SoundManager.Instance?.Stop(SoundClipNames.MAIN_BATTLE_MUSIC);
-                    SoundManager.Instance?.Play(SoundClipNames.FINAL_BATTLE_MUSIC);
-                }
-            });
+                    powerUpEffect?.EnablePoweringUpEffect();
+                },
+                () => //On character power up end.
+                {
+                    powerLevelManager.PowerUp();
+                    powerUpEffect?.EnablePoweredUpEffect();
+                },
+                () => //On conversation complete.
+                {
+                    _stageManager.GoToNextStage(powerLevelManager.GetPowerLevel());
+                    SetGameplayDisabled(false);
+                    if (_aiController.ReachedMaxPowerLevel())
+                    {
+                        SoundManager.Instance?.Stop(SoundClipNames.MAIN_BATTLE_MUSIC);
+                        SoundManager.Instance?.Play(SoundClipNames.FINAL_BATTLE_MUSIC);
+                    }
+                });
         }));
     }
 

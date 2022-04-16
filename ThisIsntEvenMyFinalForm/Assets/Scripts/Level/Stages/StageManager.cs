@@ -10,16 +10,6 @@ public class StageManager : MonoBehaviour
 
     private int _currentMaximumPowerLevel = 1;
 
-    private void OnEnable()
-    {
-        PowerLevelManager.OnPowerUp += OnPowerUp;
-    }
-
-    private void OnDisable()
-    {
-        PowerLevelManager.OnPowerUp -= OnPowerUp;
-    }
-
     private void Awake()
     {
         SetStagesActive(false);
@@ -33,7 +23,7 @@ public class StageManager : MonoBehaviour
         }
     }
 
-    private void OnPowerUp(int powerLevel)
+    public void GoToNextStage(int powerLevel)
     {
         if (powerLevel > _currentMaximumPowerLevel)
         {

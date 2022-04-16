@@ -22,10 +22,11 @@ public class DialogueManager : MonoBehaviour
     private Queue<Conversation> _enemyWinConversationQueue = new Queue<Conversation>();
     private Queue<Sentence> _sentenceQueue = new Queue<Sentence>();
     private Action _onConversationComplete;
+    private Action _onCharacterPowerUpStart;
+    private Action _onCharacterPowerUpEnd;
+    private bool _powerUpStarted = false;
     private bool _conversationInProgress = false;
     private Sentence _currentSentence;
-    private int _playerPowerLevelOffset = 0;
-    private int _enemyPowerLevelOffset = 0;
 
     private void Awake()
     {
@@ -69,7 +70,11 @@ public class DialogueManager : MonoBehaviour
         StartConversation(_initialConversation);
     }
 
-    public void StartConversation(bool playerIsWinner, Action onComplete)
+    public void StartConversation(
+        bool playerIsWinner,
+        Action onPowerUpStart,
+        Action onPowerUpEnd,
+        Action onComplete)
     {
         var conversationQueue = playerIsWinner ?
             _playerWinConversationQueue : _enemyWinConversationQueue;
@@ -78,11 +83,14 @@ public class DialogueManager : MonoBehaviour
             conversationQueue.Count == 0 ||
             DialogueSkipToggle.IsOn)
         {
+            onPowerUpEnd?.Invoke();
             onComplete?.Invoke();
             return;
         }
 
         _conversationInProgress = true;
+        _onCharacterPowerUpStart = onPowerUpStart;
+        _onCharacterPowerUpEnd = onPowerUpEnd;
         _onConversationComplete = onComplete;
         _sentenceQueue = new Queue<Sentence>();
 
@@ -126,6 +134,7 @@ public class DialogueManager : MonoBehaviour
         }
 
         _dialogueView.ShowDialogueBox();
+        _powerUpStarted = false;
 
         foreach (var dialog in conversation.DialogeList)
         {
@@ -153,19 +162,23 @@ public class DialogueManager : MonoBehaviour
             _dialogueView.HideDialogue();
             _enemyPoseManager.HideCharacter();
             _playerPoseManager.HideCharacter();
-            _enemyPowerLevelOffset = 0;
-            _playerPowerLevelOffset = 0;
             return;
         }
 
         _currentSentence = _sentenceQueue.Dequeue();
-        UpdateCharacterPose();
-        StartCoroutine(_dialogueView.AnimateSentence(GetNameParam(_currentSentence.TalkingCharacter), BuildSentence()));
-
         if (_currentSentence.IsPowerUp)
         {
-            UpdatePowerLevelOffset();
+            _powerUpStarted = true;
+            _onCharacterPowerUpStart?.Invoke();
         }
+        else if (_powerUpStarted)
+        {
+            _powerUpStarted = false;
+            _onCharacterPowerUpEnd?.Invoke();
+        }
+
+        UpdateCharacterPose();
+        StartCoroutine(_dialogueView.AnimateSentence(GetNameParam(_currentSentence.TalkingCharacter), BuildSentence()));
     }
 
     private void UpdateCharacterPose()
@@ -283,19 +296,7 @@ public class DialogueManager : MonoBehaviour
     private int GetPowerLevel(CharacterType characterType)
     {
         return characterType == CharacterType.Enemy ?
-            (AIController.Instance.GetPowerLevel() + _enemyPowerLevelOffset) :
-            (PlayerController.Instance.GetPowerLevel() + _playerPowerLevelOffset);
-    }
-
-    private void UpdatePowerLevelOffset()
-    {
-        if (_currentSentence.TalkingCharacter == CharacterType.Enemy)
-        {
-            _enemyPowerLevelOffset = 1;
-        }
-        else
-        {
-            _playerPowerLevelOffset = 1;
-        }
+            AIController.Instance.GetPowerLevel() :
+            PlayerController.Instance.GetPowerLevel();
     }
 }
