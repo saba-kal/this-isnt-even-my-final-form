@@ -86,13 +86,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damage: 1
-  _speed: 30
+  _speed: 50
   _lifetime: 5
   _bulletTrailName: P4_BasicBulletTrail
   _onDestroyEffect: {fileID: 7663566196636155077, guid: 9edd59161cba4824fb0cfab44837215f, type: 3}
   _shakeCameraOnDestory: 0
   _destroyIfCollidingObjectNotDestroyed: 1
-  _followTurnSpeed: 2
+  _followTurnSpeed: 1.5
 --- !u!114 &-73072428461353865
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -111,7 +111,6 @@ MonoBehaviour:
   _invulnerabilityDuration: 0
   _triggerChromaticAberrationOnDamage: 0
   _triggerCameraShakeOnDamage: 0
-  _playSoundEffectOnDamage: 0
 --- !u!1 &8826804245893621537
 GameObject:
   m_ObjectHideFlags: 0

@@ -81,6 +81,30 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 461
+--- !u!114 &-6869705172790000770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/SlowMotion/GameSpeed
+  m_EditorClassIdentifier: 
+  Name: GameSpeed
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 1
+  ID:
+    data1: 1214224419
+    data2: 2617545379
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
 --- !u!114 &-6801340106199080384
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -96,7 +120,7 @@ MonoBehaviour:
   Path: ../FMOD/ThisIsntEvenMyFinalForm/Build/Desktop/Music.bank
   Name: Music
   StudioPath: bank:/Music
-  lastModified: 637860900247743222
+  lastModified: 637861508712864611
   FileSizes:
   - Name: Desktop
     Value: 9123808
@@ -197,10 +221,10 @@ MonoBehaviour:
   Path: ../FMOD/ThisIsntEvenMyFinalForm/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 637860900246803217
+  lastModified: 637861508712179421
   FileSizes:
   - Name: Desktop
-    Value: 1522
+    Value: 1670
   Exists: 1
 --- !u!114 &-5944976784758159916
 MonoBehaviour:
@@ -296,10 +320,10 @@ MonoBehaviour:
   Path: ../FMOD/ThisIsntEvenMyFinalForm/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 637860900246783199
+  lastModified: 637861508712169418
   FileSizes:
   - Name: Desktop
-    Value: 1706
+    Value: 3056
   Exists: 1
 --- !u!114 &11400000
 MonoBehaviour:
@@ -328,12 +352,14 @@ MonoBehaviour:
   - {fileID: -8808424704985214701}
   - {fileID: -5944976784758159916}
   - {fileID: -6270320087758736491}
+  - {fileID: 6003130455112323431}
+  - {fileID: 1487882904261899493}
   EditorParameters: []
   MasterBanks:
   - {fileID: -1009188929110092247}
   StringsBanks:
   - {fileID: -6129700700977341429}
-  cacheTime: 637860900247743222
+  cacheTime: 637861508713104619
   cacheVersion: 10
 --- !u!114 &426361686975858884
 MonoBehaviour:
@@ -377,8 +403,63 @@ MonoBehaviour:
   Path: ../FMOD/ThisIsntEvenMyFinalForm/Build/Desktop/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 637860900247123164
+  lastModified: 637861508713104619
   FileSizes:
   - Name: Desktop
-    Value: 120576
+    Value: 121664
   Exists: 1
+--- !u!114 &1487882904261899493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/sfx_powerup
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/sfx_powerup
+  Guid:
+    Data1: 22315279
+    Data2: 1225506645
+    Data3: 86659258
+    Data4: 1434307929
+  Banks:
+  - {fileID: 886356529026103797}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1380
+--- !u!114 &6003130455112323431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: snapshot:/SlowMotion
+  m_EditorClassIdentifier: 
+  Path: snapshot:/SlowMotion
+  Guid:
+    Data1: -905603358
+    Data2: 1292942244
+    Data3: 1019291550
+    Data4: 1850075606
+  Banks:
+  - {fileID: -1009188929110092247}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: -6869705172790000770}
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 0

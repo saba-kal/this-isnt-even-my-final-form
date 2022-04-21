@@ -8,7 +8,7 @@ public class MusicPlayer : MonoBehaviour
 
     private EventInstance _eventInstance;
 
-    void Awake()
+    void Start()
     {
         _eventInstance = RuntimeManager.CreateInstance(_event);
         _eventInstance.start();

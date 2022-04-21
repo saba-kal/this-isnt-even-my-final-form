@@ -11,15 +11,20 @@ public class CharacterHealth : MonoBehaviour
     public delegate void DeathEvent(CharacterHealth characterHealth);
     public static DeathEvent OnDeath;
 
-    [SerializeField] private List<GameObject> _headIcons;
+    [SerializeField] private Color _damageColor;
+    [SerializeField] private float _damageColorChangeDuration = 1f;
     [SerializeField] private EventReference _takeDamageSoundEvent;
+    [SerializeField] private List<GameObject> _headIcons;
+    [SerializeField] private List<SpriteRenderer> _bodySprites;
 
     private PowerLevelManager _powerLevelManager;
     private int _powerLevel = 0;
     private Health _currentHealth;
+    private Color _baseColor;
 
     private void Awake()
     {
+        _baseColor = _bodySprites[0].color;
         _powerLevelManager = GetComponent<PowerLevelManager>();
     }
 
@@ -64,5 +69,31 @@ public class CharacterHealth : MonoBehaviour
     private void OnTakeDamage()
     {
         RuntimeManager.PlayOneShot(_takeDamageSoundEvent, transform.position);
+        StopCoroutine("AnimateDamageColorChange");
+        StartCoroutine("AnimateDamageColorChange");
+    }
+
+    private IEnumerator AnimateDamageColorChange()
+    {
+        foreach (var sprite in _bodySprites)
+        {
+            sprite.color = _damageColor;
+        }
+
+        var elapsedTime = 0f;
+        while (elapsedTime < _damageColorChangeDuration)
+        {
+            elapsedTime += Time.deltaTime;
+            foreach (var sprite in _bodySprites)
+            {
+                sprite.color = Color.Lerp(_damageColor, _baseColor, elapsedTime / _damageColorChangeDuration);
+            }
+            yield return null;
+        }
+
+        foreach (var sprite in _bodySprites)
+        {
+            sprite.color = _baseColor;
+        }
     }
 }
