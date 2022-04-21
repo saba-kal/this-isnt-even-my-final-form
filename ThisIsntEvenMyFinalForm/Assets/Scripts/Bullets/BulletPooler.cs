@@ -54,6 +54,7 @@ public class BulletPooler
         bullet.transform.position = position;
         bullet.transform.rotation = rotation;
         bullet.gameObject.SetActive(true);
+        EnableChildObjects(bullet);
 
         _bulletQueue.Enqueue(bullet);
 
@@ -71,5 +72,14 @@ public class BulletPooler
         }
 
         _bulletQueue = new Queue<GameObject>();
+    }
+
+    private void EnableChildObjects(GameObject gameObj)
+    {
+        foreach (Transform child in gameObj.transform)
+        {
+            child.gameObject.SetActive(true);
+            EnableChildObjects(child.gameObject);
+        }
     }
 }

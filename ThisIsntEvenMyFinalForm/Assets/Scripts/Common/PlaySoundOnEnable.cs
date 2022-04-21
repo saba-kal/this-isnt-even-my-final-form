@@ -1,12 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
+using FMODUnity;
 
 public class PlaySoundOnEnable : MonoBehaviour
 {
-    [SerializeField] private string _soundName;
+    [SerializeField] private EventReference _soundEvent;
 
     private void OnEnable()
     {
-        SoundManager.Instance?.Play(_soundName);
+        RuntimeManager.PlayOneShot(_soundEvent, transform.position);
     }
 }

@@ -1,3 +1,4 @@
+using FMODUnity;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -12,6 +13,7 @@ public class BulletShooter : MonoBehaviour
     [SerializeField] private float _fireRate = 1f;
     [SerializeField] private int _bulletPoolCapacity = 10;
     [SerializeField] private GameObject _bulletPrefab;
+    [SerializeField] private EventReference _soundEvent;
 
     private float _timeSinceLastFire = 0;
     private Action _onFire = null;
@@ -83,19 +85,11 @@ public class BulletShooter : MonoBehaviour
         _bulletPooler.Cleanup();
     }
 
-    private void PlaySound()
+    protected virtual void PlaySound()
     {
-        if (_type == BulletShooterType.Heavy)
+        if (!_soundEvent.IsNull)
         {
-            SoundManager.Instance?.Play(SoundClipNames.LARGE_BULLET_SFX);
-        }
-        else if (gameObject.layer == (int)CollisionLayer.Enemy)
-        {
-            SoundManager.Instance?.Play(SoundClipNames.ENEMY_BULLET_SFX);
-        }
-        else
-        {
-            SoundManager.Instance?.Play(SoundClipNames.SMALL_BULLET_SFX);
+            RuntimeManager.PlayOneShot(_soundEvent, transform.position);
         }
     }
 

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7480516968456074151}
   - component: {fileID: 7480516968456074149}
+  - component: {fileID: -6332611483183438766}
   m_Layer: 0
   m_Name: E4_Laser
   m_TagString: Untagged
@@ -53,6 +54,25 @@ MonoBehaviour:
   _laserRenderer: {fileID: 7480516970011510282}
   _laserStartEffect: {fileID: 7480516969379305509}
   _laserEndEffect: {fileID: 7480516968552954865}
+--- !u!114 &-6332611483183438766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7480516968456074136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f16e567f8f365064ea32b76c3f36d48b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _event:
+    Guid:
+      Data1: -1253181085
+      Data2: 1241818963
+      Data3: 253033108
+      Data4: -2099810032
+    Path: event:/SFX/sfx_enemy_laser
 --- !u!1 &7480516968552954865
 GameObject:
   m_ObjectHideFlags: 0

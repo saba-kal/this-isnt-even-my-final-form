@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{c9b542eb-eafe-4768-ba8f-5d9bfb51209e}">
+		<property name="assetPath">
+			<value>sfx_enemy_damage.ogg</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.46154166666666668</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{76a9aa96-f0a9-4053-83fe-0483780e4e11}</destination>
+		</relationship>
+	</object>
+</objects>

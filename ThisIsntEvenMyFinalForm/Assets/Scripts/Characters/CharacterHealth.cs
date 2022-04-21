@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using FMODUnity;
 
 public class CharacterHealth : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class CharacterHealth : MonoBehaviour
     public static DeathEvent OnDeath;
 
     [SerializeField] private List<GameObject> _headIcons;
+    [SerializeField] private EventReference _takeDamageSoundEvent;
 
     private PowerLevelManager _powerLevelManager;
     private int _powerLevel = 0;
@@ -32,6 +34,7 @@ public class CharacterHealth : MonoBehaviour
         _currentHealth = health;
         _currentHealth.DestroyOnDeath = false;
         _currentHealth.SetOnDeath(OnCurrentHealthDeath);
+        _currentHealth.SetOnTakeDamage(OnTakeDamage);
         UpdateHeadIcons();
     }
 
@@ -56,5 +59,10 @@ public class CharacterHealth : MonoBehaviour
         }
 
         _headIcons[Mathf.Clamp(_powerLevel - 1, 0, _headIcons.Count)].SetActive(true);
+    }
+
+    private void OnTakeDamage()
+    {
+        RuntimeManager.PlayOneShot(_takeDamageSoundEvent, transform.position);
     }
 }

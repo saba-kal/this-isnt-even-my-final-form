@@ -4884,4 +4884,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9f2318001a771341b8f86e62c453dd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _soundName: Explosion
+  _soundEvent:
+    Guid:
+      Data1: -2032025440
+      Data2: 1259764504
+      Data3: -384738152
+      Data4: 1243660330
+    Path: event:/SFX/sfx_player_heavybullet_explosion

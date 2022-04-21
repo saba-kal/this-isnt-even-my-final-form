@@ -12,11 +12,11 @@ public class Health : MonoBehaviour
     [SerializeField] float _invulnerabilityDuration = 0f;
     [SerializeField] bool _triggerChromaticAberrationOnDamage = false;
     [SerializeField] bool _triggerCameraShakeOnDamage = false;
-    [SerializeField] bool _playSoundEffectOnDamage = false;
 
     private int _currentHealth;
     private bool _immune = false;
     private Action _onDeath = null;
+    private Action _onTakeDamage = null;
 
     void Start()
     {
@@ -34,6 +34,7 @@ public class Health : MonoBehaviour
 
         _currentHealth -= damage;
         _healthBar?.SetHealth(_currentHealth, MaxHealth);
+        _onTakeDamage?.Invoke();
         if (_currentHealth <= 0)
         {
             if (DestroyOnDeath) DestroySelf();
@@ -55,18 +56,6 @@ public class Health : MonoBehaviour
             CinemachineShake.Instance?.Shake();
         }
 
-        if (_playSoundEffectOnDamage)
-        {
-            if (gameObject.layer == (int)CollisionLayer.Enemy)
-            {
-                SoundManager.Instance?.Play(SoundClipNames.ENEMY_DAMAGE_SFX);
-            }
-            else
-            {
-                SoundManager.Instance?.Play(SoundClipNames.DAMAGE_SFX);
-            }
-        }
-
         return dead;
     }
 
@@ -78,6 +67,11 @@ public class Health : MonoBehaviour
     public void SetOnDeath(Action onDeath)
     {
         _onDeath = onDeath;
+    }
+
+    public void SetOnTakeDamage(Action onDamage)
+    {
+        _onTakeDamage = onDamage;
     }
 
     public void Heal()

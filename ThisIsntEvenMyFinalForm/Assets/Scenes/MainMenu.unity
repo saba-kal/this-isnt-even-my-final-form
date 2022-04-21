@@ -480,7 +480,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 2044576588}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -904,35 +904,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 684995784}
-  - component: {fileID: 684995783}
+  - component: {fileID: 684995785}
   m_Layer: 0
-  m_Name: SoundManager
+  m_Name: Music
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &684995783
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 684995782}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a865b3c1f665ae459b98ba4b7960bfb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  AudioMixer: {fileID: 24100000, guid: 58e0c79f7a1e7134fb171eebe780f8e9, type: 2}
-  Sounds:
-  - Name: MainMenu
-    Clip: {fileID: 8300000, guid: 3e7cae9fea53b1942973c74070504564, type: 3}
-    Volume: 1
-    Pitch: 1
-    PlayOnAwake: 1
-    Loop: 1
-    AudioMixerGroup: {fileID: -5622458074779987212, guid: 58e0c79f7a1e7134fb171eebe780f8e9, type: 2}
 --- !u!4 &684995784
 Transform:
   m_ObjectHideFlags: 0
@@ -948,6 +927,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &684995785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 684995782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4c79a770c8beff46b96a1a25ef8f9aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _event:
+    Guid:
+      Data1: 1928761144
+      Data2: 1187600059
+      Data3: 1420847029
+      Data4: 584094609
+    Path: event:/Music/music_mainmenu
 --- !u!114 &685914710 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7918940004725736588, guid: 9c33a03bb84ee49468f3ff621e465772, type: 3}
@@ -1437,7 +1435,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -306.35062}
+  m_AnchoredPosition: {x: 0, y: -306.3506}
   m_SizeDelta: {x: -944.6945, y: -647.887}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &974452437
@@ -2280,8 +2278,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2044576589}
   - component: {fileID: 2044576588}
-  - component: {fileID: 2044576587}
   - component: {fileID: 2044576590}
+  - component: {fileID: 2044576591}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2289,14 +2287,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &2044576587
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2044576586}
-  m_Enabled: 1
 --- !u!20 &2044576588
 Camera:
   m_ObjectHideFlags: 0
@@ -2388,6 +2378,20 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
+--- !u!114 &2044576591
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2044576586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attenuationObject: {fileID: 0}
+  ListenerNumber: -1
 --- !u!114 &2061178665 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7918940004617511833, guid: 9c33a03bb84ee49468f3ff621e465772, type: 3}

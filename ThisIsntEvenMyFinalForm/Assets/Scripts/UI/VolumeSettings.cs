@@ -1,3 +1,5 @@
+using FMOD.Studio;
+using FMODUnity;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,15 +13,22 @@ public class VolumeSettings : MonoBehaviour
     [SerializeField] private Slider _musicVolumeSlider;
     [SerializeField] private Slider _sfxVolumeSlider;
 
+    private VCA _masterVCA;
+    private VCA _musicVCA;
+    private VCA _sfxVCA;
+
     private const string MASTER_VOLUME_KEY = "MasterVolume";
     private const string MUSIC_VOLUME_KEY = "MusicVolume";
     private const string SFX_VOLUME_KEY = "SFXVolume";
 
     void Start()
     {
-        SetupVolumeSlider(_masterVolumeSlider, MASTER_VOLUME_KEY);
-        SetupVolumeSlider(_musicVolumeSlider, MUSIC_VOLUME_KEY);
-        SetupVolumeSlider(_sfxVolumeSlider, SFX_VOLUME_KEY);
+        //_masterVCA = RuntimeManager.GetVCA("vca:/Master");
+        //_musicVCA = RuntimeManager.GetVCA("vca:/Music");
+        //_sfxVCA = RuntimeManager.GetVCA("vca:/SFX");
+        SetupVolumeSlider(_masterVolumeSlider, MASTER_VOLUME_KEY, RuntimeManager.GetVCA("vca:/Master"));
+        SetupVolumeSlider(_musicVolumeSlider, MUSIC_VOLUME_KEY, RuntimeManager.GetVCA("vca:/Music"));
+        SetupVolumeSlider(_sfxVolumeSlider, SFX_VOLUME_KEY, RuntimeManager.GetVCA("vca:/SFX"));
     }
 
     private void OnDisable()
@@ -31,13 +40,14 @@ public class VolumeSettings : MonoBehaviour
 
     private void SetupVolumeSlider(
         Slider slider,
-        string volumeKey)
+        string volumeKey,
+        VCA vca)
     {
         slider.value = PlayerPrefs.GetFloat(volumeKey, 0.5f);
-        _audioMixer.SetFloat(volumeKey, Mathf.Log10(slider.value) * 20f);
+        vca.setVolume(slider.value);
         slider.onValueChanged.AddListener((value) =>
         {
-            _audioMixer.SetFloat(volumeKey, Mathf.Log10(value) * 20f);
+            vca.setVolume(value);
         });
     }
 }

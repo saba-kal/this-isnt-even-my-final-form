@@ -31,6 +31,11 @@ public class LaserBulletShooter : BulletShooter
         SetLasersActive(false);
     }
 
+    protected override void PlaySound()
+    {
+        //Do nothing. Laser has it's own sound in Laser.cs
+    }
+
     private void OnStageStart()
     {
         SetLasersActive(false);

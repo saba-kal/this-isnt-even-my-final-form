@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using FMODUnity;
 
 public class Laser : MonoBehaviour
 {
@@ -14,12 +15,13 @@ public class Laser : MonoBehaviour
 
     private void OnEnable()
     {
-        SoundManager.Instance?.Play(SoundClipNames.LASER_SFX, true);
+        //SoundManager.Instance?.Play(SoundClipNames.LASER_SFX, true);
+        //RuntimeManager.St
     }
 
     private void OnDisable()
     {
-        SoundManager.Instance?.Stop(SoundClipNames.LASER_SFX);
+        //SoundManager.Instance?.Stop(SoundClipNames.LASER_SFX);
     }
 
     private void Update()

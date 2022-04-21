@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{86dfb5cd-c506-4772-87c2-fb7f5f7ab26a}">
+		<property name="assetPath">
+			<value>music_finalbattle.ogg</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>288.25866666666667</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{76a9aa96-f0a9-4053-83fe-0483780e4e11}</destination>
+		</relationship>
+	</object>
+</objects>

@@ -7,6 +7,9 @@ public class LevelMaster : MonoBehaviour
     public delegate void StageStartEvent();
     public static StageStartEvent OnStageStart;
 
+    public delegate void GameStateChange(int gameState);
+    public static GameStateChange OnGameStateChange;
+
     [SerializeField] private float _slowMotionSpeed = 0.2f;
     [SerializeField] private PlayerController _playerController;
     [SerializeField] private AIController _aiController;
@@ -36,12 +39,12 @@ public class LevelMaster : MonoBehaviour
     {
         SetGameplayDisabled(true);
         _tutorialStage.RemoveTutorialTooltips();
+        OnGameStateChange?.Invoke(1);
         DialogueManager.Instance.StartInitialConversation(() =>
         {
-            SoundManager.Instance?.Stop(SoundClipNames.TUTORIAL_MUSIC);
-            SoundManager.Instance?.Play(SoundClipNames.MAIN_BATTLE_MUSIC);
             _tutorialStage.RemoveTutorialStage(() =>
             {
+                OnGameStateChange?.Invoke(2);
                 CinemachineShake.Instance?.Shake();
                 _stageManager.SetStagesActive(true);
                 SetGameplayDisabled(false);
@@ -60,9 +63,10 @@ public class LevelMaster : MonoBehaviour
         var powerLevelManager = characterHealth.GetComponent<PowerLevelManager>();
         var powerUpEffect = characterHealth.GetComponent<CharacterPowerUpEffect>();
 
+        OnGameStateChange?.Invoke(1);
+        SetGameplayDisabled(true);
         StartCoroutine(SlowGameDown(() =>
         {
-            SetGameplayDisabled(true);
             OnStageStart?.Invoke();
             DialogueManager.Instance.StartConversation(
                 playerIsWinner,
@@ -81,8 +85,11 @@ public class LevelMaster : MonoBehaviour
                     SetGameplayDisabled(false);
                     if (_aiController.ReachedMaxPowerLevel())
                     {
-                        SoundManager.Instance?.Stop(SoundClipNames.MAIN_BATTLE_MUSIC);
-                        SoundManager.Instance?.Play(SoundClipNames.FINAL_BATTLE_MUSIC);
+                        OnGameStateChange?.Invoke(3);
+                    }
+                    else
+                    {
+                        OnGameStateChange?.Invoke(2);
                     }
                 });
         }));
@@ -93,6 +100,7 @@ public class LevelMaster : MonoBehaviour
         var playerIsWinner = characterHealth.gameObject.layer == (int)CollisionLayer.Enemy;
 
         SetGameplayDisabled(true);
+        OnGameStateChange?.Invoke(1);
         DialogueManager.Instance.StartEndGameConversation(playerIsWinner, () =>
         {
             _levelTimer.StopTimer();
@@ -115,16 +123,16 @@ public class LevelMaster : MonoBehaviour
     private IEnumerator SlowGameDown(Action onComplete)
     {
         Time.timeScale = 0.1f;
-        SoundManager.Instance?.SetAllPitch(Time.timeScale);
+        //SoundManager.Instance?.SetAllPitch(Time.timeScale);
         yield return new WaitForSeconds(0.01f);
         while (Time.timeScale < 1f)
         {
             Time.timeScale += _slowMotionSpeed * Time.deltaTime;
-            SoundManager.Instance?.SetAllPitch(Time.timeScale);
+            //SoundManager.Instance?.SetAllPitch(Time.timeScale);
             yield return null;
         }
         Time.timeScale = 1f;
-        SoundManager.Instance?.SetAllPitch(Time.timeScale);
+        //SoundManager.Instance?.SetAllPitch(Time.timeScale);
         onComplete.Invoke();
     }
 }
